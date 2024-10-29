@@ -23,9 +23,9 @@ export default function Home() {
   return (
     <PageWrapper color={theme.colorPicked}>
       <PageHeader darktext={false} />
-      <ControlPanelWrapper>
+      {/* <ControlPanelWrapper>
         <ColorPickerComponent />
-      </ControlPanelWrapper>
+      </ControlPanelWrapper> */}
       <PageWrapper color={theme.colorPicked}>
         <ContentWrapper color={theme.colorPicked}>
           <TopSpacer />
