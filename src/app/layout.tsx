@@ -6,7 +6,6 @@ import "./style/globals.css";
 import PageHeader from "./components/header";
 import ThemeProvider from "./components/providers";
 import { ControlPanelWrapper } from "./style/controlStyle";
-import ColorPickerComponent from "./components/colorcontrols";
 
 export const metadata: Metadata = {
   title: "Create Next App",
