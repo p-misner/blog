@@ -16,7 +16,6 @@ import { useContext } from "react";
 import { ThemeContext } from "./components/providers";
 import PageHeader from "./components/header";
 import { ControlPanelWrapper } from "./style/controlStyle";
-import ColorPickerComponent from "./components/colorcontrols";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
