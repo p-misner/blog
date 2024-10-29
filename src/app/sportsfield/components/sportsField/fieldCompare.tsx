@@ -143,7 +143,7 @@ function CourtSvgGenerator({ sport }: { sport: SportTypes }) {
           x={scale(x.topLeftX) + xOffset}
           y={scale(x.topLeftY) + yOffset}
           width={scale(x.length)}
-          height={scale(x.width)}
+          height={scale(x.width ? x.width : 1)}
           stroke="none"
           fill={sport === "tennis" ? "rgba(0,250,0,.3)" : "rgba(0,0,0,.1)"}
         />
@@ -151,7 +151,16 @@ function CourtSvgGenerator({ sport }: { sport: SportTypes }) {
       {arcs.map((x) => (
         <path
           key={`${x.arcPath?.centerX}${x.arcPath?.centerY}${x.label}`}
-          d={SoccerRadius(x.arcPath)}
+          d={SoccerRadius(
+            x.arcPath
+              ? x.arcPath
+              : {
+                  centerX: 1,
+                  centerY: 1,
+                  radius: 1,
+                  orientation: "nw",
+                }
+          )}
           stroke={sport === "tennis" ? "rgba(0,200,0,.8)" : "rgba(0,0,0,.2)"}
           strokeWidth="2px"
           fill="none"
