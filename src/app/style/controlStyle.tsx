@@ -5,7 +5,7 @@ import { CoreColorInput, DarkOverlay_80 } from "./styleConstants";
 
 export const ControlPanelWrapper = styled.div`
   position: fixed;
-  z-index: 20;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   row-gap: 0px;

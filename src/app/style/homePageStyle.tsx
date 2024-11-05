@@ -17,6 +17,7 @@ const spacemono = Space_Mono({
   weight: ["400", "700"],
   style: "normal",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const PageWrapper = styled.div<CoreColorInput>`
@@ -33,6 +34,33 @@ export const PageWrapper = styled.div<CoreColorInput>`
 
 export const ContentWrapper = styled(GridWrapper)``;
 
+export const BlogTitle = styled.h1<CoreColorInput>`
+  color: ${(props) =>
+    ColorMixer({
+      bottomLayer: props.color,
+      topLayer: LightOverlay_95,
+      returnFormat: "rgba",
+      opacity: 1,
+    })};
+  font-family: ${spacemono.style.fontFamily};
+  font-size: 13vw;
+  grid-column: 2 / span 5;
+  margin-bottom: ${spaceBlocks.md};
+`;
+export const BlogSubtitle = styled.h3<CoreColorInput>`
+  color: ${(props) =>
+    ColorMixer({
+      bottomLayer: props.color,
+      topLayer: LightOverlay_95,
+      returnFormat: "rgba",
+      opacity: 0.7,
+    })};
+  font-family: ${spacemono.style.fontFamily};
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  grid-column: 5 / span 4;
+`;
 export const BlogPostWrapper = styled.div<CoreColorInput>`
   border: 2px solid
     ${(props) =>
@@ -74,18 +102,6 @@ export const Date = styled.h3`
   font-weight: ${fontWeight.light};
 `;
 
-export const BlogTitle = styled.h1<CoreColorInput>`
-  color: ${(props) =>
-    ColorMixer({
-      bottomLayer: props.color,
-      topLayer: LightOverlay_95,
-      returnFormat: "rgba",
-      opacity: 1,
-    })};
-  font-family: ${spacemono.style.fontFamily};
-  font-size: 13vw;
-  grid-column: 2 / span 10;
-`;
 export const Title = styled.h2<CoreColorInput>`
   padding-top: 0px;
   grid-column: 2 / span 8;

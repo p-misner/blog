@@ -6,6 +6,8 @@ import "./style/globals.css";
 import PageHeader from "./components/header";
 import ThemeProvider from "./components/providers";
 import { ControlPanelWrapper } from "./style/controlStyle";
+import ColorPickerComponent from "./components/colorcontrols";
+import GoogleAnalytics from "./components/googleAnalytics";
 
 export const metadata: Metadata = {
   title: "Blog || Priya Misner ",
@@ -21,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={leaguespartan.className}>
+        <GoogleAnalytics />
         <ThemeProvider>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </ThemeProvider>

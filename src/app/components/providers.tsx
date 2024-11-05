@@ -5,7 +5,7 @@ import { ArrayRGBA } from "./utils";
 
 export const ThemeContext = createContext<{
   colorPicked: ArrayRGBA;
-  setColorPicked: unknown;
+  setColorPicked: any;
 }>({
   colorPicked: [25, 149, 230, 1],
   setColorPicked: undefined,

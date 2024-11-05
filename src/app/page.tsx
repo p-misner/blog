@@ -2,20 +2,21 @@
 import Image from "next/image";
 import {
   BlogPostWrapper,
+  BlogSubtitle,
+  BlogTitle,
   ContentWrapper,
   Date,
-  ImageWrapper,
   PageWrapper,
   PlaceholderImage,
   Subtitle,
   Title,
   TopSpacer,
 } from "./style/homePageStyle";
-import TestImage from "../../public/StadiumCompare.png";
 import { useContext } from "react";
 import { ThemeContext } from "./components/providers";
 import PageHeader from "./components/header";
 import { ControlPanelWrapper } from "./style/controlStyle";
+import ColorPickerComponent from "./components/colorcontrols";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -24,8 +25,16 @@ export default function Home() {
       <PageHeader darktext={false} />
       <PageWrapper color={theme.colorPicked}>
         <ContentWrapper color={theme.colorPicked}>
+          <ControlPanelWrapper>
+            {" "}
+            <ColorPickerComponent />
+          </ControlPanelWrapper>
+
           <TopSpacer />
-          {/* <PlaygroundTitle color={theme.colorPicked}>Blog</PlaygroundTitle> */}
+          <BlogTitle color={theme.colorPicked}>Blog</BlogTitle>
+          {/* <BlogSubtitle color={theme.colorPicked}>
+            some thoughts I've jotted down{" "}
+          </BlogSubtitle> */}
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Month XX, 2024</Date>
             <Title color={theme.colorPicked}>
