@@ -6,6 +6,7 @@ import {
   BlogTitle,
   ContentWrapper,
   Date,
+  ImageWrapper,
   PageWrapper,
   PlaceholderImage,
   Subtitle,
@@ -17,6 +18,8 @@ import { ThemeContext } from "./components/providers";
 import PageHeader from "./components/header";
 import { ControlPanelWrapper } from "./style/controlStyle";
 import ColorPickerComponent from "./components/colorcontrols";
+
+import testImg from "../../public/coverImages/mapProjectionCover.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -35,10 +38,11 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+
           <BlogPostWrapper color={theme.colorPicked}>
-            <Date>Month XX, 2024</Date>
+            <Date>November 11, 2024</Date>
             <Title color={theme.colorPicked}>
-              <a href="/loremipsum">Placeholder</a>
+              <a href="/loremipsum">Map Projections: Translating 3D into 2D</a>
               <span> →</span>
             </Title>
             <Subtitle>
@@ -50,7 +54,16 @@ export default function Home() {
               aenean quam litora eleifend porttitor per praesent. Molestie sem
               efficitur malesuada etiam efficitur.
             </Subtitle>
+            <ImageWrapper>
+              <Image
+                src={testImg}
+                alt="picture of globe over a map projection"
+                // width={500}
+                // height={500}
+              />
+            </ImageWrapper>
           </BlogPostWrapper>
+
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Month XX, 2024</Date>
             <Title color={theme.colorPicked}>
@@ -66,7 +79,6 @@ export default function Home() {
               aenean quam litora eleifend porttitor per praesent. Molestie sem
               efficitur malesuada etiam efficitur.
             </Subtitle>
-            <PlaceholderImage />
           </BlogPostWrapper>
 
           <BlogPostWrapper color={theme.colorPicked}>
