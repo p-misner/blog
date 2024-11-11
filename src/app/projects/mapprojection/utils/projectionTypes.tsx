@@ -13,16 +13,7 @@ import {
   geoTransverseMercator,
 } from "d3-geo";
 import * as d3 from "d3-geo-projection";
-// import {
-//   geoAlbers,
-//   geoAzimuthalEqualArea,
-//   geoConicConformal,
-//   geoGnomonic,
-//   geoMercator,
-//   geoOrthographic,
-// } from "d3-geo";
 
-// https://observablehq.com/@fil/d3-projections
 export const MapProjections = [
   { name: "Orthographic", value: geoOrthographic() },
 
