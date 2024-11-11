@@ -1,21 +1,15 @@
 "use client";
-
 import styled from "styled-components";
-import { MapProps } from "../components/globe";
-import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 
-export const instrument_serif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-});
-export const instrument_sans = Instrument_Sans({
-  subsets: ["latin"],
-  weight: "400",
-});
+export const BodyWrapper = styled.div`
+  @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
 
-export const BodyWrapper = styled.div``;
+  background-color: #dee7d6;
+  min-height: 100vh;
+`;
 export const ContentWrapper = styled.div`
-  margin: 16px auto;
+  margin: 0px auto;
   width: 80vw;
 `;
 
@@ -64,9 +58,9 @@ type labelLength = {
 export const Selector = styled.select<labelLength>`
   font-size: 24px;
   max-width: ${({ $labelLength }) =>
-    $labelLength ? `${($labelLength + "projection".length) * 11}px` : "100px"};
+    $labelLength ? `${($labelLength + "projection".length) * 13}px` : "100px"};
   width: 100%;
-  font-family: ${instrument_serif.style}, serif;
+  font-family: "Instrument Serif", serif;
   padding: 4px;
   background-color: #e5edde;
 `;
@@ -85,6 +79,7 @@ export const TitleTextWrapper = styled.div`
   align-items: center;
   column-gap: 12px;
   row-gap: 24px;
+  font-family: "Instrument Serif", serif;
 `;
 
 export const TitleText = styled.h2`
@@ -110,6 +105,8 @@ export const SupertitleTex = styled.h2`
 `;
 
 export const FooterText = styled.div`
+  font-family: "Instrument Serif", serif;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

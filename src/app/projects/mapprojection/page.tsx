@@ -5,7 +5,6 @@ import {
   ContentWrapper,
   FooterText,
   GlobeWrapper,
-  instrument_serif,
   LatLngWrapper,
   MapsWrapper,
   ProjectionComparisonWrapper,
@@ -100,7 +99,6 @@ export function Dropdown({
         onChange={(e) => {
           setValue(e.target.value);
         }}
-        className={instrument_serif.className}
       >
         {MapProjections.filter((x) => x.name != "Orthographic").map((x) => (
           <SelectOptions key={x.name} value={x.name}>
