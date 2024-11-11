@@ -13,7 +13,7 @@ import {
 } from "./style/globeStyle";
 import { data } from "./data/worldmap";
 import { useState } from "react";
-import useScreenSize from "./utils/screenSize";
+// import useScreenSize from "./utils/screenSize";
 import { Dropdown } from "./components/dropdown";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
   const [circlePos, setCirclePos] = useState<[number, number]>([
     21.445313, 5.303919,
   ]);
-  const screenSize = useScreenSize();
+  // const screenSize = useScreenSize();
 
   return (
     <BodyWrapper>
