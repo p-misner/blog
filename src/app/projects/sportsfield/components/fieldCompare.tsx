@@ -6,8 +6,8 @@ import {
   FieldCompareTextWrapper,
   FieldCompareWidgetWrapper,
   SVGBackground,
-} from "../../style/fieldCompareStyle";
-import { ArcInputs, Soccer, SVGInputs, Tennis } from "@/app/data/sportSvgs";
+} from "../style/fieldCompareStyle";
+import { ArcInputs, Soccer, SVGInputs, Tennis } from "../data/sportSvgs";
 export default function FieldCompare() {
   return (
     <FieldCompareWidgetWrapper>

@@ -1,10 +1,10 @@
 "use client";
-import FieldCompare from "./components/sportsField/fieldCompare";
-import { ContentWrapper, TopSpacer } from "../style/homePageStyle";
+import FieldCompare from "./components/fieldCompare";
+import { ContentWrapper, TopSpacer } from "../../style/homePageStyle";
 import { BlogBody, BlogHero } from "./style/sportsPageStyle";
 import { useContext } from "react";
-import { ThemeContext } from "../components/providers";
-import PageHeader from "../components/header";
+import { ThemeContext } from "../../components/providers";
+import PageHeader from "../../components/header";
 
 export default function SportsField() {
   const theme = useContext(ThemeContext);
