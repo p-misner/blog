@@ -43,7 +43,7 @@ export default function Home() {
             </SupertitleTextWrapper>
           </LatLngWrapper>
         </TitleTextWrapper>
-        {screenSize.width > 100 && (
+        {/* {screenSize.width > 100 && (
           <MapsWrapper>
             {" "}
             <Map
@@ -69,7 +69,7 @@ export default function Home() {
               />
             </GlobeWrapper>
           </MapsWrapper>
-        )}{" "}
+        )}{" "} */}
         <FooterText>
           <h3>
             Made by <a href="www.priyamisner.com">Priya Misner</a> ©2024
