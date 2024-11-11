@@ -1,7 +1,7 @@
 "use client";
 import FieldCompare from "./components/fieldCompare";
 import { ContentWrapper, TopSpacer } from "../../style/homePageStyle";
-import { BlogBody, BlogHero } from "./style/sportsPageStyle";
+import { BlogBody, BlogHero } from "../../style/blogStyle";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/providers";
 import PageHeader from "../../components/header";

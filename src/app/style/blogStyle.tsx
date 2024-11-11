@@ -6,8 +6,7 @@ import {
   fontWeight,
   lineHeight,
   spaceBlocks,
-} from "../../style/styleConstants";
-
+} from "./styleConstants";
 export const BlogHero = styled.h1`
   font-size: ${fontSize.lg};
   font-color: ${fontColor.black};
