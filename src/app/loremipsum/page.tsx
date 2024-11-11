@@ -5,7 +5,10 @@ import mapboxgl from "mapbox-gl";
 
 import { ContentWrapper, TopSpacer } from "../style/homePageStyle";
 import PageHeader from "../components/header";
-import { BlogBody, BlogHero } from "../sportsfield/style/sportsPageStyle";
+import {
+  BlogBody,
+  BlogHero,
+} from "../projects/sportsfield/style/sportsPageStyle";
 import { useContext } from "react";
 import { ThemeContext } from "../components/providers";
 
