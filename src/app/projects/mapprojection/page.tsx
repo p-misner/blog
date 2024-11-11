@@ -7,18 +7,14 @@ import {
   GlobeWrapper,
   LatLngWrapper,
   MapsWrapper,
-  ProjectionComparisonWrapper,
-  SelectOptions,
-  Selector,
   SupertitleTextWrapper,
   TitleText,
   TitleTextWrapper,
 } from "./style/globeStyle";
-import MapData from "./data/ne_110m_land.json";
 import { data } from "./data/worldmap";
 import { useState } from "react";
-import { MapProjections } from "./utils/projectionTypes";
 import useScreenSize from "./utils/screenSize";
+import { Dropdown } from "./components/dropdown";
 
 export default function Home() {
   const [mapProj, setMapProj] = useState("Baker dinomic");
@@ -81,31 +77,5 @@ export default function Home() {
         </FooterText>
       </ContentWrapper>
     </BodyWrapper>
-  );
-}
-
-export function Dropdown({
-  value,
-  setValue,
-}: {
-  value: string;
-  setValue: (...args: any[]) => void;
-}) {
-  return (
-    <div>
-      <Selector
-        value={value}
-        $labelLength={value.length}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-      >
-        {MapProjections.filter((x) => x.name != "Orthographic").map((x) => (
-          <SelectOptions key={x.name} value={x.name}>
-            {x.name} projection
-          </SelectOptions>
-        ))}
-      </Selector>
-    </div>
   );
 }
