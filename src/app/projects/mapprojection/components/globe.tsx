@@ -79,9 +79,13 @@ export const Map = ({
 
   //translate mouseClick into LongLat
   function mapClick(click: React.MouseEvent<HTMLOrSVGElement> | MouseEvent) {
-    setCirclePos(
-      projection.invert([click.clientX - bbox.left, click.clientY - bbox.top])
-    );
+    let newCirclePos = projection.invert([
+      click.clientX - bbox.left,
+      click.clientY - bbox.top,
+    ]);
+    if (newCirclePos != undefined) {
+      setCirclePos(newCirclePos);
+    }
   }
 
   //mousemove

@@ -35,11 +35,19 @@ export default function Home() {
           <LatLngWrapper>
             <SupertitleTextWrapper>
               <p>Latitude</p>
-              <TitleText> {circlePos[1].toFixed(4)},</TitleText>
+              <TitleText>
+                {" "}
+                {circlePos != undefined ? circlePos[1]?.toFixed(4) : "null"},
+              </TitleText>
             </SupertitleTextWrapper>
             <SupertitleTextWrapper>
               <p>Longitude</p>
-              <TitleText> {circlePos[0].toFixed(4)}</TitleText>
+              <TitleText>
+                {" "}
+                {circlePos != undefined
+                  ? circlePos[0]?.toFixed(4)
+                  : "null"}{" "}
+              </TitleText>
             </SupertitleTextWrapper>
           </LatLngWrapper>
         </TitleTextWrapper>
