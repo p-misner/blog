@@ -21,8 +21,7 @@ export function Dropdown({
       >
         {MapProjections.filter((x) => x.name != "Orthographic").map((x) => (
           <SelectOptions key={x.name} value={x.name}>
-            {x.name}
-            projection
+            {x.name} projection
           </SelectOptions>
         ))}
       </Selector>

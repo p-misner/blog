@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  FixedGreatCircle,
-  GlobeSVG,
-  GreatCircleSelect,
-} from "../style/globeStyle";
+import { GlobeSVG, GreatCircleSelect } from "../style/globeStyle";
 import { geoCircle, geoGraticule10, geoPath } from "d3-geo";
 import { useEffect, useRef, useState } from "react";
 import { MapProjections } from "../utils/projectionTypes";
@@ -34,7 +30,6 @@ export const Map = ({
   let circle = geoCircle().center(circlePos).radius(10).precision(10);
   let currentProj = MapProjections.filter((x) => x.name === mapProj)[0].value;
   const [bbox, setBbox] = useState({ top: 0, left: 0 });
-
   const set = () =>
     setBbox(
       mapExtentRef?.current
@@ -49,6 +44,7 @@ export const Map = ({
 
   const mapMargin = 12;
   // for preclipping: https://observablehq.com/@d3/spherical-clipping
+
   const projection = currentProj
     .fitExtent(
       [
@@ -58,7 +54,7 @@ export const Map = ({
       data
     )
     .rotate(
-      mapProj === "Orthographic" ? [-circlePos[0], -circlePos[1]] : [0, 0]
+      mapProj == "Orthographic" ? [-circlePos[0], -circlePos[1]] : [0, 0]
     );
   // TO ROTATE GLOBE
   const geoPathGenerator = geoPath().projection(projection);
@@ -92,7 +88,7 @@ export const Map = ({
   const isDown = useRef<boolean>(false);
   const greatCircle = useRef<SVGPathElement>(null);
 
-  const handleHueCursorPosition = (
+  const handleCursorPosition = (
     e: React.MouseEvent<HTMLOrSVGElement> | MouseEvent
   ): void => {
     mapClick(e);
@@ -101,7 +97,7 @@ export const Map = ({
   const handleMouseMove = (e: MouseEvent): void => {
     e.preventDefault();
     if (isDown.current) {
-      handleHueCursorPosition(e);
+      handleCursorPosition(e);
     }
   };
 
@@ -110,7 +106,7 @@ export const Map = ({
   ): void => {
     isDown.current = true;
 
-    handleHueCursorPosition(e);
+    handleCursorPosition(e);
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
@@ -126,7 +122,11 @@ export const Map = ({
   return (
     <div ref={mapExtentRef}>
       <GlobeSVG width={width} height={height} $mapProj={mapProj}>
-        <g onClick={(e) => mapClick(e)}>
+        <g
+          onClick={(e) => {
+            mapProj == "Orthographic" ? "" : mapClick(e);
+          }}
+        >
           <path
             d={`${geoPathGenerator({ type: "Sphere" })}`}
             stroke="none"
@@ -162,43 +162,3 @@ export const Map = ({
     </div>
   );
 };
-
-// {mapProj != "Orthographic" && (
-//   <FixedGreatCircle
-//     transform={`translate(${width - projection(circlePos)[0] - 100},${
-//       100 - projection(circlePos)[1]
-//     })`}
-//   >
-//     <GreatCircleSelect
-//       ref={greatCircle}
-//       onMouseDown={(e) => handleMouseDown(e)}
-//       d={`${geoPathGenerator(circle())}`}
-//       stroke="red"
-//       strokeWidth="2px"
-//       fill="red"
-//       fillOpacity={0.2}
-//       clipPath="url(#cut-bottom)"
-//       // clipPathUnits="objectBoundingBox"
-//     />
-//     {/* ortho circle */}
-//   </FixedGreatCircle>
-// )}
-
-// // {mapProj != "Orthographic" && (
-// //   <FixedGreatCircle
-// //     transform={`translate(${
-// //       width - orthoProjection(circlePos)[0] - 100
-// //     },${100 - orthoProjection(circlePos)[1]})`}
-// //   >
-// //     <GreatCircleSelect
-// //       ref={greatCircle}
-// //       onMouseDown={(e) => handleMouseDown(e)}
-// //       d={`${orthoGeoPathGenerator(circle())}`}
-// //       stroke="red"
-// //       strokeDasharray={"6, 2"}
-// //       strokeWidth="3px"
-// //       fill="red"
-// //       fillOpacity={0.1}
-// //     />
-// //   </FixedGreatCircle>
-// // )}

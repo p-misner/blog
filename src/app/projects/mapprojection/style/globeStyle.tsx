@@ -2,9 +2,6 @@
 import styled from "styled-components";
 
 export const BodyWrapper = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
-
   background-color: #dee7d6;
   min-height: 100vh;
 `;
@@ -23,6 +20,7 @@ export const GlobeSVG = styled.svg<GlobeSVGProps>`
   background-color: "none";
   height: ${(props) => `${props.height}px`};
   width: ${(props) => `${props.width}px`};
+  cursor: "cursor";
 `;
 export const GreatCircleSelect = styled.path`
   cursor: move;
@@ -109,7 +107,7 @@ export const FooterText = styled.div`
 
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   a {
     color: black;
   }

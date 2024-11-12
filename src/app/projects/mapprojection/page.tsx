@@ -12,8 +12,8 @@ import {
   TitleTextWrapper,
 } from "./style/globeStyle";
 import { data } from "./data/worldmap";
-import { useState } from "react";
-// import useScreenSize from "./utils/screenSize";
+import { useEffect, useState } from "react";
+import useScreenSize from "./utils/screenSize";
 import { Dropdown } from "./components/dropdown";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
   const [circlePos, setCirclePos] = useState<[number, number]>([
     21.445313, 5.303919,
   ]);
-  // const screenSize = useScreenSize();
+  const screenSize = useScreenSize();
 
   return (
     <BodyWrapper>
@@ -43,7 +43,7 @@ export default function Home() {
             </SupertitleTextWrapper>
           </LatLngWrapper>
         </TitleTextWrapper>
-        {/* {screenSize.width > 100 && (
+        {screenSize.width > 100 && (
           <MapsWrapper>
             {" "}
             <Map
@@ -69,8 +69,9 @@ export default function Home() {
               />
             </GlobeWrapper>
           </MapsWrapper>
-        )}{" "} */}
+        )}{" "}
         <FooterText>
+          <h3>Click and drag the blue circle to spin globe</h3>
           <h3>
             Made by <a href="www.priyamisner.com">Priya Misner</a> ©2024
           </h3>
