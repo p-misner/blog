@@ -11,7 +11,7 @@ export default function SportsField() {
 
   return (
     <ContentWrapper color={theme.colorPicked}>
-      <PageHeader darktext={true} />
+      <PageHeader $darktext={true} />
 
       <TopSpacer />
       <BlogHero>Size Matters: Dimensions of pitches across Sports </BlogHero>
