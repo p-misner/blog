@@ -56,17 +56,13 @@ export default function Home() {
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 11, 2024</Date>
             <Title color={theme.colorPicked}>
-              <a href="/loremipsum">Map Projections: Translating 3D into 2D</a>
+              <a href="./projects/mapprojection">
+                Map Projections: Translating 3D into 2D
+              </a>
               <span> →</span>
             </Title>
             <Subtitle>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Sed porttitor
-              scelerisque cras justo litora primis euismod pulvinar. Congue enim
-              donec ac nostra ac taciti libero. Habitant purus nam porttitor
-              aenean viverra laoreet et. Vulputate pulvinar facilisis integer
-              fringilla aliquam morbi donec ac viverra. Sagittis amet bibendum
-              aenean quam litora eleifend porttitor per praesent. Molestie sem
-              efficitur malesuada etiam efficitur.
+              {/* Used d3-geo to create a variety of map projections */}
             </Subtitle>
             <ImageWrapper>
               <Image
