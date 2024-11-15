@@ -14,7 +14,7 @@ export default function PointMap() {
 
   return (
     <ContentWrapper color={theme.colorPicked}>
-      <PageHeader darktext={true} />
+      <PageHeader $darktext={true} />
       <TopSpacer />
       <BlogHero>Placeholder </BlogHero>
       <BlogBody>
