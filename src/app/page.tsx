@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <PageWrapper color={theme.colorPicked}>
-      <PageHeader darktext={false} />
+      <PageHeader $darktext={false} />
       <PageWrapper color={theme.colorPicked}>
         <ContentWrapper color={theme.colorPicked}>
           <ControlPanelWrapper>
@@ -38,6 +38,20 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>November 14, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="/blogposts/creativecoding">Creative Coding: Week 1</a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              During my time at the Recurse Center I'm working my way through
+              the Nature of Code alongside some of my batchmates. Instead using
+              p5.js, I'll be following along using Typescript to manipulate the
+              canvas and maybe will try dabbling with doing the exercises using
+              three.js as time goes on.
+            </Subtitle>
+          </BlogPostWrapper>
 
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 11, 2024</Date>
@@ -62,58 +76,6 @@ export default function Home() {
                 // height={500}
               />
             </ImageWrapper>
-          </BlogPostWrapper>
-
-          <BlogPostWrapper color={theme.colorPicked}>
-            <Date>Month XX, 2024</Date>
-            <Title color={theme.colorPicked}>
-              <a href="/loremipsum">Placeholder</a>
-              <span> →</span>
-            </Title>
-            <Subtitle>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Sed porttitor
-              scelerisque cras justo litora primis euismod pulvinar. Congue enim
-              donec ac nostra ac taciti libero. Habitant purus nam porttitor
-              aenean viverra laoreet et. Vulputate pulvinar facilisis integer
-              fringilla aliquam morbi donec ac viverra. Sagittis amet bibendum
-              aenean quam litora eleifend porttitor per praesent. Molestie sem
-              efficitur malesuada etiam efficitur.
-            </Subtitle>
-          </BlogPostWrapper>
-
-          <BlogPostWrapper color={theme.colorPicked}>
-            <Date>Month XX, 2024</Date>
-            <Title color={theme.colorPicked}>
-              <a href="/loremipsum">Placeholder</a>
-              <span> →</span>
-            </Title>
-            <Subtitle>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Sed porttitor
-              scelerisque cras justo litora primis euismod pulvinar. Congue enim
-              donec ac nostra ac taciti libero. Habitant purus nam porttitor
-              aenean viverra laoreet et. Vulputate pulvinar facilisis integer
-              fringilla aliquam morbi donec ac viverra. Sagittis amet bibendum
-              aenean quam litora eleifend porttitor per praesent. Molestie sem
-              efficitur malesuada etiam efficitur.
-            </Subtitle>
-          </BlogPostWrapper>
-
-          <BlogPostWrapper color={theme.colorPicked}>
-            <Date>Month XX, 2024</Date>
-            <Title color={theme.colorPicked}>
-              <a href="/loremipsum">Placeholder</a>
-              <span> →</span>
-            </Title>
-            <Subtitle>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Sed porttitor
-              scelerisque cras justo litora primis euismod pulvinar. Congue enim
-              donec ac nostra ac taciti libero. Habitant purus nam porttitor
-              aenean viverra laoreet et. Vulputate pulvinar facilisis integer
-              fringilla aliquam morbi donec ac viverra. Sagittis amet bibendum
-              aenean quam litora eleifend porttitor per praesent. Molestie sem
-              efficitur malesuada etiam efficitur.
-            </Subtitle>
-            <PlaceholderImage />
           </BlogPostWrapper>
         </ContentWrapper>
       </PageWrapper>

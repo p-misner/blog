@@ -31,7 +31,7 @@ export const spaceBlocks = {
 
 export type CoreColorInput = {
   color: ArrayRGBA;
-  darktext?: boolean;
+  $darktext?: boolean;
 };
 export const LightOverlay_97: ArrayRGBA = [255, 255, 255, 0.97];
 export const LightOverlay_99: ArrayRGBA = [255, 255, 255, 0.99];

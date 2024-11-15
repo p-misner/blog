@@ -19,7 +19,7 @@ export const HeaderWrapper = styled.div<CoreColorInput>`
   position: fixed;
   width: 100%;
   background-color: ${(props) =>
-    props.darktext
+    props.$darktext
       ? ColorMixer({
           bottomLayer: props.color,
           topLayer: props.color,
@@ -59,7 +59,7 @@ export const NameHeader = styled.h3<CoreColorInput>`
     color: ${(props) =>
       ColorMixer({
         bottomLayer: props.color,
-        topLayer: props.darktext ? DarkOverlay_50 : LightOverlay_97,
+        topLayer: props.$darktext ? DarkOverlay_50 : LightOverlay_97,
         returnFormat: "rgba",
       })};
   }
@@ -85,7 +85,7 @@ export const MenuHeader = styled.div<CoreColorInput>`
     color: ${(props) =>
       ColorMixer({
         bottomLayer: props.color,
-        topLayer: props.darktext ? DarkOverlay_50 : LightOverlay_97,
+        topLayer: props.$darktext ? DarkOverlay_50 : LightOverlay_97,
         returnFormat: "rgba",
       })};
     text-decoration: none;

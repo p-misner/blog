@@ -10,7 +10,7 @@ import ColorPickerComponent from "./components/colorcontrols";
 import GoogleAnalytics from "./components/googleAnalytics";
 
 export const metadata: Metadata = {
-  title: "Blog || Priya Misner ",
+  title: "Priya's Blog",
   description: "a blog created by priya misner",
 };
 const leaguespartan = League_Spartan({ subsets: ["latin"] });

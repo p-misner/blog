@@ -6,6 +6,9 @@ type ColorMixerInputs = {
   returnFormat?: "rgba" | "array";
   opacity?: number;
 };
+
+export type ColorType = { color: ArrayRGBA };
+
 export function ColorMixer({
   bottomLayer,
   topLayer,
