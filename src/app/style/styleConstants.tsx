@@ -56,6 +56,7 @@ export const fontWeight = {
   bold: "600",
 };
 export const fontSize = {
+  xxs: "12px",
   xs: "14px",
   sm: "20px",
   md: "24px",

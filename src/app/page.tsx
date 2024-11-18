@@ -20,6 +20,7 @@ import { ControlPanelWrapper } from "./style/controlStyle";
 import ColorPickerComponent from "./components/colorcontrols";
 
 import testImg from "../../public/coverImages/mapProjectionCover.png";
+import scantronImg from "../../public/coverImages/ScantronCover.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -38,6 +39,21 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>November 15, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="/projects/scantron">Wrong Answers Only: Scantron</a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              Do NOT read the question, checking your work is NOT allowed. An
+              overly faithful reproduction of a multuple choice test form that
+              lets you bubble things in to your hearts content
+            </Subtitle>
+            <ImageWrapper>
+              <Image src={scantronImg} alt="picture of scantron on desk" />
+            </ImageWrapper>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 14, 2024</Date>
             <Title color={theme.colorPicked}>
@@ -68,8 +84,6 @@ export default function Home() {
               <Image
                 src={testImg}
                 alt="picture of globe over a map projection"
-                // width={500}
-                // height={500}
               />
             </ImageWrapper>
           </BlogPostWrapper>
