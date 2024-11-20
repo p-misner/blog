@@ -47,7 +47,7 @@ export default function Home() {
             </Title>
             <Subtitle>
               Do NOT read the question, checking your work is NOT allowed. An
-              overly faithful reproduction of a multuple choice test form that
+              overly faithful reproduction of a multiple choice test form that
               lets you bubble things in to your hearts content
             </Subtitle>
             <ImageWrapper>

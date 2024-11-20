@@ -17,8 +17,7 @@ export default function PageHeader({ $darktext }: { $darktext: boolean }) {
       <Header>
         <NameHeader $darktext={$darktext} color={theme.colorPicked}>
           {" "}
-          {/* <a href="https://www.priyamisner.com"> */}
-          <a href="/">
+          <a href="https://www.priyamisner.com">
             Priya Misner<HandwritingSpan>&apos;s blog</HandwritingSpan>
           </a>
         </NameHeader>
