@@ -12,10 +12,14 @@ export const OutsideInputLabel = styled.label`
   color: #585858;
   font-weight: 400;
 `;
-export const InInputLabel = styled.p<DOMRect>`
+type InputType = {
+  boundRect: DOMRect | undefined;
+};
+export const InInputLabel = styled.p<InputType>`
   font-size: 14px;
   position: absolute;
-  top: ${(props) => `${(1 * props.height) / 2}px`};
+  top: ${(props) =>
+    props.boundRect ? `${(1 * props.boundRect.height) / 2}px` : "0px"};
   left: 8px;
   font-weight: 600;
   opacity: 0.5;
@@ -24,8 +28,9 @@ export const InInputLabel = styled.p<DOMRect>`
   }
 `;
 
-export const NumberInput = styled.input<DOMRect>`
-  padding-left: ${(props) => `${props.width + 12}px`} !important;
+export const NumberInput = styled.input<InputType>`
+  padding-left: ${(props) =>
+    props.boundRect ? `${props.boundRect.width + 12}px` : "0px"} !important;
   padding-right: 4px !important;
   /* padding-left: 50px !important; */
   height: 20px;

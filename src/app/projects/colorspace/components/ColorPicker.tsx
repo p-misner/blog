@@ -21,7 +21,7 @@ export const ColorPicker = ({
   setColors: any;
 }) => {
   const [openModal, setOpenModal] = useState(false);
-  const ColorInputRef = useRef(null);
+  const ColorInputRef = useRef<HTMLDivElement>(null);
 
   let parentPosition = ColorInputRef?.current?.getBoundingClientRect();
 
@@ -109,7 +109,7 @@ const LabelInput = ({
   onBlur,
 }: LabelInputType) => {
   const InInputLabelLength = useRef<HTMLParagraphElement>(null);
-  const [labelLength, setLabelLength] = useState<DOMRect>();
+  const [boundingRect, setBoundingRect] = useState<DOMRect>();
   const isDown = useRef<boolean>(false);
   const [value, setValue] = useState(
     parseDefaultValue({
@@ -150,25 +150,23 @@ const LabelInput = ({
   };
 
   useEffect(() => {
-    InInputLabelLength.current
-      ? setLabelLength(InInputLabelLength.current.getBoundingClientRect())
-      : setLabelLength({});
+    InInputLabelLength.current &&
+      setBoundingRect(InInputLabelLength.current.getBoundingClientRect());
   }, [InInputLabelLength.current]);
   return (
     <div>
       <OutsideInputLabel> {label ? label : ""}</OutsideInputLabel>
       <InputWrapper>
-        <InInputLabel
-          width={labelLength?.width}
-          height={labelLength?.height}
+        {/* <InInputLabel
+          boundingRect={boundingRect}
+          // height={labelLength ? labelLength.height : 0}
           ref={InInputLabelLength}
           onMouseDown={(e) => handleMouseDown(e)}
         >
           {insideLabel ? insideLabel : ""}
         </InInputLabel>
         <NumberInput
-          width={labelLength?.width}
-          height={labelLength?.height}
+          boundingRect={boundingRect}
           type={labelType}
           min={min ? min : ""}
           max={min ? max : ""}
@@ -185,7 +183,7 @@ const LabelInput = ({
             )
           }
           value={value}
-        />
+        /> */}
       </InputWrapper>
     </div>
   );
