@@ -14,7 +14,7 @@ import { WithTooltipProvidedProps } from "@visx/tooltip/lib/enhancers/withToolti
 type CityName = "New York" | "San Francisco" | "Austin";
 
 type TooltipData = {
-  bar: SeriesPoint<CityTemperature>;
+  bar: any;
   key: CityName;
   index: number;
   height: number;
@@ -121,7 +121,7 @@ const xScale = scaleLinear<number>({
   domain: [0, 600],
   nice: true,
 });
-const dateScale = scaleTime({
+const dateScale = scaleTime<number>({
   domain: [new Date("2005-01-01"), new Date("2024-09-01")],
   nice: true,
 });
