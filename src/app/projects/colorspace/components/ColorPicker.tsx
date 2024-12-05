@@ -122,17 +122,17 @@ LabelInputType) => {
     e.preventDefault();
     // console.log("mousemove", e);
 
-    if (isDown.current) {
-      let distanceMoved = labelLength?.left - e.clientX;
-      setValue(
-        validateValue({
-          min: min,
-          max: max,
-          labelType: "number",
-          value: value - labelLength?.left + e.clientX,
-        })
-      );
-    }
+    // if (isDown.current) {
+    //   let distanceMoved = boundingRect && boundingRect?.left - e.clientX;
+    //   setValue(
+    //     validateValue({
+    //       min: min,
+    //       max: max,
+    //       labelType: "number",
+    //       value: parseFloat(value) - boundingRect?.left + e.clientX,
+    //     })
+    //   );
+    // }
   };
   const handleMouseDown = (
     e: React.MouseEvent<HTMLDivElement> | MouseEvent
@@ -215,9 +215,9 @@ function validateValue({
   labelType: "number" | "text";
 }) {
   if (labelType == "number") {
-    let val = parseFloat(value);
-    if (typeof max !== "undefined" && val >= max) return max;
-    else if (typeof min !== "undefined" && val <= min) return min;
+    // let val = parseFloat(value);
+    // if (typeof max !== "undefined" && val >= max) return max;
+    // else if (typeof min !== "undefined" && val <= min) return min;
   }
   return value;
 }
