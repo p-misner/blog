@@ -1,5 +1,5 @@
 "use client";
-import { Map, SpinningGlobe } from "./components/globe";
+import { Map } from "./components/globe";
 import {
   BodyWrapper,
   ContentWrapper,
