@@ -106,8 +106,8 @@ const LabelInput = ({
   max,
   step,
   onChange,
-  onBlur,
-}: LabelInputType) => {
+}: // onBlur,
+LabelInputType) => {
   const InInputLabelLength = useRef<HTMLParagraphElement>(null);
   const [boundingRect, setBoundingRect] = useState<DOMRect>();
   const isDown = useRef<boolean>(false);
