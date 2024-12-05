@@ -14,10 +14,6 @@ export type MapProps = {
   setCirclePos: any;
 };
 
-export function SpinningGlobe() {
-  return <p> hi</p>;
-}
-
 export const Map = ({
   width,
   height,
@@ -56,7 +52,9 @@ export const Map = ({
     .rotate(
       mapProj == "Orthographic" ? [-circlePos[0], -circlePos[1]] : [0, 0]
     );
+
   // TO ROTATE GLOBE
+  const rotate = projection.rotate();
   const geoPathGenerator = geoPath().projection(projection);
   const graticule = geoGraticule10();
 
@@ -77,6 +75,10 @@ export const Map = ({
     );
   });
 
+  function orthoClick(click: React.MouseEvent<HTMLOrSVGElement> | MouseEvent) {
+    // console.log("hi", click);
+    // projection.rotate([rotate[0] + 5, rotate[1]]);
+  }
   //translate mouseClick into LongLat
   function mapClick(click: React.MouseEvent<HTMLOrSVGElement> | MouseEvent) {
     let newCirclePos = projection.invert([
@@ -128,7 +130,7 @@ export const Map = ({
       <GlobeSVG width={width} height={height} $mapProj={mapProj}>
         <g
           onClick={(e) => {
-            mapProj == "Orthographic" ? "" : mapClick(e);
+            mapProj == "Orthographic" ? orthoClick(e) : mapClick(e);
           }}
         >
           <path

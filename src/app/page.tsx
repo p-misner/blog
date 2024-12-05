@@ -21,6 +21,7 @@ import ColorPickerComponent from "./components/colorcontrols";
 
 import testImg from "../../public/coverImages/mapProjectionCover.png";
 import scantronImg from "../../public/coverImages/ScantronCover.png";
+import ccGSAP from "../../public/coverImages/creativecoding_gsap.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -39,6 +40,44 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec 4th, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="/projects/gsap">Creative Coding: In Review</a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              My first time working with GSAP, I made a small animation to
+              capture that feeling of the year passing you by for Wednesday's
+              creative coding.
+            </Subtitle>
+            <ImageWrapper>
+              <Image
+                src={ccGSAP}
+                alt="a background of a blue rectangle with dark blue edges has the words of 5 months falling down "
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec ??, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="/projects/dataliberationproject">
+                Visualizing Inmate Deaths
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>🚧🚧Work in Progress🚧🚧</Subtitle>
+          </BlogPostWrapper>
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec 3rd, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="/projects/colorspace">Color Spaces</a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              🚧🚧Work in Progress 🚧🚧An exploration into color pickers
+            </Subtitle>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 15, 2024</Date>
             <Title color={theme.colorPicked}>
