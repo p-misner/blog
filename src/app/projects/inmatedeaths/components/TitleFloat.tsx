@@ -22,8 +22,8 @@ const TitleFloatWrapper = styled.div`
   background-color: ${DataLiberationColors.grey};
   position: sticky;
   top: 24px;
-  left: 0px;
-  max-width: 620px;
+  /* left: 0px; */
+  width: 620px;
 `;
 
 const FirstPartWrapper = styled.div`

@@ -13,6 +13,7 @@ export const ContentWrapper = styled.div`
   max-width: 1120px;
   width: 90%;
   margin: auto;
+  overflow-y: scroll;
 
   @media screen and (max-width: 1168px) {
     margin: 48px;
@@ -57,8 +58,9 @@ export const Footer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: auto;
+  margin-bottom: 48px;
+
   a {
     color: ${DataLiberationColors.black};
-    padding-top: 24px;
   }
 `;
