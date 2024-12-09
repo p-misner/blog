@@ -14351,8 +14351,8 @@
     "DOD": "3/28/2008",
     "InstID": "VIM",
     "DeathCategory": "Pulmonary",
-    "ICD10 Prime": "",
-    "ICD10 Second": ""
+    "ICD10 Prime": "N/A",
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "21280-179",
@@ -15914,7 +15914,7 @@
     "InstID": "FLM",
     "DeathCategory": "Other",
     "ICD10 Prime": "X72",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "53027-065",
@@ -19059,8 +19059,8 @@
     "DOD": "3/28/2009",
     "InstID": "FTW",
     "DeathCategory": "Pending Death Certificate",
-    "ICD10 Prime": "",
-    "ICD10 Second": ""
+    "ICD10 Prime": "N/A",
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "41544-074",
@@ -19983,7 +19983,7 @@
     "DOD": "6/11/2009",
     "InstID": "DEV",
     "DeathCategory": "Other",
-    "ICD10 Prime": "",
+    "ICD10 Prime": "N/A",
     "ICD10 Second": "I49.9"
   },
   {
@@ -20820,7 +20820,7 @@
     "InstID": "BUH",
     "DeathCategory": "Cancer",
     "ICD10 Prime": "C18",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "08623-030",
@@ -23570,7 +23570,7 @@
     "InstID": "RCH",
     "DeathCategory": "Other",
     "ICD10 Prime": "A41.9",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "11976-032",
@@ -25374,7 +25374,7 @@
     "InstID": "DEV",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I25.1",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "42443-007",
@@ -26232,7 +26232,7 @@
     "InstID": "BUH",
     "DeathCategory": "Cancer",
     "ICD10 Prime": "C25",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "15409-077",
@@ -27948,7 +27948,7 @@
     "InstID": "BUT",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I51.7",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "48827-051",
@@ -28036,7 +28036,7 @@
     "InstID": "COM",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I25.1",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "12166-021",
@@ -28080,7 +28080,7 @@
     "InstID": "WIL",
     "DeathCategory": "Other",
     "ICD10 Prime": "B45.7",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "15649-077",
@@ -28179,7 +28179,7 @@
     "InstID": "LEX",
     "DeathCategory": "Liver",
     "ICD10 Prime": "K74",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "15721-057",
@@ -29466,7 +29466,7 @@
     "InstID": "LOM",
     "DeathCategory": "Cancer",
     "ICD10 Prime": "C92.0",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "64671-079",
@@ -30181,7 +30181,7 @@
     "InstID": "HER",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I46",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "09362-031",
@@ -36495,7 +36495,7 @@
     "InstID": "ALF",
     "DeathCategory": "Liver",
     "ICD10 Prime": "K72.9",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "04008-025",
@@ -38178,7 +38178,7 @@
     "InstID": "COP",
     "DeathCategory": "Other",
     "ICD10 Prime": "E07.9",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "11859-027",
@@ -38244,7 +38244,7 @@
     "InstID": "DEV",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I46",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "48849-080",
@@ -40510,7 +40510,7 @@
     "InstID": "MIM",
     "DeathCategory": "Pulmonary",
     "ICD10 Prime": "I26",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "77786-012",
@@ -42347,7 +42347,7 @@
     "InstID": "DEV",
     "DeathCategory": "Cancer",
     "ICD10 Prime": "D02.2",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "16587-424",
@@ -42996,7 +42996,7 @@
     "InstID": "VIM",
     "DeathCategory": "Sepsis",
     "ICD10 Prime": "I31.8",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "25933-298",
@@ -49849,7 +49849,7 @@
     "InstID": "MCR",
     "DeathCategory": "CVA",
     "ICD10 Prime": "I60",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "17093-064",
@@ -52555,7 +52555,7 @@
     "InstID": "BRO",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I38",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "08060-018",
@@ -52863,7 +52863,7 @@
     "InstID": "OKL",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I25.0",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "06347-046",
@@ -56119,7 +56119,7 @@
     "InstID": "CRW",
     "DeathCategory": "Cancer",
     "ICD10 Prime": "C25",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "08473-025",
@@ -57450,7 +57450,7 @@
     "InstID": "BMM",
     "DeathCategory": "Laceration of blood vessel(s)",
     "ICD10 Prime": "X78",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "03095-017",
@@ -59738,7 +59738,7 @@
     "InstID": "RCH",
     "DeathCategory": "Sepsis",
     "ICD10 Prime": "N39.0",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "64775-112",
@@ -61927,7 +61927,7 @@
     "InstID": "THP",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I25.5",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "67046-018",
@@ -62202,7 +62202,7 @@
     "InstID": "ATL",
     "DeathCategory": "Cardiac",
     "ICD10 Prime": "I25.0",
-    "ICD10 Second": ""
+    "ICD10 Second": "N/A"
   },
   {
     "RegisterNum": "79344-079",
@@ -72858,7 +72858,7 @@
     "Sex": "Male",
     "Race": "White",
     "DOD": "10/11/2020",
-    "InstID": "",
+    "InstID": "N/A",
     "DeathCategory": "Unknown",
     "ICD10 Prime": "UNK",
     "ICD10 Second": "UNK"

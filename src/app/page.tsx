@@ -61,9 +61,7 @@ export default function Home() {
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec ??, 2024</Date>
             <Title color={theme.colorPicked}>
-              <a href="/projects/dataliberationproject">
-                Visualizing Inmate Deaths
-              </a>
+              <a href="/projects/inmatedeaths">Visualizing Inmate Deaths</a>
               <span> →</span>
             </Title>
             <Subtitle>🚧🚧Work in Progress🚧🚧</Subtitle>
