@@ -22,6 +22,7 @@ import ColorPickerComponent from "./components/colorcontrols";
 import testImg from "../../public/coverImages/mapProjectionCover.png";
 import scantronImg from "../../public/coverImages/ScantronCover.png";
 import ccGSAP from "../../public/coverImages/creativecoding_gsap.png";
+import inmateCover from "../../public/coverImages/InmateDeaths.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -40,6 +41,26 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec 9, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="/projects/inmatedeaths">
+                Visualizing Federal Inmate Deaths
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              Using data from The Data Liberation Project, I v Federal Inmate
+              Death{" "}
+            </Subtitle>
+            <ImageWrapper>
+              <Image
+                src={inmateCover}
+                alt="a  bar chart with a date range from 2005 to 2024 "
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 4th, 2024</Date>
             <Title color={theme.colorPicked}>
@@ -58,14 +79,7 @@ export default function Home() {
               />
             </ImageWrapper>
           </BlogPostWrapper>
-          <BlogPostWrapper color={theme.colorPicked}>
-            <Date>Dec ??, 2024</Date>
-            <Title color={theme.colorPicked}>
-              <a href="/projects/inmatedeaths">Visualizing Inmate Deaths</a>
-              <span> →</span>
-            </Title>
-            <Subtitle>🚧🚧Work in Progress🚧🚧</Subtitle>
-          </BlogPostWrapper>
+
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 3rd, 2024</Date>
             <Title color={theme.colorPicked}>

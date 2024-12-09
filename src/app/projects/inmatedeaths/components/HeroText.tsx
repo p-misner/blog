@@ -6,14 +6,23 @@ export const HeroText = () => {
     <HeroTextWrapper>
       {" "}
       <HeroBody> The Data Liberation Project filed a </HeroBody>
-      <Link text="FOIA Request" href="#" />
+      <Link
+        text="FOIA Request"
+        href="https://www.data-liberation-project.org/requests/bop-federal-inmate-deaths/"
+      />
       <HeroBody>
         to the Bureau of of Prisons seeking data records representing each
         federal inmate death since 2005. The agency{" "}
       </HeroBody>
-      <Link text="responded to the request" href="#" />
+      <Link
+        text="responded to the request"
+        href="https://www.documentcloud.org/documents/25141895-2024-09-04-determination-letter"
+      />
       <HeroBody>with a </HeroBody>
-      <Link text="spreadsheet" href="#" />
+      <Link
+        text="spreadsheet"
+        href="https://docs.google.com/spreadsheets/d/1VyoVX2PEQXSaUJ9dNTvJ36HNBE5tGLcy/edit"
+      />
       <HeroBody>containing </HeroBody>
       <HeroBody>8,242 entries, each representing a deceased inmate. </HeroBody>
     </HeroTextWrapper>
