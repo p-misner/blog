@@ -81,7 +81,7 @@ export default function Home() {
         <FooterText>
           <h3>Click and drag the blue circle to spin globe</h3>
           <h3>
-            Made by <a href="www.priyamisner.com">Priya Misner</a> ©2024
+            Made by <a href="https://www.priyamisner.com">Priya Misner</a> ©2024
           </h3>
         </FooterText>
       </ContentWrapper>

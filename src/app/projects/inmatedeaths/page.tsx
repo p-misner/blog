@@ -54,7 +54,9 @@ export default function InmateDeaths() {
           <p>Data last updated August 2024</p>
           <p>
             {" "}
-            <a href="www.priyamisner.com">Created by Priya Misner</a>{" "}
+            <a href="https://www.priyamisner.com">
+              Created by Priya Misner
+            </a>{" "}
           </p>
         </Footer>
       </ContentWrapper>
