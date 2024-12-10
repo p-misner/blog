@@ -3,7 +3,6 @@ import { dataCategories } from "../data/dataCategories";
 import { HighlightCategoryType } from "../page";
 import { ControlsWrapper } from "../style/PageStyle";
 import { DataLiberationColors } from "../style/StyleConstants";
-import { MouseEvent } from "react";
 
 export const Controls = ({
   highlightCategory,
@@ -132,6 +131,7 @@ const ControlWrapper = styled.div`
 `;
 const CategorySelect = styled.select`
   background-color: ${DataLiberationColors.grey};
+  color: ${DataLiberationColors.black};
   font-size: 16px;
   padding: 4px;
   min-width: 200px;
@@ -149,6 +149,7 @@ type ButtonType = {
   border: string;
 };
 const CategoryButton = styled.button<ButtonType>`
+  color: ${DataLiberationColors.black};
   background-color: ${(props) => props.background};
   font-size: 16px;
   padding: 4px 4px;

@@ -108,7 +108,7 @@ export const WaffleChart = ({
         </TooltipWrapper>
       )}
       <svg
-        width={screenSize.width < 1120 ? screenSize.width - 50 : 1120}
+        width={screenSize.width < 1120 ? screenSize.width : 1120}
         height={
           screenSize.width < 1120 ? screenSize.width * 0.583 : 1120 * 0.583
         }
@@ -174,7 +174,7 @@ export const WaffleChart = ({
                   onMouseLeave={() => setTooltipOpen(false)}
                   key={`bar-${ii}`}
                   x={
-                    dateScale(new Date(d.year)) +
+                    dateScale(Date.parse(`1/1/${d.year}`)) +
                     (ii % 7) * 6 -
                     (6 * 7) / 2 +
                     0.5
