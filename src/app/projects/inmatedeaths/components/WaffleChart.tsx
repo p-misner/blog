@@ -94,6 +94,9 @@ export const WaffleChart = ({
             <span>Last Name </span> {tooltipData.namelast}
           </p>
           <p>
+            <span>Date of Death </span> {tooltipData.dod}
+          </p>
+          <p>
             <span>Race </span> {tooltipData.race}
           </p>
           <p>

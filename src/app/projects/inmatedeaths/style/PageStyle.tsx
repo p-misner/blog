@@ -52,8 +52,8 @@ export const TooltipWrapper = styled.div<TooltipInputs>`
   min-height: 24px;
   min-width: 24px;
   position: absolute;
-  top: ${(props) => `${props.y}px`};
-  left: ${(props) => `${props.x / 2}px`};
+  top: ${(props) => `${props.y + 20}px`};
+  left: ${(props) => `${props.x / 2 + 20}px`};
   padding: 12px;
   display: flex;
   flex-direction: column;
