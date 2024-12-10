@@ -51,8 +51,9 @@ export default function Home() {
               <span> →</span>
             </Title>
             <Subtitle>
-              Using data from The Data Liberation Project, I v Federal Inmate
-              Death{" "}
+              Using data from The Data Liberation Project, this page allows you
+              to explore the Federal Inmate Death dataset and filter the data
+              based on several variables in the dataset.
             </Subtitle>
             <ImageWrapper>
               <Image

@@ -14,17 +14,28 @@ export const ContentWrapper = styled.div`
   width: 90%;
   margin: auto;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   @media screen and (max-width: 1168px) {
     margin: 48px;
+  }
+  @media screen and (max-width: 720px) {
+    width: 90%;
+    margin: 24px;
   }
 `;
 
 export const ControlsWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   margin: 48px 0px 24px 0px;
   column-gap: 24px;
   justify-content: flex-start;
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    column-gap: 12px;
+    row-gap: 24px;
+  }
 `;
 export const ChartWrapper = styled.div`
   /* background-color: ${DataLiberationColors.yellow}; */
@@ -41,8 +52,8 @@ export const TooltipWrapper = styled.div<TooltipInputs>`
   min-height: 24px;
   min-width: 24px;
   position: absolute;
-  top: ${(props) => `${props.y + 5}px`};
-  left: ${(props) => `${props.x + 12}px`};
+  top: ${(props) => `${props.y}px`};
+  left: ${(props) => `${props.x / 2}px`};
   padding: 12px;
   display: flex;
   flex-direction: column;

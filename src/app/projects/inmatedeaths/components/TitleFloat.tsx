@@ -24,6 +24,13 @@ const TitleFloatWrapper = styled.div`
   top: 24px;
   /* left: 0px; */
   width: 620px;
+  @media screen and (max-width: 720px) {
+    width: 520px;
+  }
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    width: 320px;
+  }
 `;
 
 const FirstPartWrapper = styled.div`
@@ -33,6 +40,10 @@ const FirstPartWrapper = styled.div`
   padding: 12px 16px;
   column-gap: 8px;
   align-items: center;
+  @media screen and (max-width: 600px) {
+    border-bottom: 1px solid ${DataLiberationColors.black};
+    border-right: 0px solid ${DataLiberationColors.black};
+  }
 `;
 const SecondPartWrapper = styled.div`
   display: flex;
@@ -45,14 +56,23 @@ const TitleFloatH1 = styled.h1`
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 20px;
   font-weight: 500;
+  @media screen and (max-width: 720px) {
+    font-size: 16px;
+  }
 `;
 const TitleFloatH2 = styled.h2`
   font-family: "Times New Roman", Times, serif;
   font-size: 22px;
   font-style: italic;
   text-decoration: solid underline ${DataLiberationColors.yellow} 4px;
+  @media screen and (max-width: 720px) {
+    font-size: 18px;
+  }
 `;
 const TitleFloatH3 = styled.h3`
   font-family: Helvetica, Arial, sans-serif;
   font-size: 20px;
+  @media screen and (max-width: 720px) {
+    font-size: 16px;
+  }
 `;

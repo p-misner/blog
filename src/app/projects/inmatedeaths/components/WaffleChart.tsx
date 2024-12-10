@@ -108,7 +108,7 @@ export const WaffleChart = ({
         </TooltipWrapper>
       )}
       <svg
-        width={screenSize.width < 1120 ? screenSize.width : 1120}
+        width={screenSize.width < 1120 ? screenSize.width - 50 : 1120}
         height={
           screenSize.width < 1120 ? screenSize.width * 0.583 : 1120 * 0.583
         }
@@ -167,7 +167,7 @@ export const WaffleChart = ({
                     setTooltipOpen(true);
                     setTooltipData({
                       ...e.currentTarget.dataset,
-                      x: e.pageX,
+                      x: e.clientX,
                       y: e.pageY,
                     });
                   }}

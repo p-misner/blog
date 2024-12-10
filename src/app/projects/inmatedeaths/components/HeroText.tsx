@@ -64,6 +64,9 @@ const HeroTextWrapper = styled.p`
 const HeroBody = styled.span`
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 40px;
+  @media screen and (max-width: 720px) {
+    font-size: 28px;
+  }
 `;
 const HeroLink = styled.a`
   font-family: "Times New Roman", Times, serif;
@@ -78,5 +81,8 @@ const HeroLink = styled.a`
     text-decoration-thickness: 12px;
     text-decoration-color: ${DataLiberationColors.yellow};
     text-underline-offset: 1px;
+  }
+  @media screen and (max-width: 720px) {
+    font-size: 28px;
   }
 `;
