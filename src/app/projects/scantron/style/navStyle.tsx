@@ -1,5 +1,8 @@
 import { fontSize, spaceBlocks } from "@/app/style/styleConstants";
 import styled from "styled-components";
+import { DarkTestColor, TestColor } from "../utils/utils";
+const backgroundColor = "#fff";
+const greenColor = "#049B73";
 
 export const NavWrapper = styled.div`
   position: fixed;
@@ -14,8 +17,8 @@ export const NavWrapper = styled.div`
   /* justify-content: center; */
 `;
 
-export const NavButtonWrapper = styled.button`
-  background-color: rgba(255, 255, 255, 1);
+export const NavButtonWrapper = styled.button<testTypeType>`
+  background-color: ${backgroundColor};
   min-width: 64px;
   height: 64px;
   display: flex;
@@ -26,32 +29,45 @@ export const NavButtonWrapper = styled.button`
   font-size: ${fontSize.xs};
   border: none;
   cursor: pointer;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
 
   &:hover svg {
-    background-color: rgba(0, 150, 73, 0.9);
+    background-color: ${(props) => TestColor({ testType: props.$testType })};
     padding: 6px;
     border-radius: 50%;
     path,
     line,
     circle {
-      fill: #003b1c;
+      fill: #282828;
     }
   }
   &:first-child {
     border-radius: 50% 0% 0% 50%;
     padding-left: 24px;
     padding-right: 12px;
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+  }
+  &:not(:first-child, :last-child) {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
   }
   &:last-child {
     border-radius: 0% 50% 50% 0%;
     padding-right: 24px;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
   }
 `;
 
-export const TestButtonWrapper = styled.div`
-  background-color: rgb(0, 118, 57);
-  border: none;
+type testTypeType = {
+  $testType: "scantron" | "STAR" | "SAT";
+};
+export const TestButtonWrapper = styled.div<testTypeType>`
+  background-color: ${(props) => TestColor({ testType: props.$testType })};
+  border: 1px solid grey;
   width: 104px;
   height: 104px;
   display: flex;
@@ -71,7 +87,8 @@ export const TestButtonWrapper = styled.div`
     /* left: 8px; */
   }
   &:hover {
-    background-color: #006330;
+    background-color: ${(props) =>
+      DarkTestColor({ testType: props.$testType })};
     cursor: pointer;
   }
   &:hover img {
@@ -85,14 +102,15 @@ type CurvedSpacerType = {
   direction: "left" | "right";
 };
 export const CurvedSpacer = styled.div<CurvedSpacerType>`
-  /* background-color: white; */
   width: 18px;
-  height: 64px;
+  height: 62px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-bottom: 1px solid grey;
   background: ${(props) =>
     props.direction == "right"
-      ? "radial-gradient(circle at -240%, rgba(0, 0, 0, 0) 75%, white 75%)"
-      : "radial-gradient(circle at 340%, rgba(0, 0, 0, 0) 75%, #fff 75%)"};
-  /* background: radial-gradient(circle at 200%, rgba(144, 0, 0, 1) 75%, #fff 75%); */
+      ? `radial-gradient(circle at -240%, rgba(0, 0, 0, 0) 75%, grey 77%,grey 78%,${backgroundColor} 77%)`
+      : `radial-gradient(circle at 340%, rgba(0, 0, 0, 0) 75%, grey 77%,grey 78%, ${backgroundColor} 75%)`};
 `;
 
 export const MenuWrapper = styled.div`
@@ -105,8 +123,8 @@ export const MenuWrapper = styled.div`
   bottom: 160px;
   right: 72px;
   z-index: 100;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
   border-radius: ${spaceBlocks.sm};
+  box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.3);
 `;
 type MenuItemTypes = {
   color: string;
@@ -115,15 +133,20 @@ type MenuItemTypes = {
 export const MenuItem = styled.div<MenuItemTypes>`
   width: 140px;
   height: 120px;
+  cursor: pointer;
   background-color: ${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: center;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
   &:first-child {
     border-radius: ${spaceBlocks.sm} ${spaceBlocks.sm} 0% 0%;
+    border-top: 1px solid grey;
   }
   &:last-child {
     border-radius: 0% 0% ${spaceBlocks.sm} ${spaceBlocks.sm};
+    border-bottom: 1px solid grey;
   }
   &:not(:first-child):not(:last-child) {
     border-top: 1px solid grey;
@@ -135,6 +158,9 @@ export const MenuItem = styled.div<MenuItemTypes>`
     width: auto;
     height: auto;
     max-width: 120px;
+  }
+  &:hover {
+    opacity: 0.95;
   }
 `;
 

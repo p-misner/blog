@@ -28,7 +28,13 @@ import {
   VerticalCopyRightText,
   VerticalStripWrapper,
 } from "../style/scantronStyle";
+import { Reenie_Beanie } from "next/font/google";
 
+const reenieBeenie = Reenie_Beanie({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-reeniebeenie",
+});
 export function Scantron({ zoomAmount, selectMode }: ScantronTypes) {
   const AlphabetArray: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
   const numLetters = 5;
@@ -203,7 +209,7 @@ const NameSubjSection = () => {
       <GreenBorderInfo $width={324}>
         <InputWrapper>
           <InputTitle>Name</InputTitle>
-          <InputInput>
+          <InputInput className={reenieBeenie.className}>
             {" "}
             <input type="text" />
           </InputInput>
@@ -211,13 +217,13 @@ const NameSubjSection = () => {
         <InputWrapper>
           <InputInputWrapper>
             <InputTitle> Subject</InputTitle>
-            <InputInput>
+            <InputInput className={reenieBeenie.className}>
               <input type="text" />
             </InputInput>
           </InputInputWrapper>
           <InputInputWrapper>
             <InputTitle> Test No.</InputTitle>
-            <InputInput>
+            <InputInput className={reenieBeenie.className}>
               <input type="text" />
             </InputInput>
           </InputInputWrapper>
@@ -226,13 +232,13 @@ const NameSubjSection = () => {
         <InputWrapper>
           <InputInputWrapper>
             <InputTitle> Date</InputTitle>
-            <InputInput>
+            <InputInput className={reenieBeenie.className}>
               <input type="text" />
             </InputInput>
           </InputInputWrapper>
           <InputInputWrapper>
             <InputTitle> Period</InputTitle>
-            <InputInput>
+            <InputInput className={reenieBeenie.className}>
               <input type="text" />
             </InputInput>
           </InputInputWrapper>
@@ -249,20 +255,20 @@ const TestRecordSection = () => {
         <GreenTitle>Test Record</GreenTitle>
         <InputWrapper height={22}>
           <TRInputTitle>Part 1</TRInputTitle>
-          <InputInput>
+          <InputInput className={reenieBeenie.className}>
             <input type="text" />
           </InputInput>
         </InputWrapper>
         <InputWrapper height={22}>
           <TRInputTitle>Part 2</TRInputTitle>
-          <InputInput>
+          <InputInput className={reenieBeenie.className}>
             <input type="text" />
           </InputInput>
         </InputWrapper>
 
         <InputWrapper height={26}>
           <TRInputTitle>Total</TRInputTitle>
-          <InputInput>
+          <InputInput className={reenieBeenie.className}>
             <input type="text" />
           </InputInput>
         </InputWrapper>

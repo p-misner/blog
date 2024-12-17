@@ -13,6 +13,8 @@ import {
   ZoomOut,
 } from "./icons";
 import ScantronImg from "../../../../../public/standardizedTest/scantronCover.png";
+import STARImg from "../../../../../public/standardizedTest/STAR.png";
+import SATImg from "../../../../../public/standardizedTest/SAT.png";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -23,19 +25,21 @@ type NavBarTypes = {
   setSelectMode: any;
   setSeed: any;
   setZoomAmount: any;
+  testType: "scantron" | "STAR" | "SAT";
 };
 
 export function NavBar({
   menuOpen,
   setMenuOpen,
-  setSelectMode,
   setSeed,
   zoomAmount,
   setZoomAmount,
+  testType,
 }: NavBarTypes) {
   return (
     <NavWrapper>
       <NavButtonStandard
+        testType={testType}
         symbol="reset"
         text="button1"
         clickEvent={() => {
@@ -44,7 +48,7 @@ export function NavBar({
           setZoomAmount(1);
         }}
       />
-      <NavButtonStandard
+      {/* <NavButtonStandard
         symbol="clickArrow"
         text="button1"
         clickEvent={() => {
@@ -59,8 +63,9 @@ export function NavBar({
           setMenuOpen(false);
           setSelectMode("hover");
         }}
-      />
+      /> */}
       <NavButtonStandard
+        testType={testType}
         symbol="zoomIn"
         text="button1"
         clickEvent={() => {
@@ -69,6 +74,7 @@ export function NavBar({
         }}
       />
       <NavButtonStandard
+        testType={testType}
         symbol="zoomOut"
         text="button1"
         clickEvent={() => {
@@ -78,18 +84,19 @@ export function NavBar({
       />
       <CurvedSpacer direction="left" />
       <TestButtonWrapper
+        $testType={testType}
         onClick={() => {
           setMenuOpen(!menuOpen);
         }}
       >
         <Image
-          src={ScantronImg}
+          src={TestImg(testType)}
           alt="two small scantrons stacked on top of each other"
         />
         {/* Scantron{" "} */}
       </TestButtonWrapper>
 
-      <CurvedSpacer direction="right" />
+      {/* <CurvedSpacer direction="right" />
       <NavButtonStandard
         symbol="share"
         text="button1"
@@ -97,7 +104,7 @@ export function NavBar({
           setMenuOpen(false);
           alert("this doesn't work");
         }}
-      />
+      /> */}
     </NavWrapper>
   );
 }
@@ -112,11 +119,17 @@ type NavButtonType = {
     | "share";
   text: string;
   clickEvent?: any;
+  testType: "scantron" | "STAR" | "SAT";
 };
 
-const NavButtonStandard = ({ symbol, text, clickEvent }: NavButtonType) => {
+const NavButtonStandard = ({
+  symbol,
+  text,
+  clickEvent,
+  testType,
+}: NavButtonType) => {
   return (
-    <NavButtonWrapper onClick={clickEvent}>
+    <NavButtonWrapper onClick={clickEvent} $testType={testType}>
       {" "}
       {iconSwitch({ symbol: symbol })}
     </NavButtonWrapper>
@@ -149,5 +162,16 @@ function iconSwitch({
       return <Share />;
     default:
       return <p> none</p>;
+  }
+}
+
+function TestImg(testType: "scantron" | "SAT" | "STAR") {
+  switch (testType) {
+    case "scantron":
+      return ScantronImg;
+    case "SAT":
+      return SATImg;
+    case "STAR":
+      return STARImg;
   }
 }

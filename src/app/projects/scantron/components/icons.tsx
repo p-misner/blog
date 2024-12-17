@@ -147,8 +147,26 @@ export const Share = ({ width, height, fillColor }: SvgTypes) => {
     >
       <path
         d="M19 11.5C13 11.5 7.5 18 6.5 25C10 21.5 15.5 18.6667 19 19V24L28 15L19 7V11.5Z"
-        fill="#6E6C6C"
+        fill={fillColor}
       />
+    </svg>
+  );
+};
+
+export const Close = ({ width, height, fillColor }: SvgTypes) => {
+  width = width ? width : 32;
+  height = height ? height : 32;
+  fillColor = fillColor ? fillColor : "#6E6C6C";
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 26 26 `}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M1 25L25 0.999999" stroke={fillColor} strokeWidth={2} />
+      <path d="M25 25L1 0.999999" stroke={fillColor} strokeWidth={2} />
     </svg>
   );
 };

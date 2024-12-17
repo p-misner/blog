@@ -64,9 +64,9 @@ const TitleFloatH2 = styled.h2`
   font-family: "Times New Roman", Times, serif;
   font-size: 22px;
   font-style: italic;
-  text-decoration-line: solid underline;
-  text-decoration-thickness: 3px;
-  text-decoration-color: ${DataLiberationColors.yellow};
+  /* text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-decoration-color: ${DataLiberationColors.yellow}; */
   @media screen and (max-width: 720px) {
     font-size: 18px;
   }

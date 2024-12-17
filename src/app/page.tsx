@@ -23,6 +23,7 @@ import testImg from "../../public/coverImages/mapProjectionCover.png";
 import scantronImg from "../../public/coverImages/ScantronCover.png";
 import ccGSAP from "../../public/coverImages/creativecoding_gsap.png";
 import inmateCover from "../../public/coverImages/InmateDeaths.png";
+import mapDesignerCover from "../../public/coverImages/MapDesigner_CoverPhoto.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -42,6 +43,27 @@ export default function Home() {
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
 
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec 14, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="https://www.figma.com/community/plugin/1450656859179241046/map-designer">
+                Map Designer: A Figma Plug In
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              Designing and coding a Figma Plug In that makes creating and
+              tweaking maps within Figma faster and easier. Created using d3-geo
+              and javascript, Map Designer simplifies the process of creating
+              data-driven maps directly in Figma.
+            </Subtitle>
+            <ImageWrapper>
+              <Image
+                src={mapDesignerCover}
+                alt="a  bar chart with a date range from 2005 to 2024 "
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 9, 2024</Date>
             <Title color={theme.colorPicked}>
@@ -81,7 +103,7 @@ export default function Home() {
             </ImageWrapper>
           </BlogPostWrapper>
 
-          <BlogPostWrapper color={theme.colorPicked}>
+          {/* <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 3rd, 2024</Date>
             <Title color={theme.colorPicked}>
               <a href="/projects/colorspace">Color Spaces</a>
@@ -90,7 +112,7 @@ export default function Home() {
             <Subtitle>
               🚧🚧Work in Progress 🚧🚧An exploration into color pickers
             </Subtitle>
-          </BlogPostWrapper>
+          </BlogPostWrapper> */}
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 15, 2024</Date>
             <Title color={theme.colorPicked}>
@@ -106,7 +128,7 @@ export default function Home() {
               <Image src={scantronImg} alt="picture of scantron on desk" />
             </ImageWrapper>
           </BlogPostWrapper>
-          <BlogPostWrapper color={theme.colorPicked}>
+          {/* <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 14, 2024</Date>
             <Title color={theme.colorPicked}>
               <a href="/blogposts/creativecoding">Creative Coding: Week 1</a>
@@ -119,7 +141,7 @@ export default function Home() {
               canvas and maybe will try dabbling with doing the exercises using
               three.js as time goes on.
             </Subtitle>
-          </BlogPostWrapper>
+          </BlogPostWrapper> */}
 
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 11, 2024</Date>

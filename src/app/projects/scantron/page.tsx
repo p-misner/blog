@@ -10,6 +10,10 @@ import { Scantron } from "./components/scantron";
 import { NavBar } from "./components/navigation";
 import { useEffect, useState } from "react";
 import { MenuItem, MenuLabel, MenuWrapper } from "./style/navStyle";
+import { PopUpMessage } from "./components/popUpMessage";
+import { STARTest } from "./components/starTest";
+import { TestColor } from "./utils/utils";
+import { SATTest } from "./components/satTest";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,6 +23,7 @@ export default function Home() {
   const [selectMode, setSelectMode] = useState<"click" | "hover">("click");
   const [zoomAmount, setZoomAmount] = useState(1);
   const [seed, setSeed] = useState(1);
+  const [testData, setTestData] = useState({});
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -58,7 +63,12 @@ export default function Home() {
         alt="texture of school desk"
       />
 
-      <Scantron key={seed} zoomAmount={zoomAmount} selectMode={selectMode} />
+      {testType == "scantron" && (
+        <Scantron key={seed} zoomAmount={zoomAmount} selectMode={selectMode} />
+      )}
+      {testType == "STAR" && <STARTest key={seed} zoomAmount={zoomAmount} />}
+      {testType == "SAT" && <SATTest key={seed} zoomAmount={zoomAmount} />}
+
       <NavBar
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
@@ -66,12 +76,17 @@ export default function Home() {
         setSeed={setSeed}
         setZoomAmount={setZoomAmount}
         zoomAmount={zoomAmount}
+        testType={testType}
       />
+      <PopUpMessage testType={testType} />
 
       {menuOpen && (
         <MenuWrapper>
           <MenuItem
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setTestType("scantron");
+              setMenuOpen(false);
+            }}
             color={
               testType == "scantron"
                 ? TestColor({ testType: testType })
@@ -88,7 +103,10 @@ export default function Home() {
             </MenuLabel>
           </MenuItem>
           <MenuItem
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setTestType("STAR");
+              setMenuOpen(false);
+            }}
             color={
               testType == "STAR" ? TestColor({ testType: testType }) : "white"
             }
@@ -102,7 +120,10 @@ export default function Home() {
           </MenuItem>
 
           <MenuItem
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setTestType("SAT");
+              setMenuOpen(false);
+            }}
             color={
               testType == "SAT" ? TestColor({ testType: testType }) : "white"
             }
@@ -118,17 +139,4 @@ export default function Home() {
       )}
     </BackgroundWrapper>
   );
-}
-
-function TestColor({ testType }: { testType: "scantron" | "SAT" | "STAR" }) {
-  switch (testType) {
-    case "scantron":
-      return "#007639";
-    case "SAT":
-      return "#F291E5";
-    case "STAR":
-      return "#6166B1";
-    default:
-      return "white";
-  }
 }

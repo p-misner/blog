@@ -2,12 +2,12 @@ import { fontSize, fontWeight, spaceBlocks } from "@/app/style/styleConstants";
 import styled from "styled-components";
 
 const greenColor = "#049B73";
-
+const whiteColor = "#F4F1ED";
 type ButtonProps = {
   $clicked: boolean;
 };
 export const ButtonWrapper = styled.button<ButtonProps>`
-  background-color: ${(props) => (props.$clicked ? "#010f0a" : "white")};
+  background-color: ${(props) => (props.$clicked ? "#010f0a" : whiteColor)};
   border: 1px solid ${greenColor};
   height: 8px;
   display: flex;
@@ -21,7 +21,8 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   color: ${greenColor};
   font-size: ${fontSize.xxs};
   font-weight: ${fontWeight.bold};
-  text-shadow: 0px 2px #fff, 0px -2px #fff, 2px 0px #fff, -2px 0px #fff;
+  text-shadow: 0px 2px ${whiteColor}, 0px -2px ${whiteColor},
+    2px 0px ${whiteColor}, -2px 0px ${whiteColor};
   text-transform: uppercase;
   width: 28px;
 `;
@@ -86,7 +87,7 @@ export const ScantronWrapper = styled.div<ScantronTypes>`
   width: 464px;
   height: 1280px;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.98);
+  background-color: ${whiteColor};
   z-index: 50;
   top: 10px;
   transform: scale(${(props) => props.zoomAmount});
@@ -109,7 +110,7 @@ export const GreenTitle = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${greenColor};
-  color: white;
+  color: ${whiteColor};
   text-align: center;
   text-transform: uppercase;
   &:first-child {
@@ -247,8 +248,6 @@ export const InputWrapper = styled.div<InputWrapperType>`
   flex-direction: row;
   flex-wrap: nowrap;
   height: ${(props) => (props.height ? `${props.height}px` : "30px")};
-  /* background-color: ${greenColor};
-  border-radius: 8px; */
 
   &:first-child div {
     border-radius: 10px 0px 0px 0px;
@@ -283,8 +282,8 @@ export const InputTitle = styled.div`
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.xs};
   padding-left: 8px;
-  color: white;
-  border-bottom: 1px solid white;
+  color: ${whiteColor};
+  border-bottom: 1px solid ${whiteColor};
   border-radius: 0px;
 `;
 export const InputInput = styled.div`
@@ -293,20 +292,21 @@ export const InputInput = styled.div`
   border-bottom: 1px solid ${greenColor};
 
   input {
-    border: 0px solid white;
+    border: 0px solid ${whiteColor};
     width: 100%;
     border-radius: 8px;
-    font-family: cursive;
+    font-family: var(--font-reeniebeenie), cursive;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 22px;
     border-radius: 0px;
     margin-left: 8px;
+    background-color: ${whiteColor};
   }
   input:focus {
     background-color: none;
     border-color: none;
     outline: 0;
   }
-
-  /* background-color: red; */
 `;
 
 export const TestRecordPosition = styled.div`
@@ -323,7 +323,7 @@ export const TRInputTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: ${whiteColor};
   text-transform: uppercase;
   font-weight: ${fontWeight.regular};
   font-size: ${fontSize.xs};
