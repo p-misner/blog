@@ -1,45 +1,52 @@
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import {
   ColorPickerWrapper,
   ColorSquare,
+  ColorSquareWrapper,
   RowLayout,
 } from "../style/colorSpaceStyle";
-import {
-  InInputLabel,
-  InputWrapper,
-  NumberInput,
-  OutsideInputLabel,
-} from "../style/InputsStyle";
+import { LabelInput } from "./Inputs";
 
 export const ColorPicker = ({
   colors,
   colorIndex,
   setColors,
+
+  openModal,
+  setOpenModal,
 }: {
   colors: { r: number; g: number; b: number }[];
   colorIndex: number;
   setColors: any;
+  openModal: { num: number; open: boolean };
+  setOpenModal: any;
 }) => {
-  const [openModal, setOpenModal] = useState(false);
   const ColorInputRef = useRef<HTMLDivElement>(null);
 
   let parentPosition = ColorInputRef?.current?.getBoundingClientRect();
+  const width = 256;
 
   return (
-    <div>
+    <ColorSquareWrapper>
       <ColorSquare
-        onClick={() => setOpenModal(!openModal)}
+        onClick={() => {
+          setOpenModal({
+            num: colorIndex,
+            open: openModal.num == colorIndex ? !openModal.open : true,
+          });
+        }}
         ref={ColorInputRef}
         color={colors[colorIndex]}
       />
-      {openModal && (
+      {openModal.num == colorIndex && openModal.open && (
         <ColorPickerModal
           parentPosition={parentPosition}
           colors={colors}
           colorIndex={colorIndex}
+          width={width}
         />
       )}
-    </div>
+    </ColorSquareWrapper>
   );
 };
 
@@ -47,13 +54,16 @@ const ColorPickerModal = ({
   parentPosition,
   colors,
   colorIndex,
+  width,
 }: {
   parentPosition: any;
   colors: { r: number; g: number; b: number }[];
   colorIndex: number;
+  width: number;
 }) => {
   return (
-    <ColorPickerWrapper $parentPosition={parentPosition}>
+    <ColorPickerWrapper width={width} $parentPosition={parentPosition}>
+      <ColorCanvas width={width} />
       <RowLayout>
         <LabelInput
           insideLabel="R"
@@ -81,143 +91,44 @@ const ColorPickerModal = ({
   );
 };
 
-/**
- * Allow for label in a couple locations above or on line
- * Allow for an in-input symbol/label
- *
- */
-
-type LabelInputType = {
-  label?: string;
-  insideLabel?: string;
-  labelType: "number" | "text";
-  min?: number;
-  max?: number;
-  step?: number;
-  defaultValue?: number | string;
-  onChange?: any;
-};
-const LabelInput = ({
-  label,
-  insideLabel,
-  labelType,
-  defaultValue,
-  min,
-  max,
-  step,
-  onChange,
-}: // onBlur,
-LabelInputType) => {
-  const InInputLabelLength = useRef<HTMLParagraphElement>(null);
-  const [boundingRect, setBoundingRect] = useState<DOMRect>();
-  const isDown = useRef<boolean>(false);
-  const [value, setValue] = useState(
-    parseDefaultValue({
-      defaultValue: defaultValue ? defaultValue : "",
-      labelType: labelType,
-    })
-  );
-
-  const handleMouseMove = (e: MouseEvent): void => {
-    e.preventDefault();
-    // console.log("mousemove", e);
-
-    // if (isDown.current) {
-    //   let distanceMoved = boundingRect && boundingRect?.left - e.clientX;
-    //   setValue(
-    //     validateValue({
-    //       min: min,
-    //       max: max,
-    //       labelType: "number",
-    //       value: parseFloat(value) - boundingRect?.left + e.clientX,
-    //     })
-    //   );
-    // }
-  };
-  const handleMouseDown = (
-    e: React.MouseEvent<HTMLDivElement> | MouseEvent
-  ): void => {
-    isDown.current = true;
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-  };
-
-  const handleMouseUp = (): void => {
-    isDown.current = false;
-
-    window.removeEventListener("mouseup", handleMouseUp);
-    window.removeEventListener("mousemove", handleMouseMove);
-  };
+const ColorCanvas = ({ width }: { width: number }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    InInputLabelLength.current &&
-      setBoundingRect(InInputLabelLength.current.getBoundingClientRect());
-  }, [InInputLabelLength.current]);
+    // This effect runs after the component renders
+    if (canvasRef.current) {
+      const ctx = canvasRef.current.getContext("2d");
+      if (ctx) {
+        let gradient = ctx.createLinearGradient(0, 0, width, 0);
+        // Add left -->right color stops
+        gradient.addColorStop(0, "white");
+        gradient.addColorStop(1, "red");
+
+        // Set the fill style and draw a rectangle
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, 200);
+        gradient = ctx.createLinearGradient(0, 0, 0, width);
+        // Add left -->right color stops
+        gradient.addColorStop(0, "rgba(255,255,255,0)");
+        gradient.addColorStop(1, "black");
+
+        // Set the fill style and draw a rectangle
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, 200);
+
+        // let colorEllipse =
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+    }
+  }, []); // Empty dependency array ensures this effect runs only once
+
+  // Render the canvas and the color code
   return (
-    <div>
-      <OutsideInputLabel> {label ? label : ""}</OutsideInputLabel>
-      <InputWrapper>
-        {/* <InInputLabel
-          boundingRect={boundingRect}
-          // height={labelLength ? labelLength.height : 0}
-          ref={InInputLabelLength}
-          onMouseDown={(e) => handleMouseDown(e)}
-        >
-          {insideLabel ? insideLabel : ""}
-        </InInputLabel>
-        <NumberInput
-          boundingRect={boundingRect}
-          type={labelType}
-          min={min ? min : ""}
-          max={min ? max : ""}
-          step={min ? step : ""}
-          onChange={(e) => setValue(e.target.value)}
-          onBlur={(e) =>
-            setValue(
-              validateValue({
-                value: e.target.value,
-                min: min,
-                max: max,
-                labelType: "number",
-              })
-            )
-          }
-          value={value}
-        /> */}
-      </InputWrapper>
+    <div className="color-picker">
+      <canvas ref={canvasRef} height={200} width={width} />
     </div>
   );
 };
-
-function parseDefaultValue({
-  defaultValue,
-  labelType,
-}: {
-  defaultValue?: number | string;
-  labelType: string;
-}) {
-  if (labelType == "number") {
-    return defaultValue ? defaultValue : 0;
-  } else {
-    return defaultValue ? defaultValue : "";
-  }
-}
-
-function validateValue({
-  min,
-  max,
-  value,
-  labelType,
-}: {
-  min?: number;
-  max?: number;
-  value: number | string;
-  labelType: "number" | "text";
-}) {
-  if (labelType == "number") {
-    // let val = parseFloat(value);
-    // if (typeof max !== "undefined" && val >= max) return max;
-    // else if (typeof min !== "undefined" && val <= min) return min;
-  }
-  return value;
-}

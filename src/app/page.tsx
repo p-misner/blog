@@ -46,16 +46,21 @@ export default function Home() {
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 14, 2024</Date>
             <Title color={theme.colorPicked}>
-              <a href="https://www.figma.com/community/plugin/1450656859179241046/map-designer">
-                Map Designer: A Figma Plug In
-              </a>
-              <span> →</span>
+              {/* <a href="https://www.figma.com/community/plugin/1450656859179241046/map-designer"> */}
+              {/* <a href="/" > */}
+              Map Designer: A Figma Plug In
+              {/* </a> */}
+              {/* <span> →</span> */}
             </Title>
             <Subtitle>
               Designing and coding a Figma Plug In that makes creating and
               tweaking maps within Figma faster and easier. Created using d3-geo
               and javascript, Map Designer simplifies the process of creating
               data-driven maps directly in Figma.
+            </Subtitle>
+            <Subtitle>
+              Note: The plug in is currently under review by the Figma team,
+              links will update once approved
             </Subtitle>
             <ImageWrapper>
               <Image
@@ -103,7 +108,7 @@ export default function Home() {
             </ImageWrapper>
           </BlogPostWrapper>
 
-          {/* <BlogPostWrapper color={theme.colorPicked}>
+          <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 3rd, 2024</Date>
             <Title color={theme.colorPicked}>
               <a href="/projects/colorspace">Color Spaces</a>
@@ -112,7 +117,7 @@ export default function Home() {
             <Subtitle>
               🚧🚧Work in Progress 🚧🚧An exploration into color pickers
             </Subtitle>
-          </BlogPostWrapper> */}
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 15, 2024</Date>
             <Title color={theme.colorPicked}>

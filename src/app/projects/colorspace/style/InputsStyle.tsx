@@ -13,13 +13,15 @@ export const OutsideInputLabel = styled.label`
   font-weight: 400;
 `;
 type InputType = {
-  boundRect: DOMRect | undefined;
+  $boundingrect: DOMRect | undefined;
 };
 export const InInputLabel = styled.p<InputType>`
   font-size: 14px;
   position: absolute;
   top: ${(props) =>
-    props.boundRect ? `${(1 * props.boundRect.height) / 2}px` : "0px"};
+    props.$boundingrect
+      ? `${(1 * props.$boundingrect.height) / 2 - 1}px`
+      : "0px"};
   left: 8px;
   font-weight: 600;
   opacity: 0.5;
@@ -29,15 +31,14 @@ export const InInputLabel = styled.p<InputType>`
 `;
 
 export const NumberInput = styled.input<InputType>`
-  padding-left: ${(props) =>
-    props.boundRect ? `${props.boundRect.width + 12}px` : "0px"} !important;
-  padding-right: 4px !important;
-  /* padding-left: 50px !important; */
+  padding-left: ${(props) => {
+    return props.$boundingrect ? `${props.$boundingrect.width + 12}px` : "0px";
+  }};
+  padding-right: 4px;
   height: 20px;
   border: 1px solid #b1b1b1;
   border-radius: 4px;
-  padding: 2px;
-  width: 64px;
+  width: 40px;
   background-color: rgba(255, 255, 255, 0.3);
   /* Chrome, Safari, Edge, Opera */
   &::-webkit-inner-spin-button {

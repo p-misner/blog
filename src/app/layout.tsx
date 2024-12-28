@@ -7,7 +7,8 @@ import PageHeader from "./components/header";
 import ThemeProvider from "./components/providers";
 import { ControlPanelWrapper } from "./style/controlStyle";
 import ColorPickerComponent from "./components/colorcontrols";
-import GoogleAnalytics from "./components/googleAnalytics";
+// import GoogleAnalytics from "./components/googleAnalytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Priya's Blog",
@@ -31,7 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body className={leaguespartan.className}>
-        <GoogleAnalytics />
+        <GoogleAnalytics gaId="G-T8BXEV93S0" />
         <ThemeProvider>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </ThemeProvider>
