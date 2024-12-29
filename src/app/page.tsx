@@ -24,6 +24,7 @@ import scantronImg from "../../public/coverImages/ScantronCover.png";
 import ccGSAP from "../../public/coverImages/creativecoding_gsap.png";
 import inmateCover from "../../public/coverImages/InmateDeaths.png";
 import mapDesignerCover from "../../public/coverImages/MapDesigner_CoverPhoto.png";
+import colorSpacesCover from "../../public/coverImages/colorspaces_wip.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -58,10 +59,7 @@ export default function Home() {
               and javascript, Map Designer simplifies the process of creating
               data-driven maps directly in Figma.
             </Subtitle>
-            <Subtitle>
-              Note: The plug in is currently under review by the Figma team,
-              links will update once approved
-            </Subtitle>
+
             <ImageWrapper>
               <Image
                 src={mapDesignerCover}
@@ -111,12 +109,19 @@ export default function Home() {
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 3rd, 2024</Date>
             <Title color={theme.colorPicked}>
-              <a href="/projects/colorspace">Color Spaces</a>
+              <a href="/projects/colorspace">🚧 Color Spaces 🚧</a>
               <span> →</span>
             </Title>
             <Subtitle>
-              🚧🚧Work in Progress 🚧🚧An exploration into color pickers
+              Still a work in progress, this is an exploration into color
+              pickers and color gamuts
             </Subtitle>
+            <ImageWrapper>
+              <Image
+                src={colorSpacesCover}
+                alt="a background of a blue rectangle with dark blue edges has the words of 5 months falling down "
+              />
+            </ImageWrapper>
           </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>November 15, 2024</Date>
