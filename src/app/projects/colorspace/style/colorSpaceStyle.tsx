@@ -1,188 +1,6 @@
 import { keyframes } from "styled-components";
 import styled from "styled-components";
 
-const breatheAnimation = ($colors: {
-  r: number;
-  g: number;
-  b: number;
-}) => keyframes`
- 0% {
-    background: radial-gradient(
-      ellipse at -10%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  10% {
-    background: radial-gradient(
-      ellipse at -5%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  20% {
-    background: radial-gradient(
-      ellipse at 0%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  30% {
-    background: radial-gradient(
-      ellipse at 5%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  40% {
-    background: radial-gradient(
-      ellipse at 10%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  50% {
-    background: radial-gradient(
-      ellipse at 15%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  60% {
-    background: radial-gradient(
-      ellipse at 10%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  70% {
-    background: radial-gradient(
-      ellipse at 5%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 5%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  80% {
-    background: radial-gradient(
-      ellipse at 0%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  90% {
-    background: radial-gradient(
-      ellipse at -5%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-  100% {
-    background: radial-gradient(
-      ellipse at -10%,
-      ${`rgb(${$colors[0].r},${$colors[0].g},${$colors[0].b})`},
-      transparent
-    ),
-    radial-gradient(
-      ellipse at 80%,
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`},
-      ${`rgb(${$colors[$colors.length - 1].r},${
-        $colors[$colors.length - 1].g
-      },${$colors[$colors.length - 1].b})`}
-    )
-  }
-`;
 type PageWrapperType = {
   $colors: { r: number; g: number; b: number }[];
 };
@@ -192,27 +10,23 @@ export const PageWrapper = styled.div<PageWrapperType>`
   background: ${(props) => props.$colors[0]}; /* fallback for old browsers */
   position: relative;
   /* Chrome 10-25, Safari 5.1-6 */
-  /* background: radial-gradient(
+  background: radial-gradient(
       ellipse at -10%,
       ${(props) =>
-    `rgb(${props.$colors[0].r},${props.$colors[0].g},${props.$colors[0].b})`},
+        `rgb(${props.$colors[0].r},${props.$colors[0].g},${props.$colors[0].b})`},
       transparent
     ),
     radial-gradient(
       ellipse at 80%,
       ${(props) =>
-    `rgb(${props.$colors[props.$colors.length - 1].r},${
-      props.$colors[props.$colors.length - 1].g
-    },${props.$colors[props.$colors.length - 1].b})`},
+        `rgb(${props.$colors[props.$colors.length - 1].r},${
+          props.$colors[props.$colors.length - 1].g
+        },${props.$colors[props.$colors.length - 1].b})`},
       ${(props) =>
-    `rgb(${props.$colors[props.$colors.length - 1].r},${
-      props.$colors[props.$colors.length - 1].g
-    },${props.$colors[props.$colors.length - 1].b})`}
-    ); */
-  animation-name: ${(props) => breatheAnimation(props.$colors)};
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+        `rgb(${props.$colors[props.$colors.length - 1].r},${
+          props.$colors[props.$colors.length - 1].g
+        },${props.$colors[props.$colors.length - 1].b})`}
+    );
 `;
 
 export const ColorControls = styled.div`
