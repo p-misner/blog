@@ -46,11 +46,11 @@ export default function Home() {
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 14, 2024</Date>
             <Title color={theme.colorPicked}>
-              {/* <a href="https://www.figma.com/community/plugin/1450656859179241046/map-designer"> */}
-              {/* <a href="/" > */}
-              Map Designer: A Figma Plug In
-              {/* </a> */}
-              {/* <span> →</span> */}
+              <a href="https://www.figma.com/community/plugin/1450656859179241046/map-designer">
+                {/* <a href="/" > */}
+                Map Designer: A Figma Plug In
+              </a>
+              <span> →</span>
             </Title>
             <Subtitle>
               Designing and coding a Figma Plug In that makes creating and

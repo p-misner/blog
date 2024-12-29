@@ -20,7 +20,7 @@ type LabelInputType = {
   max?: number;
   step?: number;
   defaultValue?: number | string;
-  onChange?: any;
+  onChangeCallback?: any;
 };
 export const LabelInput = ({
   label,
@@ -30,7 +30,7 @@ export const LabelInput = ({
   min,
   max,
   step,
-  onChange,
+  onChangeCallback,
 }: // onBlur,
 LabelInputType) => {
   const InInputLabelLength = useRef<HTMLParagraphElement>(null);
@@ -46,7 +46,7 @@ LabelInputType) => {
     e.preventDefault();
 
     if (isDown.current) {
-      setValue(
+      onChangeCallback(
         validateValue({
           min: min,
           max: max,
@@ -97,18 +97,20 @@ LabelInputType) => {
           min={min ? min : ""}
           max={min ? max : ""}
           step={min ? step : ""}
-          onChange={(e) => setValue(e.target.value)}
-          onBlur={(e) =>
-            setValue(
+          onChange={(e) => {
+            onChangeCallback(e.target.value);
+          }}
+          onBlur={(e) => {
+            onChangeCallback(
               validateValue({
                 value: e.target.value,
                 min: min,
                 max: max,
                 labelType: "number",
               })
-            )
-          }
-          value={value}
+            );
+          }}
+          value={defaultValue}
         />
       </InputWrapper>
     </div>
