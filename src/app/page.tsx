@@ -25,6 +25,7 @@ import ccGSAP from "../../public/coverImages/creativecoding_gsap.png";
 import inmateCover from "../../public/coverImages/InmateDeaths.png";
 import mapDesignerCover from "../../public/coverImages/MapDesigner_CoverPhoto.png";
 import colorSpacesCover from "../../public/coverImages/colorspaces_wip.png";
+import calendarCover from "../../public/coverImages/DataVizChallengeCalendarCover.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -43,6 +44,32 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec 29th, 2024</Date>
+            <Title color={theme.colorPicked}>
+              <a href="./projects/datachallengecalendar">
+                {/* <a href="/" > */}
+                Data Challenge Calendar
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              One of my 2025 New Year's resolution is to build more data
+              visualizations and more importantly, get comfortable with sharing
+              my work publicly. To that end, there are many great challenges and
+              competitions related to data and data viz on Twitter/ Bluesky but
+              I was having difficulty keeping track of everything- so I made a
+              calendar to keep tabs on everything that strikes my fancy.
+            </Subtitle>
+
+            <ImageWrapper>
+              <Image
+                src={calendarCover}
+                alt="a calendar in month view showing Januart 2025 and multiple events in blue, dark blue and purple "
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
 
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 14, 2024</Date>

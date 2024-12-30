@@ -97,6 +97,10 @@ export const TopSpacer = styled.div`
   height: 96px;
   grid-column: 1 / span 12;
 `;
+export const Spacer = styled.div<{ spaceAmount?: number }>`
+  height: ${(props) => (props.spaceAmount ? `${props.spaceAmount}px` : "24px")};
+  grid-column: 1 / span 12;
+`;
 export const Date = styled.h3`
   opacity: 0.6;
   font-weight: ${fontWeight.light};

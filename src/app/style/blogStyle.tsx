@@ -21,6 +21,17 @@ export const BlogBody = styled.p`
   line-height: ${lineHeight.spread};
   margin-bottom: ${spaceBlocks.sm};
 `;
+export const BlogList = styled.ul`
+  list-style-type: disc;
+  grid-column: 3 / span 8;
+  margin: ${spaceBlocks.xs} 0px ${spaceBlocks.xs} ${spaceBlocks.lg};
+`;
+export const BlogListItem = styled.li`
+  font-size: ${fontSize.sm};
+  font-weight: ${fontWeight.light};
+  line-height: ${lineHeight.spread};
+  margin-bottom: ${spaceBlocks.xs};
+`;
 export const BlogSectionHeader = styled.h4`
   font-size: ${fontSize.md};
   grid-column: 3 / span 8;
