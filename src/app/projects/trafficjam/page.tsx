@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Car1, Car2, Car3, returnRandomCar } from "./components/carAnimations";
+import { returnRandomCar } from "./components/carAnimations";
 import {
   CloudSVGWrapper,
   CloudWrapper,

@@ -3,6 +3,7 @@ import { animationProps, cloudmove, hillmove, tirerotate } from "./animations";
 
 export const AddTrafficBtn = styled.button`
   position: absolute;
+  z-index: 100;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -18,7 +19,7 @@ export const HillSVGWrapper = styled.svg<animationProps>`
       $animationWidth: props.$animationWidth,
       $topMargin: props.$topMargin,
     })};
-  animation-duration: 150s;
+  animation-duration: 80s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   width: 800px;
@@ -27,7 +28,7 @@ export const HillSVGWrapper = styled.svg<animationProps>`
 
   path {
     stroke: #424242;
-    fill: #777575;
+    fill: black;
   }
   @media screen and (min-width: 1000px) {
     width: 1200px;
@@ -49,14 +50,14 @@ export const CloudSVGWrapper = styled.svg<animationProps>`
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   path {
-    stroke: #ababab;
-    fill: #c0c0c0;
+    stroke: #a3a3a3;
+    fill: #fafafa;
   }
 `;
 
 export const PageWrapper = styled.div`
   width: 100vw;
-  background-color: gainsboro;
+  background-color: white;
   min-height: 100vh;
   overflow-x: hidden;
 `;
@@ -102,14 +103,20 @@ export const CarSVG = styled.svg`
   width: 100%;
   max-width: 200px;
   height: auto;
-  :nth-child(2) {
-    stroke-dasharray: 6 2;
+  g {
+    background-color: red;
+    /* stroke-dasharray: 6 2;
     transform-origin: 38px 79px;
-    animation: ${tirerotate} 18s linear infinite;
+    animation: ${tirerotate} 18s linear infinite; */
   }
   :nth-child(3) {
     stroke-dasharray: 6 2;
     transform-origin: 136px 79px;
     animation: ${tirerotate} 18s linear infinite;
   }
+`;
+
+export const Wheel = styled.g<{ transformOrigin: string }>`
+  transform-origin: ${(props) => props.transformOrigin};
+  animation: ${tirerotate} 2s linear infinite;
 `;
