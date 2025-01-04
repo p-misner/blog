@@ -121,7 +121,7 @@ export const MenuWrapper = styled.div`
   justify-content: center;
   position: fixed;
   bottom: 160px;
-  right: 72px;
+  right: 20px;
   z-index: 100;
   border-radius: ${spaceBlocks.sm};
   box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.3);

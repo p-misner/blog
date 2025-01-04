@@ -12,7 +12,6 @@ import { dataCategories } from "./data/dataCategories";
 import { TitleFloat } from "./components/TitleFloat";
 import { HeroText } from "./components/HeroText";
 import { Controls } from "./components/Controls";
-import useScreenSize from "../mapprojection/utils/screenSize";
 
 export type HighlightCategoryType = {
   selection: string;

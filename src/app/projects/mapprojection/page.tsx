@@ -12,7 +12,7 @@ import {
   TitleTextWrapper,
 } from "./style/globeStyle";
 import { data } from "./data/worldmap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useScreenSize from "./utils/screenSize";
 import { Dropdown } from "./components/dropdown";
 

@@ -6,7 +6,6 @@ import {
   RowLayout,
 } from "../style/colorSpaceStyle";
 import { LabelInput } from "./Inputs";
-import { SketchPicker } from "react-color";
 export const ColorPicker = ({
   colors,
   colorIndex,
@@ -71,10 +70,7 @@ const ColorPickerModal = ({
         width={width}
         setColors={setColors}
       />
-      {/* <SketchPicker
-        color={colors[colorIndex]}
-        onChangeComplete={(e) => console.log(e)}
-      /> */}
+
       <HueGradientCanvas
         width={width}
         colors={colors}
