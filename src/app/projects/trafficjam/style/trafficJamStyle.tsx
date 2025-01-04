@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { animationProps, cloudmove, hillmove, tirerotate } from "./animations";
+import {
+  animationProps,
+  bodybounce,
+  cloudmove,
+  hillmove,
+  tirerotate,
+} from "./animations";
 
 export const AddTrafficBtn = styled.button`
   position: absolute;
@@ -7,6 +13,8 @@ export const AddTrafficBtn = styled.button`
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 24px;
+  cursor: pointer;
 `;
 
 export const HillSVGWrapper = styled.svg<animationProps>`
@@ -108,4 +116,9 @@ export const CarSVG = styled.svg`
 export const Wheel = styled.g<{ transformOrigin: string }>`
   transform-origin: ${(props) => props.transformOrigin};
   animation: ${tirerotate} 2s linear infinite;
+`;
+
+export const CarBody = styled.g`
+  transform-origin: center;
+  animation: ${bodybounce} 2s linear infinite;
 `;

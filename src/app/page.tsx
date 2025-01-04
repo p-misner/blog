@@ -26,6 +26,7 @@ import inmateCover from "../../public/coverImages/InmateDeaths.png";
 import mapDesignerCover from "../../public/coverImages/MapDesigner_CoverPhoto.png";
 import colorSpacesCover from "../../public/coverImages/colorspaces_wip.png";
 import calendarCover from "../../public/coverImages/DataVizChallengeCalendarCover.png";
+import trafficJamCover from "../../public/coverImages/trafficJamCover.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -45,6 +46,27 @@ export default function Home() {
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
 
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Jan 4th, 2025</Date>
+            <Title color={theme.colorPicked}>
+              <a href="./projects/trafficjam">
+                {/* <a href="/" > */}
+                Traffic Jam: SVG Animation
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              Dipping my toes into the world of SVG animations, I created a
+              generative traffic jam simulation.
+            </Subtitle>
+
+            <ImageWrapper>
+              <Image
+                src={trafficJamCover}
+                alt="a series of red, blue and grey cars driving along a ride with black mountains in the background"
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 29th, 2024</Date>
             <Title color={theme.colorPicked}>

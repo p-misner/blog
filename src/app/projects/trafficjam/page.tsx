@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { returnRandomCar } from "./components/carAnimations";
 import {
   CloudSVGWrapper,
@@ -23,6 +23,7 @@ export default function TrafficJam() {
   return (
     <PageWrapper>
       <AddTrafficBtn
+        disabled={carGrid.filter((x) => x != null).length == 20 ? true : false}
         onClick={() =>
           addNewCar({
             carGrid: [...carGrid],
@@ -31,17 +32,22 @@ export default function TrafficJam() {
           })
         }
       >
-        {" "}
-        + Add Car
+        {carGrid.filter((x) => x != null).length == 20
+          ? "Traffic Jam!"
+          : "+ Add Car"}
       </AddTrafficBtn>
+
       <CloudWrapper>
         {/* Random number of clouds generated between 2 and 10 every rerender */}
-        {Array.from(Array(Math.floor(Math.random() * 8) + 2).keys()).map(
-          (x) => (
-            <CloudGenerator key={x} />
-          )
+        {useMemo(
+          () =>
+            Array.from(Array(Math.floor(Math.random() * 8) + 2).keys()).map(
+              (x) => <CloudGenerator key={x} />
+            ),
+          []
         )}
       </CloudWrapper>
+
       <HillsWrapper>
         <HillGenerator
           startPos={50}
@@ -64,6 +70,7 @@ export default function TrafficJam() {
           numCars={carGrid.filter((x) => x != null).length}
         />
       </HillsWrapper>
+
       <RoadLaneWrapperGrid>
         {carGrid.map((x, i) => (
           <GridItem key={i}> {x == null ? "" : x}</GridItem>

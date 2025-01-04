@@ -96,3 +96,12 @@ export const tirerotate = keyframes`
     0%{ transform:rotate(0deg)}
     100%{transform: rotate(-360deg)}
 `;
+export const bodybounce = keyframes`
+    0%{ transform:translate(0px, 0px);transform: rotate(1.5deg) }
+    25%{transform: translate(0px, -12px)}
+    50%{transform: translate(0px,0px);transform: rotate(-.5deg)}
+    75%{transform: translate(0px, -20px)}
+
+    100%{ transform:translate(0px, 0px);transform: rotate(1.5deg) }
+
+`;
