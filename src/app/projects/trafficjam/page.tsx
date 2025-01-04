@@ -43,10 +43,26 @@ export default function TrafficJam() {
         )}
       </CloudWrapper>
       <HillsWrapper>
-        <HillGenerator startPos={50} topMargin={0} />
-        <HillGenerator startPos={100} topMargin={20} />
-        <HillGenerator startPos={200} topMargin={5} />
-        <HillGenerator startPos={150} topMargin={10} />
+        <HillGenerator
+          startPos={50}
+          topMargin={0}
+          numCars={carGrid.filter((x) => x != null).length}
+        />
+        <HillGenerator
+          startPos={100}
+          topMargin={20}
+          numCars={carGrid.filter((x) => x != null).length}
+        />
+        <HillGenerator
+          startPos={200}
+          topMargin={5}
+          numCars={carGrid.filter((x) => x != null).length}
+        />
+        <HillGenerator
+          startPos={150}
+          topMargin={10}
+          numCars={carGrid.filter((x) => x != null).length}
+        />
       </HillsWrapper>
       <RoadLaneWrapperGrid>
         {carGrid.map((x, i) => (
@@ -152,19 +168,21 @@ const CloudGenerator = () => {
 const HillGenerator = ({
   startPos,
   topMargin,
+  numCars,
 }: {
   startPos: number;
   topMargin: number;
+  numCars: number;
 }) => {
   const animationWidth = 200;
   const animationStartPoint = startPos;
-
   return (
     <HillSVGWrapper
       viewBox="0 0 1230 220"
       $animationStartPoint={animationStartPoint}
       $animationWidth={animationWidth}
       $topMargin={topMargin}
+      $speed={numCars * 2}
     >
       <path d="M1227.42 214.385L1231.5 217H1L169.5 132.535C323 93.0346 657.9 11.5346 769.5 1.5346C879.686 -8.33866 1119.65 145.361 1227.42 214.385Z" />
     </HillSVGWrapper>

@@ -4,6 +4,7 @@ export type animationProps = {
   $topMargin: number;
   $animationStartPoint: number;
   $animationWidth: number;
+  $speed?: number;
 };
 
 function returnPercent(

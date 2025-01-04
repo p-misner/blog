@@ -19,7 +19,7 @@ export const HillSVGWrapper = styled.svg<animationProps>`
       $animationWidth: props.$animationWidth,
       $topMargin: props.$topMargin,
     })};
-  animation-duration: 80s;
+  animation-duration: ${(props) => (props.$speed ? `${props.$speed}s` : "80s")};
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   width: 800px;
@@ -103,17 +103,6 @@ export const CarSVG = styled.svg`
   width: 100%;
   max-width: 200px;
   height: auto;
-  g {
-    background-color: red;
-    /* stroke-dasharray: 6 2;
-    transform-origin: 38px 79px;
-    animation: ${tirerotate} 18s linear infinite; */
-  }
-  :nth-child(3) {
-    stroke-dasharray: 6 2;
-    transform-origin: 136px 79px;
-    animation: ${tirerotate} 18s linear infinite;
-  }
 `;
 
 export const Wheel = styled.g<{ transformOrigin: string }>`
