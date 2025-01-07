@@ -102,6 +102,7 @@ export function NavBar({
           );
           toAddUrlParams.set("btns", urlString.join(""));
           window.history.replaceState(null, "", `?${toAddUrlParams}`);
+          navigator.clipboard.writeText(window.location.href);
         }}
       />
     </NavWrapper>
