@@ -35,15 +35,27 @@ const reenieBeenie = Reenie_Beanie({
   subsets: ["latin"],
   variable: "--font-reeniebeenie",
 });
-export function Scantron({ zoomAmount, selectMode }: ScantronTypes) {
+export function Scantron({
+  zoomAmount,
+  selectMode,
+  urlParams,
+  setUrlParams,
+}: ScantronTypes) {
   const AlphabetArray: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
   const numLetters = 5;
   const numRows = 50;
-
   return (
     <div>
-      <ScantronWrapper zoomAmount={zoomAmount} selectMode={selectMode}>
-        <SubjScoreSection />
+      <ScantronWrapper
+        zoomAmount={zoomAmount}
+        selectMode={selectMode}
+        urlParams={urlParams}
+      >
+        <SubjScoreSection
+          urlParams={urlParams}
+          setUrlParams={setUrlParams}
+          selectMode={selectMode}
+        />
         <VerticalCopyrightSection />
         <VerticalStripSection />
 
@@ -54,12 +66,14 @@ export function Scantron({ zoomAmount, selectMode }: ScantronTypes) {
               key={x}
               contents={AlphabetArray.slice(0, numLetters)}
               qNumber={i + 1}
+              urlParams={urlParams}
+              setUrlParams={setUrlParams}
             />
           ))}
         </ButtonColumn>
         <ImportanBoxSection />
-        <NameSubjSection />
-        <TestRecordSection />
+        <NameSubjSection urlParams={urlParams} setUrlParams={setUrlParams} />
+        <TestRecordSection urlParams={urlParams} setUrlParams={setUrlParams} />
         <Part1Postion> Part 1</Part1Postion>
         <TopBlackBoxPosition>
           <BlackSquare height={12} />
@@ -75,7 +89,15 @@ export function Scantron({ zoomAmount, selectMode }: ScantronTypes) {
   );
 }
 
-const SubjScoreSection = () => {
+const SubjScoreSection = ({
+  setUrlParams,
+  urlParams,
+  selectMode,
+}: {
+  setUrlParams: any;
+  urlParams: any;
+  selectMode: "click" | "hover";
+}) => {
   return (
     <SubjScorePosition>
       <GreenBorderInfo $width={230}>
@@ -83,23 +105,55 @@ const SubjScoreSection = () => {
         <GreenTitle>Instructor Use Only</GreenTitle>
         <GreenBordersButtonColumn>
           <ButtonRow>
-            {["100", "90", "80", "70", "60"].map((x) => (
-              <ScantronButton selectMode="click" key={x} letter={x} />
+            {["100", "90", "80", "70", "60"].map((x, i) => (
+              <ScantronButton
+                selectMode={selectMode}
+                key={x}
+                label={x}
+                buttonPos={i}
+                rowNum="ss100"
+                setUrlParams={setUrlParams}
+                urlParams={urlParams}
+              />
             ))}
           </ButtonRow>
           <ButtonRow>
-            {["50", "40", "30", "20", "10"].map((x) => (
-              <ScantronButton selectMode="click" key={x} letter={x} />
+            {["50", "40", "30", "20", "10"].map((x, i) => (
+              <ScantronButton
+                selectMode={selectMode}
+                key={x}
+                label={x}
+                buttonPos={i}
+                rowNum="ss50"
+                setUrlParams={setUrlParams}
+                urlParams={urlParams}
+              />
             ))}
           </ButtonRow>
           <ButtonRow>
-            {["9", "8", "7", "6", "5"].map((x) => (
-              <ScantronButton selectMode="click" key={x} letter={x} />
+            {["9", "8", "7", "6", "5"].map((x, i) => (
+              <ScantronButton
+                selectMode={selectMode}
+                key={x}
+                label={x}
+                buttonPos={i}
+                rowNum="ss9"
+                setUrlParams={setUrlParams}
+                urlParams={urlParams}
+              />
             ))}
           </ButtonRow>
           <ButtonRow>
-            {["4", "3", "2", "1", "0"].map((x) => (
-              <ScantronButton selectMode="click" key={x} letter={x} />
+            {["4", "3", "2", "1", "0"].map((x, i) => (
+              <ScantronButton
+                selectMode={selectMode}
+                key={x}
+                label={x}
+                buttonPos={i}
+                rowNum="ss4"
+                setUrlParams={setUrlParams}
+                urlParams={urlParams}
+              />
             ))}
           </ButtonRow>
         </GreenBordersButtonColumn>
@@ -137,21 +191,46 @@ const VerticalStripSection = () => {
 };
 
 const ScantronButton = ({
-  letter,
+  label,
+  buttonPos,
+  rowNum,
   selectMode,
+  setUrlParams,
+  urlParams,
 }: {
-  letter: string;
+  label: string;
+  buttonPos: number;
+  rowNum: number | string;
   selectMode: "hover" | "click";
+  setUrlParams: any;
+  urlParams: any;
 }) => {
-  const [clicked, setClicked] = useState(false);
+  let currentStatus = urlParams[rowNum]
+    ? urlParams[rowNum].split("")
+    : "00000".split("");
+  const [clicked, setClicked] = useState(
+    currentStatus[buttonPos] == "1" ? true : false
+  );
+
+  function onBtnStateChange(newState: boolean) {
+    setClicked(newState);
+
+    currentStatus[buttonPos] = clicked ? 0 : 1;
+    setUrlParams({ ...urlParams, [rowNum]: currentStatus.join("") });
+  }
+
   return (
     <ButtonWrapper
-      onMouseEnter={() => (selectMode == "click" ? "" : setClicked(!clicked))}
-      onClick={() => (selectMode == "click" ? setClicked(!clicked) : "")}
+      onMouseEnter={() =>
+        selectMode == "click" ? "" : onBtnStateChange(!clicked)
+      }
+      onClick={() => {
+        selectMode == "click" ? onBtnStateChange(!clicked) : "";
+      }}
       typeof="button"
-      $clicked={clicked}
+      $clicked={currentStatus[buttonPos] == "1" ? true : false}
     >
-      {letter}
+      {label}
     </ButtonWrapper>
   );
 };
@@ -160,17 +239,30 @@ const ScantronButtonRow = ({
   contents,
   selectMode,
   qNumber,
+  setUrlParams,
+  urlParams,
 }: {
   contents: string[];
   selectMode: "click" | "hover";
   qNumber?: number;
+  setUrlParams: any;
+  urlParams: any;
 }) => {
   return (
     <ButtonRow>
       {qNumber && <p> {qNumber}</p>}
-      {contents.map((x) => (
-        <ScantronButton selectMode={selectMode} key={x} letter={x} />
-      ))}
+      {qNumber &&
+        contents.map((x, i) => (
+          <ScantronButton
+            selectMode={selectMode}
+            key={x}
+            label={x}
+            buttonPos={i}
+            rowNum={qNumber}
+            urlParams={urlParams}
+            setUrlParams={setUrlParams}
+          />
+        ))}
     </ButtonRow>
   );
 };
@@ -203,7 +295,13 @@ const ImportanBoxSection = () => {
   );
 };
 
-const NameSubjSection = () => {
+const NameSubjSection = ({
+  setUrlParams,
+  urlParams,
+}: {
+  setUrlParams: any;
+  urlParams: any;
+}) => {
   return (
     <NameSubjBoxPosition>
       <GreenBorderInfo $width={324}>
@@ -218,13 +316,25 @@ const NameSubjSection = () => {
           <InputInputWrapper>
             <InputTitle> Subject</InputTitle>
             <InputInput className={reenieBeenie.className}>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(e) =>
+                  setUrlParams({ ...urlParams, subject: e.target.value })
+                }
+                defaultValue={urlParams["subject"] ? urlParams["subject"] : ""}
+              />
             </InputInput>
           </InputInputWrapper>
           <InputInputWrapper>
             <InputTitle> Test No.</InputTitle>
             <InputInput className={reenieBeenie.className}>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(e) =>
+                  setUrlParams({ ...urlParams, testno: e.target.value })
+                }
+                defaultValue={urlParams["testno"] ? urlParams["testno"] : ""}
+              />
             </InputInput>
           </InputInputWrapper>
         </InputWrapper>
@@ -233,13 +343,25 @@ const NameSubjSection = () => {
           <InputInputWrapper>
             <InputTitle> Date</InputTitle>
             <InputInput className={reenieBeenie.className}>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(e) =>
+                  setUrlParams({ ...urlParams, date: e.target.value })
+                }
+                defaultValue={urlParams["date"] ? urlParams["date"] : ""}
+              />
             </InputInput>
           </InputInputWrapper>
           <InputInputWrapper>
             <InputTitle> Period</InputTitle>
             <InputInput className={reenieBeenie.className}>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(e) =>
+                  setUrlParams({ ...urlParams, period: e.target.value })
+                }
+                defaultValue={urlParams["period"] ? urlParams["period"] : ""}
+              />
             </InputInput>
           </InputInputWrapper>
         </InputWrapper>
@@ -248,7 +370,13 @@ const NameSubjSection = () => {
   );
 };
 
-const TestRecordSection = () => {
+const TestRecordSection = ({
+  setUrlParams,
+  urlParams,
+}: {
+  setUrlParams: any;
+  urlParams: any;
+}) => {
   return (
     <TestRecordPosition>
       <GreenBorderInfo $width={196}>
@@ -256,20 +384,38 @@ const TestRecordSection = () => {
         <InputWrapper height={22}>
           <TRInputTitle>Part 1</TRInputTitle>
           <InputInput className={reenieBeenie.className}>
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e) =>
+                setUrlParams({ ...urlParams, part1: e.target.value })
+              }
+              defaultValue={urlParams["part1"] ? urlParams["part1"] : ""}
+            />
           </InputInput>
         </InputWrapper>
         <InputWrapper height={22}>
           <TRInputTitle>Part 2</TRInputTitle>
           <InputInput className={reenieBeenie.className}>
-            <input type="text" />
+            <input
+              type="part2"
+              onChange={(e) =>
+                setUrlParams({ ...urlParams, part2: e.target.value })
+              }
+              defaultValue={urlParams["part2"] ? urlParams["part2"] : ""}
+            />
           </InputInput>
         </InputWrapper>
 
         <InputWrapper height={26}>
           <TRInputTitle>Total</TRInputTitle>
           <InputInput className={reenieBeenie.className}>
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e) =>
+                setUrlParams({ ...urlParams, total: e.target.value })
+              }
+              defaultValue={urlParams["total"] ? urlParams["total"] : ""}
+            />
           </InputInput>
         </InputWrapper>
       </GreenBorderInfo>

@@ -16,7 +16,6 @@ import ScantronImg from "../../../../../public/standardizedTest/scantronCover.pn
 import STARImg from "../../../../../public/standardizedTest/STAR.png";
 import SATImg from "../../../../../public/standardizedTest/SAT.png";
 import Image from "next/image";
-import { useState } from "react";
 
 type NavBarTypes = {
   menuOpen: boolean;
@@ -26,6 +25,8 @@ type NavBarTypes = {
   setSeed: any;
   setZoomAmount: any;
   testType: "scantron" | "STAR" | "SAT";
+  urlParams: any;
+  setUrlParams: any;
 };
 
 export function NavBar({
@@ -35,6 +36,8 @@ export function NavBar({
   zoomAmount,
   setZoomAmount,
   testType,
+  urlParams,
+  setUrlParams,
 }: NavBarTypes) {
   return (
     <NavWrapper>
@@ -46,24 +49,13 @@ export function NavBar({
           setMenuOpen(false);
           setSeed(Math.random());
           setZoomAmount(1);
+          setUrlParams({});
+          const toAddUrlParams = new URLSearchParams(window.location.search);
+          toAddUrlParams.set("btns", "");
+          window.history.replaceState(null, "", `?${toAddUrlParams}`);
         }}
       />
-      {/* <NavButtonStandard
-        symbol="clickArrow"
-        text="button1"
-        clickEvent={() => {
-          setMenuOpen(false);
-          setSelectMode("click");
-        }}
-      />
-      <NavButtonStandard
-        symbol="hoverArrow"
-        text="button1"
-        clickEvent={() => {
-          setMenuOpen(false);
-          setSelectMode("hover");
-        }}
-      /> */}
+
       <NavButtonStandard
         testType={testType}
         symbol="zoomIn"
@@ -96,15 +88,22 @@ export function NavBar({
         {/* Scantron{" "} */}
       </TestButtonWrapper>
 
-      {/* <CurvedSpacer direction="right" />
+      <CurvedSpacer direction="right" />
       <NavButtonStandard
+        testType={testType}
         symbol="share"
         text="button1"
         clickEvent={() => {
           setMenuOpen(false);
-          alert("this doesn't work");
+          const toAddUrlParams = new URLSearchParams(window.location.search);
+          let urlString: string[] = [];
+          Object.entries(urlParams).map((x) =>
+            urlString.push(`${x[0]}_${x[1]}+`)
+          );
+          toAddUrlParams.set("btns", urlString.join(""));
+          window.history.replaceState(null, "", `?${toAddUrlParams}`);
         }}
-      /> */}
+      />
     </NavWrapper>
   );
 }

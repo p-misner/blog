@@ -79,6 +79,8 @@ export const VerticalCopyRightText = styled.div`
 export type ScantronTypes = {
   zoomAmount: number;
   selectMode: "click" | "hover";
+  urlParams?: any;
+  setUrlParams?: any;
 };
 export const ScantronWrapper = styled.div<ScantronTypes>`
   margin: 64px auto;

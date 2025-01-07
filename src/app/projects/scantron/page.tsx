@@ -23,9 +23,24 @@ export default function Home() {
   const [selectMode, setSelectMode] = useState<"click" | "hover">("click");
   const [zoomAmount, setZoomAmount] = useState(1);
   const [seed, setSeed] = useState(1);
-  const [testData, setTestData] = useState({});
+  const [urlParams, setUrlParams] = useState({});
 
   useEffect(() => {
+    const queryString = window.location.search;
+    let urlObj: any = {};
+    let urlArray =
+      queryString.length > 6
+        ? queryString
+            .split("=")[1]
+            .split("%2B")
+            // .map((x) => console.log(x.split("_").length))
+            .map((x) =>
+              x.split("_").length == 2
+                ? (urlObj[x.split("_")[0]] = x.split("_")[1])
+                : ""
+            )
+        : {};
+    setUrlParams(urlObj);
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Shift") {
         setSelectMode(selectMode == "hover" ? "click" : "hover");
@@ -33,7 +48,6 @@ export default function Home() {
     };
     const handleKeyUp = (event: KeyboardEvent) => {
       if (event.key === "Shift") {
-        console.log("Key up:", event.key);
         setSelectMode(selectMode == "hover" ? "hover" : "click");
       }
     };
@@ -64,7 +78,13 @@ export default function Home() {
       />
 
       {testType == "scantron" && (
-        <Scantron key={seed} zoomAmount={zoomAmount} selectMode={selectMode} />
+        <Scantron
+          key={seed}
+          zoomAmount={zoomAmount}
+          selectMode={selectMode}
+          urlParams={urlParams}
+          setUrlParams={setUrlParams}
+        />
       )}
       {testType == "STAR" && <STARTest key={seed} zoomAmount={zoomAmount} />}
       {testType == "SAT" && <SATTest key={seed} zoomAmount={zoomAmount} />}
@@ -77,6 +97,8 @@ export default function Home() {
         setZoomAmount={setZoomAmount}
         zoomAmount={zoomAmount}
         testType={testType}
+        urlParams={urlParams}
+        setUrlParams={setUrlParams}
       />
       <PopUpMessage testType={testType} />
 

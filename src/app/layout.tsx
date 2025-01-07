@@ -3,10 +3,8 @@ import StyledComponentsRegistry from "./lib/registry";
 
 import { League_Spartan } from "next/font/google";
 import "./style/globals.css";
-import PageHeader from "./components/header";
 import ThemeProvider from "./components/providers";
-import { ControlPanelWrapper } from "./style/controlStyle";
-import ColorPickerComponent from "./components/colorcontrols";
+
 // import GoogleAnalytics from "./components/googleAnalytics";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
