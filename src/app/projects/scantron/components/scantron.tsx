@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  BlackSquare,
   BottomBlackBoxPosition,
   ButtonColumn,
   ButtonRow,
@@ -29,6 +28,7 @@ import {
   VerticalStripWrapper,
 } from "../style/scantronStyle";
 import { Reenie_Beanie } from "next/font/google";
+import { BlackSquare } from "../style/allTestStyle";
 
 const reenieBeenie = Reenie_Beanie({
   weight: "400",
@@ -36,9 +36,9 @@ const reenieBeenie = Reenie_Beanie({
   variable: "--font-reeniebeenie",
 });
 export function Scantron({
-  zoomAmount,
-  selectMode,
-  urlParams,
+  $zoomAmount,
+  $selectMode,
+  $urlParams,
   setUrlParams,
 }: ScantronTypes) {
   const AlphabetArray: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -47,14 +47,14 @@ export function Scantron({
   return (
     <div>
       <ScantronWrapper
-        zoomAmount={zoomAmount}
-        selectMode={selectMode}
-        urlParams={urlParams}
+        $zoomAmount={$zoomAmount}
+        $selectMode={$selectMode}
+        $urlParams={$urlParams}
       >
         <SubjScoreSection
-          urlParams={urlParams}
+          urlParams={$urlParams}
           setUrlParams={setUrlParams}
-          selectMode={selectMode}
+          selectMode={$selectMode}
         />
         <VerticalCopyrightSection />
         <VerticalStripSection />
@@ -62,25 +62,25 @@ export function Scantron({
         <ButtonColumn>
           {Array.from(Array(numRows).keys()).map((x, i) => (
             <ScantronButtonRow
-              selectMode={selectMode}
+              selectMode={$selectMode}
               key={x}
               contents={AlphabetArray.slice(0, numLetters)}
               qNumber={i + 1}
-              urlParams={urlParams}
+              urlParams={$urlParams}
               setUrlParams={setUrlParams}
             />
           ))}
         </ButtonColumn>
         <ImportanBoxSection />
-        <NameSubjSection urlParams={urlParams} setUrlParams={setUrlParams} />
-        <TestRecordSection urlParams={urlParams} setUrlParams={setUrlParams} />
+        <NameSubjSection urlParams={$urlParams} setUrlParams={setUrlParams} />
+        <TestRecordSection urlParams={$urlParams} setUrlParams={setUrlParams} />
         <Part1Postion> Part 1</Part1Postion>
         <TopBlackBoxPosition>
           <BlackSquare height={12} />
         </TopBlackBoxPosition>
         <BottomBlackBoxPosition>
-          <BlackSquare gapBelow={2} />
-          <BlackSquare gapBelow={12} />
+          <BlackSquare $gapBelow={2} />
+          <BlackSquare $gapBelow={12} />
           <BlackSquare height={12} />
         </BottomBlackBoxPosition>
         <ReorderForm />
@@ -178,12 +178,12 @@ const VerticalStripSection = () => {
   return (
     <VerticalStripWrapper>
       {Array.from(Array(3).keys()).map((x) => (
-        <BlackSquare />
+        <BlackSquare key={x} />
       ))}
-      <BlackSquare gapBelow={32} />
-      <BlackSquare height={8} gapBelow={4} />
+      <BlackSquare $gapBelow={32} />
+      <BlackSquare height={8} $gapBelow={4} />
       {Array.from(Array(70).keys()).map((x) => (
-        <BlackSquare />
+        <BlackSquare key={x} />
       ))}
       <BlackSquare height={8} />
     </VerticalStripWrapper>
@@ -309,7 +309,13 @@ const NameSubjSection = ({
           <InputTitle>Name</InputTitle>
           <InputInput className={reenieBeenie.className}>
             {" "}
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e) =>
+                setUrlParams({ ...urlParams, name: e.target.value })
+              }
+              defaultValue={decodeURI(urlParams["name"])}
+            />
           </InputInput>
         </InputWrapper>
         <InputWrapper>
@@ -321,7 +327,7 @@ const NameSubjSection = ({
                 onChange={(e) =>
                   setUrlParams({ ...urlParams, subject: e.target.value })
                 }
-                defaultValue={urlParams["subject"] ? urlParams["subject"] : ""}
+                defaultValue={decodeURI(urlParams["subject"])}
               />
             </InputInput>
           </InputInputWrapper>
@@ -333,7 +339,7 @@ const NameSubjSection = ({
                 onChange={(e) =>
                   setUrlParams({ ...urlParams, testno: e.target.value })
                 }
-                defaultValue={urlParams["testno"] ? urlParams["testno"] : ""}
+                defaultValue={decodeURI(urlParams["testno"])}
               />
             </InputInput>
           </InputInputWrapper>
@@ -348,7 +354,7 @@ const NameSubjSection = ({
                 onChange={(e) =>
                   setUrlParams({ ...urlParams, date: e.target.value })
                 }
-                defaultValue={urlParams["date"] ? urlParams["date"] : ""}
+                defaultValue={decodeURI(urlParams["date"])}
               />
             </InputInput>
           </InputInputWrapper>
@@ -360,7 +366,7 @@ const NameSubjSection = ({
                 onChange={(e) =>
                   setUrlParams({ ...urlParams, period: e.target.value })
                 }
-                defaultValue={urlParams["period"] ? urlParams["period"] : ""}
+                defaultValue={decodeURI(urlParams["period"])}
               />
             </InputInput>
           </InputInputWrapper>
@@ -423,10 +429,6 @@ const TestRecordSection = ({
   );
 };
 
-const FaketronTitle = () => {
-  return <h1> Faketron</h1>;
-};
-
 const ReorderForm = () => {
   return (
     <ReorderFormPosition>
@@ -437,3 +439,9 @@ const ReorderForm = () => {
     </ReorderFormPosition>
   );
 };
+
+function decodeURI(val: string) {
+  if (val) {
+    return decodeURIComponent(val).replaceAll("+", " ");
+  }
+}

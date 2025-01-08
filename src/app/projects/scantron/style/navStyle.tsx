@@ -2,7 +2,6 @@ import { fontSize, spaceBlocks } from "@/app/style/styleConstants";
 import styled from "styled-components";
 import { DarkTestColor, TestColor } from "../utils/utils";
 const backgroundColor = "#fff";
-const greenColor = "#049B73";
 
 export const NavWrapper = styled.div`
   position: fixed;

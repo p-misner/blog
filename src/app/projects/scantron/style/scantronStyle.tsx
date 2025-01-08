@@ -49,6 +49,17 @@ export const ButtonColumn = styled.div`
   margin: ${spaceBlocks.xs};
   margin-left: 64px;
 `;
+export const VerticalStripWrapper = styled.div`
+  position: absolute;
+  left: 32px;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  column-gap: 0px;
+  /* background-color: gainsboro; */
+  width: 16px;
+`;
 
 export const VerticalCopyRightText = styled.div`
   rotate: 90deg;
@@ -77,9 +88,9 @@ export const VerticalCopyRightText = styled.div`
 `;
 
 export type ScantronTypes = {
-  zoomAmount: number;
-  selectMode: "click" | "hover";
-  urlParams?: any;
+  $zoomAmount: number;
+  $selectMode: "click" | "hover";
+  $urlParams?: any;
   setUrlParams?: any;
 };
 export const ScantronWrapper = styled.div<ScantronTypes>`
@@ -92,7 +103,7 @@ export const ScantronWrapper = styled.div<ScantronTypes>`
   background-color: ${whiteColor};
   z-index: 50;
   top: 10px;
-  transform: scale(${(props) => props.zoomAmount});
+  transform: scale(${(props) => props.$zoomAmount});
   transform-origin: 30% 0% 0px;
   rotate: -8deg;
 `;
@@ -206,30 +217,6 @@ export const SubjScorePosition = styled.div`
   margin-left: 60px;
   margin-top: 40px;
   margin-bottom: 24px;
-`;
-
-type BlackSquareType = {
-  width?: number;
-  height?: number;
-  gapBelow?: number;
-};
-export const VerticalStripWrapper = styled.div`
-  position: absolute;
-  left: 32px;
-  top: 90px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  column-gap: 0px;
-  /* background-color: gainsboro; */
-  width: 16px;
-`;
-export const BlackSquare = styled.div<BlackSquareType>`
-  background-color: black;
-  width: ${(props) => (props.width ? `${props.width}px` : "16px")};
-  height: ${(props) => (props.height ? `${props.height}px` : "2px")};
-  margin-bottom: ${(props) =>
-    props.gapBelow ? `${props.gapBelow}px` : "12px"};
 `;
 
 export const NameSubjBoxPosition = styled.div`

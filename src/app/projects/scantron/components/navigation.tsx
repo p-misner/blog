@@ -101,6 +101,7 @@ export function NavBar({
             urlString.push(`${x[0]}_${x[1]}+`)
           );
           toAddUrlParams.set("btns", urlString.join(""));
+          toAddUrlParams.set("testtype", testType);
           window.history.replaceState(null, "", `?${toAddUrlParams}`);
           navigator.clipboard.writeText(window.location.href);
         }}

@@ -14,6 +14,7 @@ import { PopUpMessage } from "./components/popUpMessage";
 import { STARTest } from "./components/starTest";
 import { TestColor } from "./utils/utils";
 import { SATTest } from "./components/satTest";
+import test from "node:test";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,13 +28,25 @@ export default function Home() {
 
   useEffect(() => {
     const queryString = window.location.search;
+    let filledButtons = queryString
+      .split("&")
+      .filter((x) => x.includes("btns"))[0];
+    let testType = queryString
+      .split("&")
+      .filter((x) => x.includes("testtype"))[0];
+    // console.log(testType);
+
+    testType = testType ? testType.replace("testtype=", "") : testType;
+
+    if (testType == "scantron" || testType == "STAR" || testType == "SAT") {
+      setTestType(testType);
+    }
     let urlObj: any = {};
     let urlArray =
-      queryString.length > 6
-        ? queryString
+      filledButtons.length > 6
+        ? filledButtons
             .split("=")[1]
             .split("%2B")
-            // .map((x) => console.log(x.split("_").length))
             .map((x) =>
               x.split("_").length == 2
                 ? (urlObj[x.split("_")[0]] = x.split("_")[1])
@@ -80,9 +93,9 @@ export default function Home() {
       {testType == "scantron" && (
         <Scantron
           key={seed}
-          zoomAmount={zoomAmount}
-          selectMode={selectMode}
-          urlParams={urlParams}
+          $zoomAmount={zoomAmount}
+          $selectMode={selectMode}
+          $urlParams={urlParams}
           setUrlParams={setUrlParams}
         />
       )}
