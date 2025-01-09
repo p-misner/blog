@@ -143,13 +143,8 @@ export default function Home() {
                 setRevealCopy(true);
                 let copyString: string = `Million Pixel Dash // ${seconds.toFixed(
                   1
-                )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: https://blog.priyamisner.com/onemillion`;
+                )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: https://blog.priyamisner.com/projects/onemillion`;
 
-                // navigator.clipboard.writeText(
-                //   `Million Pixel Dash // ${seconds.toFixed(
-                //     1
-                //   )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: https://www.blog.priyamisner.com/projects/onemillion`
-                // );
                 copyToClipboard(copyString);
                 setTimeout(() => {
                   setRevealCopy(false);
