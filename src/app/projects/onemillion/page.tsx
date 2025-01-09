@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -15,6 +15,7 @@ export default function Home() {
   const [started, setStarted] = useState(false);
   const [ended, setEnded] = useState(false);
   const [seconds, setSeconds] = useState(0);
+  const [revealCopy, setRevealCopy] = useState(false);
   let position = 0;
 
   const handleScroll = () => {
@@ -111,7 +112,7 @@ export default function Home() {
         <ScrollScore>
           <h2>
             <span>{Math.round(scrollPosition)} pixels</span> in{" "}
-            <span>{seconds.toFixed(2)} seconds</span>
+            <span>{seconds.toFixed(1)} seconds</span>
           </h2>
           <ScrollPlayer ref={playerRef} />
         </ScrollScore>
@@ -131,15 +132,46 @@ export default function Home() {
         ))}
         {ended && (
           <WinModal>
-            <h1>
-              {" "}
-              Congratulations! You scrolled 1,000,000 Pixels in {seconds}{" "}
-              seconds!
-              <ScrollAmount>
+            <h1> Congratulations!</h1>
+            <h2>
+              You scrolled 1,000,000 Pixels in {seconds.toFixed(1)} seconds!
+            </h2>
+            <ShareResultBtn
+              onClick={() => {
+                setRevealCopy(true);
+                navigator.clipboard.writeText(
+                  `Million Pixel Dash // ${seconds.toFixed(
+                    1
+                  )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: www.blog.priyamisner.com/onemillion`
+                );
+                setTimeout(() => {
+                  setRevealCopy(false);
+                }, 1000);
+              }}
+            >
+              Share Results{" "}
+              <svg
+                width="32"
+                height="24"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="40.5" cy="7" r="7" fill="#fff" />
+                <circle cx="8.5" cy="24" r="7" fill="#fff" />
+                <path
+                  d="M40.5 7L8 24.5L40.5 42.5"
+                  stroke="#fff"
+                  stroke-width="4"
+                />
+                <circle cx="40.5" cy="41" r="7" fill="#fff" />
+              </svg>
+            </ShareResultBtn>
+            <CopiedText reveal={revealCopy}> Copied</CopiedText>
+            {/* <ScrollAmount>
                 Million Pixel Dash // 84.7 seconds 🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨 see if
                 you can beat my time: www.blog.priyamisner.com/onemillion
-              </ScrollAmount>
-            </h1>
+              </ScrollAmount> */}
           </WinModal>
         )}
       </LongScrollWrapper>
@@ -241,6 +273,11 @@ const StartLine = styled.div<{ amount: number }>`
     margin-top: -12px;
   }
 `;
+const rotate = keyframes`
+      to {
+    --angle: 360deg;
+  }
+`;
 
 const WinModal = styled.div`
   position: sticky;
@@ -250,21 +287,87 @@ const WinModal = styled.div`
   width: 80vw;
   height: 152px;
   background-color: white;
-  border-radius: 16px;
-  border: 1px solid gray;
+
   z-index: 100;
   display: flex;
   flex-direction: column;
+  row-gap: 16px;
   padding: 24px;
-  /* left: 50%;
-  transform: translate(-50%, -50%); */
+  text-align: center;
+  align-items: center;
+
+  border: 4px solid #0000;
+  border-radius: 16px;
+  background: linear-gradient(
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      )
+      padding-box,
+    linear-gradient(
+        var(--angle),
+        rgba(45, 253, 147, 1) 0%,
+        rgba(45, 116, 253, 1) 15%,
+        rgba(18, 51, 113, 1) 20%
+      )
+      border-box;
+  animation: 8s ${rotate} linear infinite;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
 `;
 
 const ShareResults = styled.div`
   background-color: lightgray;
-  width: 100%;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+`;
+
+const ShareResultBtn = styled.button`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  column-gap: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  max-width: fit-content;
+  padding: 8px 16px;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0.4em -0.3em 1em rgba(45, 253, 147, 1),
+      -0.5em 0.5em 1em rgba(45, 116, 253, 0.3);
+  }
+`;
+
+const CopiedText = styled.div<{ reveal: boolean }>`
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid black;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  max-width: fit-content;
+  padding: 4px 8px;
+  visibility: ${(props) => (props.reveal ? "visible" : "hidden")};
+  opacity: ${(props) => (props.reveal ? 1 : 0)};
+  transition: ${(props) =>
+    props.reveal
+      ? " opacity 0.2s linear"
+      : "visibility 0s 2s, opacity 2s linear"};
 `;
