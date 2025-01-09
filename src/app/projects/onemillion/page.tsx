@@ -142,7 +142,7 @@ export default function Home() {
                 navigator.clipboard.writeText(
                   `Million Pixel Dash // ${seconds.toFixed(
                     1
-                  )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: www.blog.priyamisner.com/onemillion`
+                  )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: www.blog.priyamisner.com/projects/onemillion`
                 );
                 setTimeout(() => {
                   setRevealCopy(false);
