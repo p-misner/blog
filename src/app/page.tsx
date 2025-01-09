@@ -27,6 +27,7 @@ import mapDesignerCover from "../../public/coverImages/MapDesigner_CoverPhoto.pn
 import colorSpacesCover from "../../public/coverImages/colorspaces_wip.png";
 import calendarCover from "../../public/coverImages/DataVizChallengeCalendarCover.png";
 import trafficJamCover from "../../public/coverImages/trafficJamCover.png";
+import millionPixelCover from "../../public/coverImages/MillionPixelDash.gif";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -45,6 +46,28 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Jan 9th, 2025</Date>
+            <Title color={theme.colorPicked}>
+              <a href="./projects/onemillion">
+                {/* <a href="/" > */}
+                Million Pixel Dash
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              How fast can you scroll through a million pixels? Get your fingers
+              warmed up becuase they're about to get a work out
+            </Subtitle>
+
+            <ImageWrapper>
+              <Image
+                src={millionPixelCover}
+                alt="a series of red, blue and grey cars driving along a ride with black mountains in the background"
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
 
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Jan 4th, 2025</Date>
