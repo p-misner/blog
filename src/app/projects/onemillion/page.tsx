@@ -143,7 +143,7 @@ export default function Home() {
                 setRevealCopy(true);
                 let copyString: string = `Million Pixel Dash // ${seconds.toFixed(
                   1
-                )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: https://www.blog.priyamisner.com/projects/onemillion`;
+                )} seconds\n\n🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨\n\nsee if you can beat my time: https://blog.priyamisner.com/onemillion`;
 
                 // navigator.clipboard.writeText(
                 //   `Million Pixel Dash // ${seconds.toFixed(
@@ -177,7 +177,7 @@ export default function Home() {
             <CopiedText reveal={revealCopy}> Copied</CopiedText>
             {/* <ScrollAmount>
                 Million Pixel Dash // 84.7 seconds 🏃‍♂️⬜️⬜️🟨🟨🟩🟩🟦🟦💨 see if
-                you can beat my time: www.blog.priyamisner.com/onemillion
+                you can beat my time: https://blog.priyamisner.com/onemillion
               </ScrollAmount> */}
           </WinModal>
         )}
