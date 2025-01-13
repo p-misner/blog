@@ -3,11 +3,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -254,15 +249,6 @@ const LongScrollWrapper = styled.div`
     );
   }
   height: 1002000px;
-
-  /* background: linear-gradient(
-    0deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(253, 29, 29, 1) 25%,
-    rgba(252, 176, 69, 1) 50%,
-    rgba(252, 246, 69, 1) 75%,
-    rgba(178, 252, 69, 1) 100%
-  ); */
 `;
 
 const ScrollAmount = styled.div`

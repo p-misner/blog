@@ -50,7 +50,7 @@ export default function Home() {
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Jan 9th, 2025</Date>
             <Title color={theme.colorPicked}>
-              <a href="./projects/onemillion">
+              <a href="https://www.millionpixeldash.com">
                 {/* <a href="/" > */}
                 Million Pixel Dash
               </a>

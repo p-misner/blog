@@ -43,7 +43,7 @@ export default function Home() {
     }
     let urlObj: any = {};
     let urlArray =
-      filledButtons.length > 6
+      filledButtons?.length > 6
         ? filledButtons
             .split("=")[1]
             .split("%2B")
