@@ -49,7 +49,11 @@ export function NavBar({
           setMenuOpen(false);
           setSeed(Math.random());
           setZoomAmount(1);
-          setUrlParams({});
+          setUrlParams({
+            scantron: {},
+            STAR: {},
+            SAT: {},
+          });
           const toAddUrlParams = new URLSearchParams(window.location.search);
           toAddUrlParams.set("btns", "");
           window.history.replaceState(null, "", `?${toAddUrlParams}`);
@@ -97,7 +101,7 @@ export function NavBar({
           setMenuOpen(false);
           const toAddUrlParams = new URLSearchParams(window.location.search);
           let urlString: string[] = [];
-          Object.entries(urlParams).map((x) =>
+          Object.entries(urlParams[testType]).map((x) =>
             urlString.push(`${x[0]}_${x[1]}+`)
           );
           toAddUrlParams.set("btns", urlString.join(""));

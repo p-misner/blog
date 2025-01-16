@@ -1,9 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   BottomBlackBoxPosition,
   ButtonColumn,
-  ButtonRow,
-  ButtonWrapper,
   GreenBorderInfo,
   GreenBordersButtonColumn,
   GreenTitle,
@@ -18,7 +16,6 @@ import {
   NameSubjBoxPosition,
   Part1Postion,
   ReorderFormPosition,
-  ScantronTypes,
   ScantronWrapper,
   SubjScorePosition,
   TestRecordPosition,
@@ -29,133 +26,90 @@ import {
 } from "../style/scantronStyle";
 import { Reenie_Beanie } from "next/font/google";
 import { BlackSquare } from "../style/allTestStyle";
+import { TestContext } from "./context";
+import { ScantronButtonRow, ScantronButtonWrapper } from "../style/buttonStyle";
+import { TestButton, TestButtonRow } from "./buttons";
 
 const reenieBeenie = Reenie_Beanie({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-reeniebeenie",
 });
-export function Scantron({
-  $zoomAmount,
-  $selectMode,
-  $urlParams,
-  setUrlParams,
-}: ScantronTypes) {
+
+export function Scantron() {
   const AlphabetArray: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
   const numLetters = 5;
   const numRows = 50;
-  return (
-    <div>
-      <ScantronWrapper
-        $zoomAmount={$zoomAmount}
-        $selectMode={$selectMode}
-        $urlParams={$urlParams}
-      >
-        <SubjScoreSection
-          urlParams={$urlParams}
-          setUrlParams={setUrlParams}
-          selectMode={$selectMode}
-        />
-        <VerticalCopyrightSection />
-        <VerticalStripSection />
+  const context = useContext(TestContext);
+  if (context) {
+    return (
+      <div>
+        <ScantronWrapper $zoomAmount={context.zoomAmount}>
+          <SubjScoreSection />
 
-        <ButtonColumn>
-          {Array.from(Array(numRows).keys()).map((x, i) => (
-            <ScantronButtonRow
-              selectMode={$selectMode}
-              key={x}
-              contents={AlphabetArray.slice(0, numLetters)}
-              qNumber={i + 1}
-              urlParams={$urlParams}
-              setUrlParams={setUrlParams}
-            />
-          ))}
-        </ButtonColumn>
-        <ImportanBoxSection />
-        <NameSubjSection urlParams={$urlParams} setUrlParams={setUrlParams} />
-        <TestRecordSection urlParams={$urlParams} setUrlParams={setUrlParams} />
-        <Part1Postion> Part 1</Part1Postion>
-        <TopBlackBoxPosition>
-          <BlackSquare height={12} />
-        </TopBlackBoxPosition>
-        <BottomBlackBoxPosition>
-          <BlackSquare $gapBelow={2} />
-          <BlackSquare $gapBelow={12} />
-          <BlackSquare height={12} />
-        </BottomBlackBoxPosition>
-        <ReorderForm />
-      </ScantronWrapper>
-    </div>
-  );
+          <VerticalCopyrightSection />
+          <VerticalStripSection />
+
+          <ButtonColumn>
+            {Array.from(Array(numRows).keys()).map((x, i) => (
+              <TestButtonRow
+                key={x}
+                contents={AlphabetArray.slice(0, numLetters)}
+                qNumber={i + 1}
+              />
+            ))}
+          </ButtonColumn>
+          <ImportanBoxSection />
+          <NameSubjSection />
+          <TestRecordSection />
+          <Part1Postion> Part 1</Part1Postion>
+          <TopBlackBoxPosition>
+            <BlackSquare height={12} />
+          </TopBlackBoxPosition>
+          <BottomBlackBoxPosition>
+            <BlackSquare $gapBelow={2} />
+            <BlackSquare $gapBelow={12} />
+            <BlackSquare height={12} />
+          </BottomBlackBoxPosition>
+          <ReorderForm />
+        </ScantronWrapper>
+      </div>
+    );
+  }
 }
 
-const SubjScoreSection = ({
-  setUrlParams,
-  urlParams,
-  selectMode,
-}: {
-  setUrlParams: any;
-  urlParams: any;
-  selectMode: "click" | "hover";
-}) => {
+const SubjScoreSection = () => {
   return (
     <SubjScorePosition>
       <GreenBorderInfo $width={230}>
         <GreenTitle>Subjective Score</GreenTitle>
         <GreenTitle>Instructor Use Only</GreenTitle>
         <GreenBordersButtonColumn>
-          <ButtonRow>
+          <ScantronButtonRow>
             {["100", "90", "80", "70", "60"].map((x, i) => (
-              <ScantronButton
-                selectMode={selectMode}
+              <TestButton
                 key={x}
                 label={x}
                 buttonPos={i}
-                rowNum="ss100"
-                setUrlParams={setUrlParams}
-                urlParams={urlParams}
+                urlParamName="ss100"
               />
             ))}
-          </ButtonRow>
-          <ButtonRow>
+          </ScantronButtonRow>
+          <ScantronButtonRow>
             {["50", "40", "30", "20", "10"].map((x, i) => (
-              <ScantronButton
-                selectMode={selectMode}
-                key={x}
-                label={x}
-                buttonPos={i}
-                rowNum="ss50"
-                setUrlParams={setUrlParams}
-                urlParams={urlParams}
-              />
+              <TestButton key={x} label={x} buttonPos={i} urlParamName="ss50" />
             ))}
-          </ButtonRow>
-          <ButtonRow>
+          </ScantronButtonRow>
+          <ScantronButtonRow>
             {["9", "8", "7", "6", "5"].map((x, i) => (
-              <ScantronButton
-                selectMode={selectMode}
-                key={x}
-                label={x}
-                buttonPos={i}
-                rowNum="ss9"
-                setUrlParams={setUrlParams}
-                urlParams={urlParams}
-              />
+              <TestButton key={x} label={x} buttonPos={i} urlParamName="ss9" />
             ))}
-          </ButtonRow>
-          <ButtonRow>
+          </ScantronButtonRow>
+          <ScantronButtonRow>
             {["4", "3", "2", "1", "0"].map((x, i) => (
-              <ScantronButton
-                selectMode={selectMode}
-                key={x}
-                label={x}
-                buttonPos={i}
-                rowNum="ss4"
-                setUrlParams={setUrlParams}
-                urlParams={urlParams}
-              />
+              <TestButton key={x} label={x} buttonPos={i} urlParamName="ss4" />
             ))}
-          </ButtonRow>
+          </ScantronButtonRow>
         </GreenBordersButtonColumn>
       </GreenBorderInfo>
     </SubjScorePosition>
@@ -190,83 +144,6 @@ const VerticalStripSection = () => {
   );
 };
 
-const ScantronButton = ({
-  label,
-  buttonPos,
-  rowNum,
-  selectMode,
-  setUrlParams,
-  urlParams,
-}: {
-  label: string;
-  buttonPos: number;
-  rowNum: number | string;
-  selectMode: "hover" | "click";
-  setUrlParams: any;
-  urlParams: any;
-}) => {
-  let currentStatus = urlParams[rowNum]
-    ? urlParams[rowNum].split("")
-    : "00000".split("");
-  const [clicked, setClicked] = useState(
-    currentStatus[buttonPos] == "1" ? true : false
-  );
-
-  function onBtnStateChange(newState: boolean) {
-    setClicked(newState);
-
-    currentStatus[buttonPos] = clicked ? 0 : 1;
-    setUrlParams({ ...urlParams, [rowNum]: currentStatus.join("") });
-  }
-
-  return (
-    <ButtonWrapper
-      onMouseEnter={() =>
-        selectMode == "click" ? "" : onBtnStateChange(!clicked)
-      }
-      onClick={() => {
-        selectMode == "click" ? onBtnStateChange(!clicked) : "";
-      }}
-      typeof="button"
-      $clicked={currentStatus[buttonPos] == "1" ? true : false}
-    >
-      {label}
-    </ButtonWrapper>
-  );
-};
-
-const ScantronButtonRow = ({
-  contents,
-  selectMode,
-  qNumber,
-  setUrlParams,
-  urlParams,
-}: {
-  contents: string[];
-  selectMode: "click" | "hover";
-  qNumber?: number;
-  setUrlParams: any;
-  urlParams: any;
-}) => {
-  return (
-    <ButtonRow>
-      {qNumber && <p> {qNumber}</p>}
-      {qNumber &&
-        contents.map((x, i) => (
-          <ScantronButton
-            selectMode={selectMode}
-            key={x}
-            label={x}
-            buttonPos={i}
-            rowNum={qNumber}
-            urlParams={urlParams}
-            setUrlParams={setUrlParams}
-          />
-        ))}
-    </ButtonRow>
-  );
-};
-
 const ImportanBoxSection = () => {
   return (
     <ImportantBoxPosition>
@@ -295,138 +172,202 @@ const ImportanBoxSection = () => {
   );
 };
 
-const NameSubjSection = ({
-  setUrlParams,
-  urlParams,
-}: {
-  setUrlParams: any;
-  urlParams: any;
-}) => {
-  return (
-    <NameSubjBoxPosition>
-      <GreenBorderInfo $width={324}>
-        <InputWrapper>
-          <InputTitle>Name</InputTitle>
-          <InputInput className={reenieBeenie.className}>
-            {" "}
-            <input
-              type="text"
-              onChange={(e) =>
-                setUrlParams({ ...urlParams, name: e.target.value })
-              }
-              defaultValue={decodeURI(urlParams["name"])}
-            />
-          </InputInput>
-        </InputWrapper>
-        <InputWrapper>
-          <InputInputWrapper>
-            <InputTitle> Subject</InputTitle>
+const NameSubjSection = () => {
+  const context = useContext(TestContext);
+  if (context) {
+    return (
+      <NameSubjBoxPosition>
+        <GreenBorderInfo $width={324}>
+          <InputWrapper>
+            <InputTitle>Name</InputTitle>
             <InputInput className={reenieBeenie.className}>
+              {" "}
               <input
                 type="text"
                 onChange={(e) =>
-                  setUrlParams({ ...urlParams, subject: e.target.value })
+                  context.setUrlParams({
+                    ...context.urlParams,
+                    [context.testType]: {
+                      ...context.urlParams[context.testType],
+                      name: e.target.value,
+                    },
+                  })
                 }
-                defaultValue={decodeURI(urlParams["subject"])}
+                defaultValue={decodeURI(
+                  context.urlParams[context.testType]["name"]
+                )}
               />
             </InputInput>
-          </InputInputWrapper>
-          <InputInputWrapper>
-            <InputTitle> Test No.</InputTitle>
-            <InputInput className={reenieBeenie.className}>
-              <input
-                type="text"
-                onChange={(e) =>
-                  setUrlParams({ ...urlParams, testno: e.target.value })
-                }
-                defaultValue={decodeURI(urlParams["testno"])}
-              />
-            </InputInput>
-          </InputInputWrapper>
-        </InputWrapper>
+          </InputWrapper>
+          <InputWrapper>
+            <InputInputWrapper>
+              <InputTitle> Subject</InputTitle>
+              <InputInput className={reenieBeenie.className}>
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    context.setUrlParams({
+                      ...context.urlParams,
+                      [context.testType]: {
+                        ...context.urlParams[context.testType],
+                        subject: e.target.value,
+                      },
+                    })
+                  }
+                  defaultValue={decodeURI(
+                    context.urlParams[context.testType]["subject"]
+                  )}
+                />
+              </InputInput>
+            </InputInputWrapper>
+            <InputInputWrapper>
+              <InputTitle> Test No.</InputTitle>
+              <InputInput className={reenieBeenie.className}>
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    context.setUrlParams({
+                      ...context.urlParams,
+                      [context.testType]: {
+                        ...context.urlParams[context.testType],
+                        testno: e.target.value,
+                      },
+                    })
+                  }
+                  defaultValue={decodeURI(
+                    context.urlParams[context.testType]["testno"]
+                  )}
+                />
+              </InputInput>
+            </InputInputWrapper>
+          </InputWrapper>
 
-        <InputWrapper>
-          <InputInputWrapper>
-            <InputTitle> Date</InputTitle>
-            <InputInput className={reenieBeenie.className}>
-              <input
-                type="text"
-                onChange={(e) =>
-                  setUrlParams({ ...urlParams, date: e.target.value })
-                }
-                defaultValue={decodeURI(urlParams["date"])}
-              />
-            </InputInput>
-          </InputInputWrapper>
-          <InputInputWrapper>
-            <InputTitle> Period</InputTitle>
-            <InputInput className={reenieBeenie.className}>
-              <input
-                type="text"
-                onChange={(e) =>
-                  setUrlParams({ ...urlParams, period: e.target.value })
-                }
-                defaultValue={decodeURI(urlParams["period"])}
-              />
-            </InputInput>
-          </InputInputWrapper>
-        </InputWrapper>
-      </GreenBorderInfo>
-    </NameSubjBoxPosition>
-  );
+          <InputWrapper>
+            <InputInputWrapper>
+              <InputTitle> Date</InputTitle>
+              <InputInput className={reenieBeenie.className}>
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    context.setUrlParams({
+                      ...context.urlParams,
+                      [context.testType]: {
+                        ...context.urlParams[context.testType],
+                        date: e.target.value,
+                      },
+                    })
+                  }
+                  defaultValue={decodeURI(
+                    context.urlParams[context.testType]["date"]
+                  )}
+                />
+              </InputInput>
+            </InputInputWrapper>
+            <InputInputWrapper>
+              <InputTitle> Period</InputTitle>
+              <InputInput className={reenieBeenie.className}>
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    context.setUrlParams({
+                      ...context.urlParams,
+                      [context.testType]: {
+                        ...context.urlParams[context.testType],
+                        period: e.target.value,
+                      },
+                    })
+                  }
+                  defaultValue={decodeURI(
+                    context.urlParams[context.testType]["period"]
+                  )}
+                />
+              </InputInput>
+            </InputInputWrapper>
+          </InputWrapper>
+        </GreenBorderInfo>
+      </NameSubjBoxPosition>
+    );
+  }
 };
 
-const TestRecordSection = ({
-  setUrlParams,
-  urlParams,
-}: {
-  setUrlParams: any;
-  urlParams: any;
-}) => {
-  return (
-    <TestRecordPosition>
-      <GreenBorderInfo $width={196}>
-        <GreenTitle>Test Record</GreenTitle>
-        <InputWrapper height={22}>
-          <TRInputTitle>Part 1</TRInputTitle>
-          <InputInput className={reenieBeenie.className}>
-            <input
-              type="text"
-              onChange={(e) =>
-                setUrlParams({ ...urlParams, part1: e.target.value })
-              }
-              defaultValue={urlParams["part1"] ? urlParams["part1"] : ""}
-            />
-          </InputInput>
-        </InputWrapper>
-        <InputWrapper height={22}>
-          <TRInputTitle>Part 2</TRInputTitle>
-          <InputInput className={reenieBeenie.className}>
-            <input
-              type="part2"
-              onChange={(e) =>
-                setUrlParams({ ...urlParams, part2: e.target.value })
-              }
-              defaultValue={urlParams["part2"] ? urlParams["part2"] : ""}
-            />
-          </InputInput>
-        </InputWrapper>
+const TestRecordSection = () => {
+  const context = useContext(TestContext);
+  if (context) {
+    return (
+      <TestRecordPosition>
+        <GreenBorderInfo $width={196}>
+          <GreenTitle>Test Record</GreenTitle>
+          <InputWrapper height={22}>
+            <TRInputTitle>Part 1</TRInputTitle>
+            <InputInput className={reenieBeenie.className}>
+              <input
+                type="text"
+                onChange={(e) =>
+                  context.setUrlParams({
+                    ...context.urlParams,
+                    [context.testType]: {
+                      ...context.urlParams[context.testType],
+                      part1: e.target.value,
+                    },
+                  })
+                }
+                defaultValue={
+                  context.urlParams[context.testType]["part1"]
+                    ? context.urlParams[context.testType]["part1"]
+                    : ""
+                }
+              />
+            </InputInput>
+          </InputWrapper>
+          <InputWrapper height={22}>
+            <TRInputTitle>Part 2</TRInputTitle>
+            <InputInput className={reenieBeenie.className}>
+              <input
+                type="part2"
+                onChange={(e) =>
+                  context.setUrlParams({
+                    ...context.urlParams,
+                    [context.testType]: {
+                      ...context.urlParams[context.testType],
+                      part2: e.target.value,
+                    },
+                  })
+                }
+                defaultValue={
+                  context.urlParams[context.testType]["part2"]
+                    ? context.urlParams[context.testType]["part2"]
+                    : ""
+                }
+              />
+            </InputInput>
+          </InputWrapper>
 
-        <InputWrapper height={26}>
-          <TRInputTitle>Total</TRInputTitle>
-          <InputInput className={reenieBeenie.className}>
-            <input
-              type="text"
-              onChange={(e) =>
-                setUrlParams({ ...urlParams, total: e.target.value })
-              }
-              defaultValue={urlParams["total"] ? urlParams["total"] : ""}
-            />
-          </InputInput>
-        </InputWrapper>
-      </GreenBorderInfo>
-    </TestRecordPosition>
-  );
+          <InputWrapper height={26}>
+            <TRInputTitle>Total</TRInputTitle>
+            <InputInput className={reenieBeenie.className}>
+              <input
+                type="text"
+                onChange={(e) =>
+                  context.setUrlParams({
+                    ...context.urlParams,
+                    [context.testType]: {
+                      ...context.urlParams[context.testType],
+                      total: e.target.value,
+                    },
+                  })
+                }
+                defaultValue={
+                  context.urlParams[context.testType]["total"]
+                    ? context.urlParams[context.testType]["total"]
+                    : ""
+                }
+              />
+            </InputInput>
+          </InputWrapper>
+        </GreenBorderInfo>
+      </TestRecordPosition>
+    );
+  }
 };
 
 const ReorderForm = () => {

@@ -6,41 +6,7 @@ const whiteColor = "#F4F1ED";
 type ButtonProps = {
   $clicked: boolean;
 };
-export const ButtonWrapper = styled.button<ButtonProps>`
-  background-color: ${(props) => (props.$clicked ? "#010f0a" : whiteColor)};
-  border: 1px solid ${greenColor};
-  height: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  cursor: pointer;
-  width: 32px;
-  height: 8px;
-  color: ${greenColor};
-  font-size: ${fontSize.xxs};
-  font-weight: ${fontWeight.bold};
-  text-shadow: 0px 2px ${whiteColor}, 0px -2px ${whiteColor},
-    2px 0px ${whiteColor}, -2px 0px ${whiteColor};
-  text-transform: uppercase;
-  width: 28px;
-`;
-export const ButtonRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  column-gap: ${spaceBlocks.xs};
-  p {
-    text-align: right;
-    font-size: ${fontSize.xs};
-    font-weight: ${fontWeight.bold};
-    color: ${greenColor};
-    width: 12px;
-    margin-right: ${spaceBlocks.xs};
-    /* margin-bottom: ${spaceBlocks.xxs}; */
-  }
-`;
+
 export const ButtonColumn = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,13 +53,7 @@ export const VerticalCopyRightText = styled.div`
   }
 `;
 
-export type ScantronTypes = {
-  $zoomAmount: number;
-  $selectMode: "click" | "hover";
-  $urlParams?: any;
-  setUrlParams?: any;
-};
-export const ScantronWrapper = styled.div<ScantronTypes>`
+export const ScantronWrapper = styled.div<{ $zoomAmount: number }>`
   margin: 64px auto;
   border: 2px solid grey;
   border-radius: ${spaceBlocks.xs};
