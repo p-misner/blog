@@ -166,8 +166,12 @@ export const LetterInputRow = styled.div`
   }
 `;
 export const LetterInputs = styled.input<{ $backgroundColor?: string }>`
+  -webkit-appearance: none;
+  appearance: none;
   width: 16px;
+  max-width: 16px;
   height: 24px;
+  max-height: 24px;
   border-top: 1px solid ${darkBlueColor};
   border-bottom: 1px solid ${darkBlueColor};
   border-left: 1px solid ${darkBlueColor};
