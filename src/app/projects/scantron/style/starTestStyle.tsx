@@ -31,7 +31,7 @@ export const STARWrapper = styled.div<{ $zoomAmount: number }>`
 
 export const HorizontalStripWrapper = styled.div`
   position: absolute;
-  left: 38px;
+  left: 28px;
   top: 24px;
   display: flex;
   flex-direction: row;
@@ -51,7 +51,7 @@ export const TopLine = styled.div`
 export const LastNameBoxWrapper = styled.div`
   position: absolute;
   top: 48px;
-  left: 38px;
+  left: 28px;
   display: flex;
   flex-direction: column;
   min-height: 100px;
@@ -61,7 +61,7 @@ export const LastNameBoxWrapper = styled.div`
 export const IDBoxWrapper = styled.div`
   position: absolute;
   top: 112px;
-  left: 322px;
+  left: 296px;
   display: flex;
   flex-direction: column;
   min-height: 100px;
@@ -71,7 +71,7 @@ export const IDBoxWrapper = styled.div`
 export const MiscBoxWrapper = styled.div`
   position: absolute;
   bottom: 34px;
-  left: 322px;
+  left: 292px;
   display: flex;
   flex-direction: column;
   min-height: 100px;
@@ -168,10 +168,9 @@ export const LetterInputRow = styled.div`
   }
 `;
 export const LetterInputs = styled.input<{ $backgroundColor?: string }>`
-  -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-
+  padding: 1.15px;
   width: 16px;
   max-width: 16px;
   height: 24px;
@@ -183,15 +182,14 @@ export const LetterInputs = styled.input<{ $backgroundColor?: string }>`
   border-right: 0px solid ${darkBlueColor};
   font-size: 24px;
   text-align: center;
-  background-color: red;
-  /* background-color: ${(props) =>
-    props.$backgroundColor ? props.$backgroundColor : "none"}; */
+  background-color: ${(props) =>
+    props.$backgroundColor ? props.$backgroundColor : "none"};
 `;
 
 export const HundredBubbleColumnsWrapper = styled.div`
   position: absolute;
   bottom: 34px;
-  right: 32px;
+  right: 28px;
   display: flex;
   flex-direction: row;
   min-height: 100px;
@@ -280,7 +278,7 @@ export const BlueHighlight = styled.div`
 export const InstructionalWrapper = styled.div`
   position: absolute;
   top: 64px;
-  left: 330px;
+  left: 300px;
   display: flex;
   flex-direction: row;
   column-gap: 12px;
@@ -290,7 +288,7 @@ export const InstructionalWrapper = styled.div`
 export const PoorGoodWrapper = styled.div`
   position: absolute;
   top: 44px;
-  right: 30px;
+  right: 28px;
   display: flex;
   flex-direction: column;
   /* justify-content: space-around; */
@@ -349,7 +347,7 @@ export const CourseWrapper = styled.div`
 export const DateWrapper = styled.div`
   position: absolute;
   top: 112px;
-  right: 31px;
+  right: 28px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -366,8 +364,8 @@ export const DateWrapper = styled.div`
 export const LongBorder = styled.div`
   position: absolute;
   top: 112px;
-  left: 490px;
+  left: 450px;
   border-top: 1px solid ${darkBlueColor};
-  width: 578px;
+  width: 620px;
   height: 2px;
 `;

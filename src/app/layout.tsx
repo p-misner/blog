@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import StyledComponentsRegistry from "./lib/registry";
 
 import { League_Spartan } from "next/font/google";
@@ -11,6 +11,10 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata: Metadata = {
   title: "Priya's Blog",
   description: "a blog created by priya misner",
+};
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
 };
 const leaguespartan = League_Spartan({ subsets: ["latin"] });
 

@@ -54,13 +54,13 @@ export const ScantronButtonRow = styled.div`
 export const STARButtonWrapper = styled.button<{
   $clicked: boolean;
 }>`
-  -webkit-appearance: none;
-  appearance: none;
+  /* -webkit-appearance: none;
+  appearance: none; */
   background-color: ${(props) => (props.$clicked ? "#010f0a" : whiteSTARColor)};
   border: 1px solid ${darkBlueColor};
   height: 20px;
-  width: 12px;
-  max-width: 12px;
+  width: 16px;
+  padding: 0px;
 
   border-radius: 8px;
   display: flex;

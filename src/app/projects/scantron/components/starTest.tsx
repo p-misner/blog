@@ -55,7 +55,7 @@ export const STARTest = () => {
               key={x}
               height={16}
               width={5}
-              $gapRight={8 + Math.floor(i * 0.25)}
+              $gapRight={8 + Math.floor(i * 0.27)}
             />
           ))}
         </HorizontalStripWrapper>
