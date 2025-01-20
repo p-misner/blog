@@ -57,7 +57,6 @@ export const LastNameBoxWrapper = styled.div`
   min-height: 100px;
   max-width: 311.2px;
   border: 1px solid ${darkBlueColor};
-  background-color: orange;
 `;
 export const IDBoxWrapper = styled.div`
   position: absolute;
@@ -169,20 +168,24 @@ export const LetterInputRow = styled.div`
   }
 `;
 export const LetterInputs = styled.input<{ $backgroundColor?: string }>`
+  -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+
   width: 16px;
   max-width: 16px;
   height: 24px;
   max-height: 24px;
+  border-radius: 0px;
   border-top: 1px solid ${darkBlueColor};
   border-bottom: 1px solid ${darkBlueColor};
   border-left: 1px solid ${darkBlueColor};
   border-right: 0px solid ${darkBlueColor};
   font-size: 24px;
   text-align: center;
-  background-color: ${(props) =>
-    props.$backgroundColor ? props.$backgroundColor : "none"};
+  background-color: red;
+  /* background-color: ${(props) =>
+    props.$backgroundColor ? props.$backgroundColor : "none"}; */
 `;
 
 export const HundredBubbleColumnsWrapper = styled.div`
