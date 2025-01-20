@@ -29,9 +29,7 @@ export const NavButtonWrapper = styled.button<testTypeType>`
   border: none;
   cursor: pointer;
   box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
-  @media only screen and (max-width: 500px) {
-    min-width: 48px;
-  }
+
   &:hover svg {
     background-color: ${(props) => TestColor({ testType: props.$testType })};
     padding: 6px;
@@ -60,6 +58,21 @@ export const NavButtonWrapper = styled.button<testTypeType>`
     border-right: 1px solid grey;
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
+  }
+  @media only screen and (max-width: 500px) {
+    min-width: 48px;
+    height: 48px;
+
+    &:first-child {
+      padding-left: 8px;
+      padding-right: 0px;
+    }
+    &:not(:first-child, :last-child) {
+    }
+    &:last-child {
+      padding-right: 8px;
+      padding-left: 0px;
+    }
   }
 `;
 
@@ -113,6 +126,9 @@ export const CurvedSpacer = styled.div<CurvedSpacerType>`
     props.direction == "right"
       ? `radial-gradient(circle at -240%, rgba(0, 0, 0, 0) 75%, grey 77%,grey 78%,${backgroundColor} 77%)`
       : `radial-gradient(circle at 340%, rgba(0, 0, 0, 0) 75%, grey 77%,grey 78%, ${backgroundColor} 75%)`};
+  @media only screen and (max-width: 500px) {
+    height: 46px;
+  }
 `;
 
 export const MenuWrapper = styled.div`

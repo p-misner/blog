@@ -113,6 +113,8 @@ export const LabeledLetterRow = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  /* width: 16px; */
+
   :nth-child(even) {
     /* background: ${lightestBlueColor}; */
   }
@@ -120,8 +122,8 @@ export const LabeledLetterRow = styled.div`
     border-left: 0px solid ${darkBlueColor};
   }
   div {
-    width: 20px;
-    height: 22px;
+    width: 18.25px;
+    height: 22.5px;
     color: ${darkBlueColor};
     border-top: 1px solid ${darkBlueColor};
     /* border-bottom: 1px solid ${darkBlueColor}; */
