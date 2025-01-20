@@ -54,6 +54,8 @@ export const STARButtonWrapper = styled.button<{
   border: 1px solid ${darkBlueColor};
   height: 20px;
   width: 12px;
+  -webkit-appearance: none;
+  appearance: none;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
