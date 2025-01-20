@@ -55,6 +55,7 @@ export const LastNameBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100px;
+  max-width: 311.2px;
   border: 1px solid ${darkBlueColor};
   background-color: orange;
 `;
@@ -65,6 +66,7 @@ export const IDBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100px;
+  max-width: 185px;
   border: 1px solid ${darkBlueColor};
 `;
 export const MiscBoxWrapper = styled.div`
@@ -74,6 +76,7 @@ export const MiscBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100px;
+  max-width: 184px;
   border: 1px solid ${darkBlueColor};
 `;
 export const MiscTitleWrapper = styled.div`
@@ -195,6 +198,8 @@ export const BubbleColumnWrapper = styled.div`
   flex-direction: column;
   /* border: 1px solid ${darkBlueColor}; */
   min-width: 130px;
+  max-width: 162px;
+
   :first-child {
     :nth-child(2),
     :nth-child(3),
@@ -313,6 +318,7 @@ export const DeptWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   color: ${darkBlueColor};
+  max-width: 128px;
   :last-child {
     border-right: 1px solid ${darkBlueColor};
   }
@@ -328,6 +334,8 @@ export const CourseWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   color: ${darkBlueColor};
+  max-width: 127px;
+
   :last-child {
     border-right: 1px solid ${darkBlueColor};
   }
@@ -343,6 +351,7 @@ export const DateWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   color: ${darkBlueColor};
+  max-width: 109px;
   :last-child {
     border-right: 1px solid ${darkBlueColor};
   }
