@@ -1,7 +1,7 @@
 "use client";
 
 // Images
-import { BackgroundWrapper } from "./style/deskStyle";
+import { BackgroundWrapper, PopUpMessagesWrapper } from "./style/deskStyle";
 import Image from "next/image";
 import DeskBG from "../../../../public/desk.png";
 import ScantronCover from "../../../../public/standardizedTest/scantronCover.png";
@@ -32,7 +32,7 @@ export default function Home() {
     STAR: {},
     SAT: {},
   });
-
+  const [linkCopy, setLinkCopy] = useState(false);
   useEffect(() => {
     //gets filled button position from URL parameters
     const queryString = window.location.search;
@@ -124,9 +124,17 @@ export default function Home() {
           testType={testType}
           urlParams={urlParams}
           setUrlParams={setUrlParams}
+          setLinkCopy={setLinkCopy}
         />
-        <PopUpMessage testType={testType} />
-
+        <PopUpMessagesWrapper>
+          <PopUpMessage
+            testType={testType}
+            message={"Hold Shift key to fill buttons on hover"}
+          />
+          {linkCopy && (
+            <PopUpMessage testType={testType} message="Link Copied" />
+          )}
+        </PopUpMessagesWrapper>
         {/* The menu switches between test types and reveals when the test button is clicked */}
         {menuOpen && (
           <MenuWrapper>

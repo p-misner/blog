@@ -9,18 +9,23 @@ export const BackgroundWrapper = styled.div`
   position: fixed;
 `;
 
-export const MessageWrapper = styled.div<{
-  $testType: "scantron" | "SAT" | "STAR";
-}>`
+export const PopUpMessagesWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  /* justify-content: ; */
+  align-items: flex-end;
   position: fixed;
   bottom: 148px;
   right: 24px;
-  /* left: 50%;
-  transform: translate(-50%, -50%); */
-  display: flex;
   z-index: 100;
+  row-gap: 8px;
+`;
+export const MessageWrapper = styled.div<{
+  $testType: "scantron" | "SAT" | "STAR";
+}>`
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 6px 8px;
   column-gap: 24px;
@@ -30,6 +35,8 @@ export const MessageWrapper = styled.div<{
   box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.3);
   font-size: 18px;
   font-weight: 350;
+  height: 28px;
+  width: fit-content;
   p {
     color: #535353;
   }

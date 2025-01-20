@@ -194,3 +194,18 @@ export const MenuLabel = styled.h3<MenuItemTypes>`
     1.5px 1.5px 0 ${(props) => props.color}, 0px 0px 5px rgba(0, 0, 0, 0.3),
     0px 0px 5px ${(props) => props.color};
 `;
+export const CopiedText = styled.div<{ reveal: boolean }>`
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid black;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  max-width: fit-content;
+  padding: 4px 8px;
+  visibility: ${(props) => (props.reveal ? "visible" : "hidden")};
+  opacity: ${(props) => (props.reveal ? 1 : 0)};
+  transition: ${(props) =>
+    props.reveal
+      ? " opacity 0.2s linear"
+      : "visibility 0s 2s, opacity 2s linear"};
+`;
