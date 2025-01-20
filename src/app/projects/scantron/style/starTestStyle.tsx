@@ -56,7 +56,7 @@ export const LastNameBoxWrapper = styled.div`
   flex-direction: column;
   min-height: 100px;
   border: 1px solid ${darkBlueColor};
-  background-color: red;
+  background-color: orange;
 `;
 export const IDBoxWrapper = styled.div`
   position: absolute;

@@ -12,6 +12,8 @@ const whiteSTARColor = "#F8FAF9";
 export const ScantronButtonWrapper = styled.button<{
   $clicked: boolean;
 }>`
+  -webkit-appearance: none;
+  appearance: none;
   background-color: ${(props) => (props.$clicked ? "#010f0a" : whiteColor)};
   border: 1px solid ${greenColor};
   height: 8px;
@@ -52,13 +54,14 @@ export const ScantronButtonRow = styled.div`
 export const STARButtonWrapper = styled.button<{
   $clicked: boolean;
 }>`
+  -webkit-appearance: none;
+  appearance: none;
   background-color: ${(props) => (props.$clicked ? "#010f0a" : whiteSTARColor)};
   border: 1px solid ${darkBlueColor};
   height: 20px;
   width: 12px;
   max-width: 12px;
-  -webkit-appearance: none;
-  appearance: none;
+
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -74,6 +77,8 @@ export const STARButtonWrapper = styled.button<{
 `;
 
 export const STARButtonRow = styled.div`
+  -webkit-appearance: none;
+  appearance: none;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -97,7 +102,6 @@ export const STARButtonRow = styled.div`
   }
   p {
     text-align: right;
-
     font-size: ${fontSize.xs};
     font-weight: ${fontWeight.regular};
     color: ${darkBlueColor};
