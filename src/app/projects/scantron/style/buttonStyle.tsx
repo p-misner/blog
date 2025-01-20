@@ -21,15 +21,16 @@ export const ScantronButtonWrapper = styled.button<{
   justify-content: center;
   flex-wrap: nowrap;
   cursor: pointer;
-  width: 32px;
   height: 8px;
+  width: 28px;
+  max-width: 28px;
+
   color: ${greenColor};
   font-size: ${fontSize.xxs};
   font-weight: ${fontWeight.bold};
   text-shadow: 0px 2px ${whiteColor}, 0px -2px ${whiteColor},
     2px 0px ${whiteColor}, -2px 0px ${whiteColor};
   text-transform: uppercase;
-  width: 28px;
 `;
 export const ScantronButtonRow = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ export const ScantronButtonRow = styled.div`
     font-weight: ${fontWeight.bold};
     color: ${greenColor};
     width: 12px;
+    max-width: 12px;
     margin-right: ${spaceBlocks.xs};
     /* margin-bottom: ${spaceBlocks.xxs}; */
   }
@@ -54,6 +56,7 @@ export const STARButtonWrapper = styled.button<{
   border: 1px solid ${darkBlueColor};
   height: 20px;
   width: 12px;
+  max-width: 12px;
   -webkit-appearance: none;
   appearance: none;
   border-radius: 8px;
@@ -99,6 +102,7 @@ export const STARButtonRow = styled.div`
     font-weight: ${fontWeight.regular};
     color: ${darkBlueColor};
     width: 12px;
+    max-width: 12px;
     margin-right: ${spaceBlocks.xs};
     /* margin-bottom: ${spaceBlocks.xxs}; */
   }
