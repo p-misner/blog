@@ -1,7 +1,11 @@
 "use client";
 
 // Images
-import { BackgroundWrapper, PopUpMessagesWrapper } from "./style/deskStyle";
+import {
+  BackgroundWrapper,
+  BuiltByPriya,
+  PopUpMessagesWrapper,
+} from "./style/deskStyle";
 import Image from "next/image";
 import DeskBG from "../../../../public/desk.png";
 import ScantronCover from "../../../../public/standardizedTest/scantronCover.png";
@@ -107,7 +111,10 @@ export default function Home() {
           src={DeskBG}
           alt="texture of school desk"
         />
-
+        <BuiltByPriya>
+          {" "}
+          Built by <a href="https://www.priyamisner.com"> Priya Misner</a>
+        </BuiltByPriya>
         {/* test component here */}
         {testType == "scantron" && <Scantron key={seed} />}
         {testType == "STAR" && <STARTest key={seed} />}

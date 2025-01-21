@@ -55,3 +55,15 @@ export const MessageWrapper = styled.div<{
     }
   }
 `;
+
+export const BuiltByPriya = styled.p`
+  z-index: 99;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: black;
+  opacity: 0.7;
+  a {
+    color: black;
+  }
+`;
