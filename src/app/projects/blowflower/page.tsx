@@ -1,5 +1,4 @@
 "use client";
-
 import { fontSize, fontWeight } from "@/app/style/styleConstants";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -95,7 +94,7 @@ const noise = () => {
   })();
 };
 
-export const DandelionGroupSVG = ({
+const DandelionGroupSVG = ({
   clicked,
   setClicked,
 }: {
@@ -1443,7 +1442,7 @@ export const DandelionGroupSVG = ({
   );
 };
 
-export const BlurryWind1 = ({
+const BlurryWind = ({
   clicked,
   setClicked,
 }: {
@@ -1839,16 +1838,8 @@ export default function BlowFlower() {
 
       <PageWrapper>
         <DandelionGroupSVG clicked={clicked} setClicked={setClicked} />
-        {/* <Dandelion1Wrapper>
-          <DandelionSVG />
-        </Dandelion1Wrapper>
-        <Dandelion2Wrapper>
-          <DandelionSVG />
-        </Dandelion2Wrapper>
-        <Dandelion3Wrapper>
-          <DandelionSVG />
-        </Dandelion3Wrapper> */}
-        <BlurryWind1 clicked={clicked} setClicked={setClicked} />
+
+        <BlurryWind clicked={clicked} setClicked={setClicked} />
         <AbsCanvas id="noise" width="1920" height="873" />
         <BlowButton onClick={() => setClicked(!clicked)}> Blow 🍃</BlowButton>
       </PageWrapper>
@@ -1872,6 +1863,11 @@ const WindSVGWrapper = styled.svg`
     max-width: 1600px;
     /* bottom: -150px; */
   }
+  @media only screen and (max-width: 700px) {
+    width: auto;
+    height: 80vh;
+    /* bottom: -150px; */
+  }
 `;
 const DandelionGroupWrapper = styled.svg`
   position: absolute;
@@ -1880,46 +1876,9 @@ const DandelionGroupWrapper = styled.svg`
   bottom: 0px;
   left: 50%;
   transform: translate(-50%, 0%);
-  /* height: 995px; */
-`;
-const DandelionSVGWrapper = styled.svg`
-  width: 25vw;
-  /* height: 995px; */
-`;
-
-const Dandelion1Wrapper = styled.div`
-  position: absolute;
-  left: 20vw;
-  bottom: -30vw;
-  @media only screen and (min-width: 960px) {
-    svg {
-      max-height: 800px;
-      bottom: -300px;
-    }
-  }
-`;
-const Dandelion2Wrapper = styled.div`
-  position: absolute;
-  left: 40vw;
-  bottom: -40vw;
-
-  @media only screen and (min-width: 960px) {
-    svg {
-      max-height: 800px;
-      bottom: -400px;
-    }
-  }
-`;
-const Dandelion3Wrapper = styled.div`
-  position: absolute;
-  left: 60vw;
-  bottom: -15vw;
-
-  @media only screen and (min-width: 960px) {
-    svg {
-      max-height: 800px;
-      bottom: -150px;
-    }
+  @media only screen and (max-width: 700px) {
+    width: auto;
+    height: 80vh;
   }
 `;
 
