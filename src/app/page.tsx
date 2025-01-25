@@ -28,6 +28,7 @@ import colorSpacesCover from "../../public/coverImages/colorspaces_wip.png";
 import calendarCover from "../../public/coverImages/DataVizChallengeCalendarCover.png";
 import trafficJamCover from "../../public/coverImages/trafficJamCover.png";
 import millionPixelCover from "../../public/coverImages/MillionPixelDash.gif";
+import dandelionCover from "../../public/coverImages/dandelion.png";
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -46,7 +47,24 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Jan 24th, 2025</Date>
+            <Title color={theme.colorPicked}>
+              <a href="./projects/blowflower">
+                {/* <a href="/" > */}
+                Dandelions and GSAP
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>Another exploration into SVG animation and GSAP</Subtitle>
 
+            <ImageWrapper>
+              <Image
+                src={dandelionCover}
+                alt="three pixelated dandelions with a button titled Blow in the center"
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Jan 9th, 2025</Date>
             <Title color={theme.colorPicked}>
