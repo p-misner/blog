@@ -9,8 +9,8 @@ gsap.registerPlugin(MotionPathPlugin);
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: cursive;
     overflow: hidden;
+    background: linear-gradient(#518bfd, #8d71fc);
   }
 `;
 const tl = gsap.timeline({ repeat: 0, repeatDelay: 1 });
@@ -117,7 +117,7 @@ const DandelionGroupSVG = ({
         stagger: 0.2,
         delay: 0.3,
       },
-      1
+      0.3
     );
     tl.to(
       ".seeds2 > path",
@@ -130,7 +130,7 @@ const DandelionGroupSVG = ({
         stagger: 0.2,
         delay: 0.3,
       },
-      1.2
+      0.5
     );
     tl.to(
       ".seeds3 > path",
@@ -143,7 +143,7 @@ const DandelionGroupSVG = ({
         stagger: 0.2,
         delay: 0.3,
       },
-      1.5
+      0.9
     );
     tl.to(
       ".outer",
@@ -155,7 +155,7 @@ const DandelionGroupSVG = ({
         duration: 8,
         stagger: 0.25,
       },
-      1
+      0.6
     );
   }, [clicked]);
   return (
@@ -1838,7 +1838,6 @@ export default function BlowFlower() {
 
       <PageWrapper>
         <DandelionGroupSVG clicked={clicked} setClicked={setClicked} />
-
         <BlurryWind clicked={clicked} setClicked={setClicked} />
         <AbsCanvas id="noise" width="1920" height="873" />
         <BlowButton onClick={() => setClicked(!clicked)}> Blow 🍃</BlowButton>
@@ -1848,7 +1847,6 @@ export default function BlowFlower() {
 }
 
 const PageWrapper = styled.div`
-  background: linear-gradient(#518bfd, #8d71fc);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -1867,6 +1865,7 @@ const WindSVGWrapper = styled.svg`
     width: auto;
     height: 80vh;
     /* bottom: -150px; */
+    display: none;
   }
 `;
 const DandelionGroupWrapper = styled.svg`
@@ -1880,6 +1879,7 @@ const DandelionGroupWrapper = styled.svg`
     width: auto;
     height: 80vh;
   }
+  will-change: transform;
 `;
 
 //pointer-events works for modern browsers but better strategy is to put buttons on top and visuals below
