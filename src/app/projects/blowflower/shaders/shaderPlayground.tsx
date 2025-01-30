@@ -1,14 +1,14 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Vector2 } from "three";
-import defaultVertShader from "./vector.glsl";
-import curvedVertShader from "./curvedsinewave.glsl";
-import gradientFragShader from "./gradient.glsl";
-import movingVertShader from "./movingsinewave.glsl";
-import lygiaNoiseShader from "./lygianoised.glsl";
-import lygiaCNoiseShader from "./lygiacnoise.glsl";
-import lygiaSNoiseShader from "./lygiasnoise.glsl";
-import lygiaSubtle from "./subtlenoise.glsl";
+import defaultVertShader from "!!raw-loader!./vector.glsl";
+import curvedVertShader from "!!raw-loader!./curvedsinewave.glsl";
+import gradientFragShader from "!!raw-loader!./gradient.glsl";
+import movingVertShader from "!!raw-loader!./movingsinewave.glsl";
+import lygiaNoiseShader from "!!raw-loader!./lygianoised.glsl";
+import lygiaCNoiseShader from "!!raw-loader!./lygiacnoise.glsl";
+import lygiaSNoiseShader from "!!raw-loader!./lygiasnoise.glsl";
+import lygiaSubtle from "!!raw-loader!./subtlenoise.glsl";
 import { resolveLygia } from "resolve-lygia";
 
 const Cube = () => {
