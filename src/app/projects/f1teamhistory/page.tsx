@@ -4,15 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useEffect, useRef, useState } from "react";
-import {
-  ArticleTitleWrapper,
-  BarChartWrapper,
-  BarSVGWrapper,
-  PageWrapper,
-  RectBox,
-  SVGBox,
-  TextSectionWrapper,
-} from "./style/articleStyle";
+import { PageWrapper, TextSectionWrapper } from "./style/articleStyle";
 import { BarChart } from "./components/barChart";
 import {
   ArticleTitle,
@@ -57,6 +49,8 @@ const InfoCard = ({ content, label }: { content: string[]; label: string }) => {
         onEnterBack: () => InfoTriggersReverse(label),
         onEnter: () => InfoTriggers(label),
         markers: true,
+        pin: true,
+        pinSpacing: false,
       },
     });
   });
@@ -118,8 +112,10 @@ export default function F1TeamHistory() {
       <InfoCard content={contentFirst} label="first" />
       <InfoCard content={contentSecond} label="second" />
       <InfoCard content={contentSecond} label="third" />
-
       <InfoCard content={["placeholder"]} label="lastcard" />
+      <div style={{ backgroundColor: "white", paddingTop: "50vh" }}>
+        <div style={{ backgroundColor: "orange", height: "500px" }}></div>
+      </div>
     </PageWrapper>
   );
 }

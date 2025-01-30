@@ -1,10 +1,15 @@
 "use client";
+import React from "react";
 import { fontSize, fontWeight } from "@/app/style/styleConstants";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { shaderMaterial } from "@react-three/drei";
+import { Grid } from "./shaders/shaderPlayground";
+// import glsl from "glslify";
+
 gsap.registerPlugin(MotionPathPlugin);
 
 const GlobalStyle = createGlobalStyle`
@@ -29,7 +34,8 @@ const noise = () => {
 
     for (let i = 0; i < len; i++) {
       if (Math.random() < 0.5) {
-        buffer32[i] = 0xff000000;
+        buffer32[i] = 0xff000000; //black
+        // buffer32[i] = 0xffffffff; //white
       }
     }
 
@@ -103,7 +109,6 @@ const DandelionGroupSVG = ({
 }) => {
   if (clicked) {
     tl.restart();
-    setClicked(false);
   }
   useGSAP(() => {
     tl.to(
@@ -157,7 +162,11 @@ const DandelionGroupSVG = ({
       },
       0.6
     );
+    if (clicked) {
+      setClicked(false);
+    }
   }, [clicked]);
+
   return (
     <DandelionGroupWrapper
       viewBox="0 0 1512 982"
@@ -1451,7 +1460,6 @@ const BlurryWind = ({
 }) => {
   if (clicked) {
     windTl.restart();
-    setClicked(false);
   }
   useGSAP(() => {
     windTl.to(
@@ -1478,7 +1486,7 @@ const BlurryWind = ({
       },
       7
     );
-  }, [clicked]);
+  }, []);
 
   return (
     <WindSVGWrapper
@@ -1491,7 +1499,7 @@ const BlurryWind = ({
           <path
             d="M255 436.377C314.563 397.791 480.957 333.353 670.022 384.286C859.088 435.219 1010.11 432.515 1061.99 424.797C1112.91 413.221 1206.67 375.6 1174.39 317.721C1142.11 259.843 1076.4 280.1 1047.58 297.464"
             stroke="white"
-            strokeDasharray="600 1000"
+            strokeDasharray="300 1000"
             strokeOpacity="0"
             strokeWidth="25"
           />
@@ -1565,7 +1573,7 @@ const BlurryWind = ({
             stroke="white"
             strokeOpacity="0"
             strokeWidth="25"
-            strokeDasharray="800 1000"
+            strokeDasharray="200 1000"
           />
         </g>
         <g filter="url(#filter9_f_694_558)">
@@ -1826,8 +1834,9 @@ const BlurryWind = ({
 
 export default function BlowFlower() {
   const [clicked, setClicked] = useState(false);
+  const [paperMode, setPaperMode] = useState("none");
   useEffect(() => {
-    noise();
+    // noise();
     tl.pause();
     windTl.pause();
   }, []);
@@ -1839,8 +1848,54 @@ export default function BlowFlower() {
       <PageWrapper>
         <DandelionGroupSVG clicked={clicked} setClicked={setClicked} />
         <BlurryWind clicked={clicked} setClicked={setClicked} />
-        <AbsCanvas id="noise" width="1920" height="873" />
+        {/* <AbsCanvas id="noise" width="1920" height="873" /> */}
+        {paperMode !== "none" && <Grid paperMode={paperMode} />}
         <BlowButton onClick={() => setClicked(!clicked)}> Blow 🍃</BlowButton>
+        <MaterialButtonWrapper>
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="none"
+            onClick={() => setPaperMode("none")}
+          >
+            None
+          </MaterialButtons>
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="clouds"
+            onClick={() => setPaperMode("clouds")}
+          >
+            Subtle Noise
+          </MaterialButtons>
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="watercolor"
+            onClick={() => setPaperMode("watercolor")}
+          >
+            Watercolor Paper
+          </MaterialButtons>
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="concrete"
+            onClick={() => setPaperMode("concrete")}
+          >
+            Rough Wall
+          </MaterialButtons>
+
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="whitenoise"
+            onClick={() => setPaperMode("whitenoise")}
+          >
+            TV Static
+          </MaterialButtons>
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="test1"
+            onClick={() => setPaperMode("test1")}
+          >
+            Stained Glass
+          </MaterialButtons>
+        </MaterialButtonWrapper>
       </PageWrapper>
     </div>
   );
@@ -1882,19 +1937,19 @@ const DandelionGroupWrapper = styled.svg`
   will-change: transform;
 `;
 
-//pointer-events works for modern browsers but better strategy is to put buttons on top and visuals below
 const AbsCanvas = styled.canvas`
   position: absolute;
   top: 0px;
-  opacity: 0.08;
+  opacity: 0.1;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 `;
 
 const BlowButton = styled.button`
-  border: 0px solid white;
-  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(0, 157, 52);
+  /* background-color: rgba(24, 50, 143, 0.7); */
+  background-color: #e3ffe4;
   border-radius: 4px;
   padding: 8px 16px;
   position: absolute;
@@ -1902,11 +1957,41 @@ const BlowButton = styled.button`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: ${fontSize.sm};
-  color: white;
+  color: rgb(1, 81, 28);
   font-weight: ${fontWeight.semibold};
+  /* box-shadow: 0px 0px 12px rgba(1, 10, 99, 0.4); */
   cursor: pointer;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgb(0, 157, 52);
+    box-shadow: 0px 0px 12px rgba(79, 203, 106, 0.8);
+
+    /* background-color: rgba(255, 255, 255, 0.4); */
     /* font-weight: ${fontWeight.bold}; */
   }
+`;
+
+const MaterialButtonWrapper = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 8px;
+  row-gap: 12px;
+  column-gap: 8px;
+
+  /* right: 24px; */
+`;
+
+const MaterialButtons = styled.button<{ paperMode: string; buttonId: string }>`
+  cursor: pointer;
+  font-weight: ${(props) =>
+    props.buttonId == props.paperMode ? fontWeight.bold : fontWeight.semibold};
+  opacity: ${(props) => (props.buttonId == props.paperMode ? 1 : 0.7)};
+  font-size: 16px;
+  border: 0px solid white;
+  background-color: transparent;
+  color: rgb(1, 81, 28);
 `;

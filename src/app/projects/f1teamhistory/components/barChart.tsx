@@ -1,74 +1,18 @@
-import { useRef } from "react";
-import { BarChartWrapper, BarSVGWrapper } from "../style/articleStyle";
+import { useCallback, useRef, MouseEvent } from "react";
+import { BarChartWrapper } from "../style/articleStyle";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import { GridRows, GridColumns } from "@visx/grid";
 import { AxisLeft, AxisTop } from "@visx/axis";
 import { scaleOrdinal, scaleLinear, scaleBand } from "@visx/scale";
+import { TooltipWithBounds, useTooltip } from "@visx/tooltip";
+
 import { TeamHistory } from "../data/teams";
 import { Group } from "@visx/group";
 const constructors2024 = Array.from(
   new Set(TeamHistory.map((x) => x.currentName))
 );
-export const BarChartAnimated = () => {
-  const barChartRef = useRef(null);
-  useGSAP(() => {
-    gsap.to(barChartRef.current, {
-      scrollTrigger: {
-        trigger: barChartRef.current,
-        start: "top 1%",
-        end: "bottom 1%",
-        markers: true,
-        pin: true,
-        // pinSpacing: false,
-        pinType: "transform",
-      },
-      border: "1px solid magenta",
-      backgroundColor: "lightgray",
-    });
-
-    gsap.to(".RedBull rect", {
-      scrollTrigger: {
-        trigger: barChartRef.current,
-        start: "top 65%", // when the top of the trigger hits the top of the viewport
-        end: "top+=100", // end after scrolling 500px beyond the start
-        scrub: true,
-        markers: true,
-      },
-      fill: "red",
-      attr: { x: "-=100", width: "+=100" },
-    });
-  });
-
-  const svgWidth = 1000;
-  const svgHeight = 64;
-  return (
-    <BarChartWrapper ref={barChartRef} className="barchartwrapper">
-      <h2> Constructors over Time</h2>
-      <div>
-        {constructors2024.map((x, i) => (
-          <BarSVGWrapper>
-            <svg
-              width={`${svgWidth}px`}
-              height={`${svgHeight}px`}
-              className={x}
-              id={i == 0 ? "first" : ""}
-            >
-              <rect
-                className={`rect-${x}`}
-                y="0"
-                x={`${svgWidth - 4}px`}
-                width="4px"
-                height={`${svgHeight}px`}
-              ></rect>
-            </svg>
-          </BarSVGWrapper>
-        ))}
-      </div>
-    </BarChartWrapper>
-  );
-};
 
 export const BarChart = () => {
   const barChartRef = useRef(null);
@@ -90,6 +34,18 @@ export const BarChart = () => {
   teamScale.range([0, yMax]);
 
   const rectWidth = yearScale(1999) - yearScale(1998);
+  const {
+    showTooltip,
+    hideTooltip,
+    tooltipOpen,
+    tooltipData,
+    tooltipLeft = 0,
+    tooltipTop = 0,
+  } = useTooltip<string>({
+    // initial tooltip state
+    tooltipOpen: true,
+    tooltipData: "Move me with your mouse or finger",
+  });
 
   useGSAP(() => {
     gsap.to(barChartRef.current, {
@@ -98,35 +54,26 @@ export const BarChart = () => {
         endTrigger: ".lastcard",
         start: "top 0%",
         end: "bottom 0%",
-        // markers: true,
         pin: true,
         pinSpacing: false,
-
-        // onLeave: () => alert("lkeaving"),
-        // pinType: "transform",
       },
       border: "1px solid magenta",
-      // backgroundColor: "lightgray",
     });
-    // gsap.to(".singleyear", {
-    //   scrollTrigger: {
-    //     trigger: barChartRef.current,
-    //     start: "top 0%",
-    //     end: "bottom 0%",
-    //     scrub: 2,
-    //     // markers: true,
-    //     // pin: true,
-    //     // pinSpacing: false,
-    //     pinType: "transform",
-    //   },
-    //   stagger: 0.3,
-    //   opacity: 0.8,
-    // });
   });
   return (
-    <BarChartWrapper ref={barChartRef} className="barchartwrapper">
+    <BarChartWrapper
+      ref={barChartRef}
+      className="barchartwrapper"
+      onClick={() => console.log("barchart clicked")}
+    >
       <BarSVG viewBox={`0 0 ${dimens.width} ${dimens.height}`}>
-        <Group left={margin.left} top={margin.top}>
+        <Group
+          left={margin.left}
+          top={margin.top}
+          onMouseLeave={() => {
+            tooltipOpen: false;
+          }}
+        >
           <GridRows
             scale={teamScale}
             width={xMax}
@@ -159,7 +106,14 @@ export const BarChart = () => {
                     count++;
                   }
                   return (
-                    <rect
+                    <CarYearRect
+                      onMouseEnter={(event: MouseEvent<SVGRectElement>) => {
+                        showTooltip({
+                          tooltipData: `${x.years[i].team}/${item.year}`,
+                          tooltipLeft: event.clientX,
+                          tooltipTop: event.clientY,
+                        });
+                      }}
                       key={x.currentName + item.year}
                       className={`singleyear opaque item${item.year}  ${
                         x.years[i].team == x.currentName ? "currentTeam" : ""
@@ -177,6 +131,20 @@ export const BarChart = () => {
           })}
         </Group>
       </BarSVG>
+      {tooltipData ? (
+        <TooltipWithBounds
+          key={Math.random()}
+          top={tooltipTop}
+          left={tooltipLeft}
+          // style={tooltipStyles}
+        >
+          {tooltipData.split("/").map((x) => (
+            <p key={x}>{x}</p>
+          ))}
+          {/* <p>{`Total Spend: `}</p>
+          <p>{`Renewable Spend:`}</p> */}
+        </TooltipWithBounds>
+      ) : null}
     </BarChartWrapper>
   );
 };
@@ -186,5 +154,14 @@ const BarSVG = styled.svg`
   height: 60vw;
   .opaque {
     opacity: 0.2;
+  }
+`;
+
+const CarYearRect = styled.rect`
+  &:hover {
+    stroke: black;
+    stroke-width: 1px;
+    -webkit-filter: drop-shadow(1px 0px 3px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(1px 0px 3px rgba(0, 0, 0, 0.5));
   }
 `;
