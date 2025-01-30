@@ -1834,7 +1834,7 @@ const BlurryWind = ({
 
 export default function BlowFlower() {
   const [clicked, setClicked] = useState(false);
-  const [paperMode, setPaperMode] = useState("none");
+  const [paperMode, setPaperMode] = useState("clouds");
   useEffect(() => {
     // noise();
     tl.pause();
@@ -1854,18 +1854,12 @@ export default function BlowFlower() {
         <MaterialButtonWrapper>
           <MaterialButtons
             paperMode={paperMode}
-            buttonId="none"
-            onClick={() => setPaperMode("none")}
-          >
-            None
-          </MaterialButtons>
-          <MaterialButtons
-            paperMode={paperMode}
             buttonId="clouds"
             onClick={() => setPaperMode("clouds")}
           >
             Subtle Noise
           </MaterialButtons>
+
           <MaterialButtons
             paperMode={paperMode}
             buttonId="watercolor"
@@ -1894,6 +1888,13 @@ export default function BlowFlower() {
             onClick={() => setPaperMode("test1")}
           >
             Stained Glass
+          </MaterialButtons>
+          <MaterialButtons
+            paperMode={paperMode}
+            buttonId="none"
+            onClick={() => setPaperMode("none")}
+          >
+            None
           </MaterialButtons>
         </MaterialButtonWrapper>
       </PageWrapper>
@@ -1947,9 +1948,9 @@ const AbsCanvas = styled.canvas`
 `;
 
 const BlowButton = styled.button`
-  border: 1px solid rgb(0, 157, 52);
+  border: 0px solid black;
   /* background-color: rgba(24, 50, 143, 0.7); */
-  background-color: #e3ffe4;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   padding: 8px 16px;
   position: absolute;
@@ -1957,13 +1958,13 @@ const BlowButton = styled.button`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: ${fontSize.sm};
-  color: rgb(1, 81, 28);
+  color: black;
   font-weight: ${fontWeight.semibold};
   /* box-shadow: 0px 0px 12px rgba(1, 10, 99, 0.4); */
   cursor: pointer;
   &:hover {
-    border: 2px solid rgb(0, 157, 52);
-    box-shadow: 0px 0px 12px rgba(79, 203, 106, 0.8);
+    border: 2px solid black;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
 
     /* background-color: rgba(255, 255, 255, 0.4); */
     /* font-weight: ${fontWeight.bold}; */
@@ -1993,5 +1994,5 @@ const MaterialButtons = styled.button<{ paperMode: string; buttonId: string }>`
   font-size: 16px;
   border: 0px solid white;
   background-color: transparent;
-  color: rgb(1, 81, 28);
+  color: black;
 `;

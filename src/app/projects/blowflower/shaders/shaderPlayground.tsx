@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import { Vector2, Color } from "three";
+import { Vector2 } from "three";
 import defaultVertShader from "./vector.glsl";
 import curvedVertShader from "./curvedsinewave.glsl";
 import gradientFragShader from "./gradient.glsl";
@@ -49,7 +49,7 @@ const CurvePlane = () => {
 };
 const MovingPlane = () => {
   // This reference will give us direct access to the mesh
-  const mesh = useRef(null);
+  const mesh = useRef<any>(null);
 
   const uniforms = useMemo(
     () => ({
@@ -62,7 +62,9 @@ const MovingPlane = () => {
 
   useFrame((state) => {
     const { clock } = state;
-    mesh.current.material.uniforms.u_time.value = clock.getElapsedTime();
+    if (mesh.current) {
+      mesh.current.material.uniforms.u_time.value = clock.getElapsedTime();
+    }
   });
 
   return (
@@ -94,7 +96,7 @@ const Noised = ({ paperMode }: { paperMode: string }) => {
     };
   }, []);
 
-  const mesh = useRef(null);
+  const mesh = useRef<any>(null);
   const uniforms = useMemo(
     () => ({
       u_test: {
@@ -185,7 +187,11 @@ export function Grid({ paperMode }: { paperMode: string }) {
       style={{
         width: "100vw",
         height: "100vh",
-        opacity: ["test1", "whitenoise"].includes(paperMode) ? 0.7 : 0.3,
+        opacity: ["test1", "whitenoise"].includes(paperMode)
+          ? 0.7
+          : paperMode == "clouds"
+          ? 0.2
+          : 0.3,
       }}
     >
       <Canvas>
