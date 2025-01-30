@@ -1,6 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import glsl from "glslify";
 import { Vector2, Color } from "three";
 import defaultVertShader from "./vector.glsl";
 import curvedVertShader from "./curvedsinewave.glsl";
