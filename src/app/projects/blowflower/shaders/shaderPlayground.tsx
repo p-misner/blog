@@ -1,12 +1,12 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Vector2 } from "three";
-// import defaultVertShader from "!!raw-loader!./vector.glsl";
+import defaultVertShader from "!!raw-loader!./vector.glsl";
 
-// import lygiaNoiseShader from "!!raw-loader!./lygianoised.glsl";
-// import lygiaCNoiseShader from "!!raw-loader!./lygiacnoise.glsl";
-// import lygiaSNoiseShader from "!!raw-loader!./lygiasnoise.glsl";
-// import lygiaSubtle from "!!raw-loader!./subtlenoise.glsl";
+import lygiaNoiseShader from "!!raw-loader!./lygianoised.glsl";
+import lygiaCNoiseShader from "!!raw-loader!./lygiacnoise.glsl";
+import lygiaSNoiseShader from "!!raw-loader!./lygiasnoise.glsl";
+import lygiaSubtle from "!!raw-loader!./subtlenoise.glsl";
 import { resolveLygia } from "resolve-lygia";
 
 // const Cube = () => {
@@ -83,107 +83,107 @@ import { resolveLygia } from "resolve-lygia";
 //   );
 // };
 
-const defaultVertShader = `varying vec2 vUv;
-void main() {
-  vUv = uv;
-  vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-  vec4 viewPosition = viewMatrix * modelPosition;
-  vec4 projectedPosition = projectionMatrix * viewPosition;
+// const defaultVertShader = `varying vec2 vUv;
+// void main() {
+//   vUv = uv;
+//   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+//   vec4 viewPosition = viewMatrix * modelPosition;
+//   vec4 projectedPosition = projectionMatrix * viewPosition;
 
-  gl_Position = projectedPosition;
-}
-`;
-const lygiaNoiseShader = `#ifdef GL_ES
-precision mediump float;
-#endif
+//   gl_Position = projectedPosition;
+// }
+// `;
+// const lygiaNoiseShader = `#ifdef GL_ES
+// precision mediump float;
+// #endif
 
-// uniform vec2    u_resolution;
-uniform float   u_time;
-uniform float   u_noisedScaler;
+// // uniform vec2    u_resolution;
+// uniform float   u_time;
+// uniform float   u_noisedScaler;
 
-#include "lygia/generative/noised.glsl"
+// #include "lygia/generative/noised.glsl"
 
-void main(void) {
-    vec4 color = vec4(vec3(0.0), 1.0);
-    vec2 pixel = vec2(1.0)/u_noisedScaler;
-    vec2 st = gl_FragCoord.xy * pixel;
+// void main(void) {
+//     vec4 color = vec4(vec3(0.0), 1.0);
+//     vec2 pixel = vec2(1.0)/u_noisedScaler;
+//     vec2 st = gl_FragCoord.xy * pixel;
 
-    vec2 d2 = noised(vec2(st * 5. + 1.0)).yz * 0.5 + 0.5;
-    vec3 d3 = noised(vec3(st * 5., 1.0)).yzw * 0.5 + 0.5;
-    
-    // color.rgb += mix(vec3(d2,0.0), d3, step(0.5, st.x));
-    // color.rgb += mix(vec3(d2,0.0), vec3(d2,0.0), vec3(d2,0.0));
-    // color.rgb=d3
-    gl_FragColor = vec4(d3,1.0);
-}`;
-const lygiaCNoiseShader = `#ifdef GL_ES
-precision mediump float;
-#endif
+//     vec2 d2 = noised(vec2(st * 5. + 1.0)).yz * 0.5 + 0.5;
+//     vec3 d3 = noised(vec3(st * 5., 1.0)).yzw * 0.5 + 0.5;
 
-// uniform vec2    u_resolution;
-uniform float   u_time;
-uniform float   u_noisedScaler;
+//     // color.rgb += mix(vec3(d2,0.0), d3, step(0.5, st.x));
+//     // color.rgb += mix(vec3(d2,0.0), vec3(d2,0.0), vec3(d2,0.0));
+//     // color.rgb=d3
+//     gl_FragColor = vec4(d3,1.0);
+// }`;
+// const lygiaCNoiseShader = `#ifdef GL_ES
+// precision mediump float;
+// #endif
 
-#include "lygia/generative/cnoise.glsl"
+// // uniform vec2    u_resolution;
+// uniform float   u_time;
+// uniform float   u_noisedScaler;
 
-void main(void) {
-    vec4 color = vec4(vec3(0.0), 1.0);
-    vec2 pixel = vec2(1.0)/u_noisedScaler;
-    vec2 st = gl_FragCoord.xy * pixel;
+// #include "lygia/generative/cnoise.glsl"
 
-    // float d2 = cnoise(vec2(st * 5. + u_time)) * 0.5 + 0.5;
-    float d3 = cnoise(vec3(st * 5., mod(u_time, 1.0)*0.4+0.4)) * 0.5 + 0.5;
-    
-    // color += mix(d2, d3, step(0.5, st.x));
+// void main(void) {
+//     vec4 color = vec4(vec3(0.0), 1.0);
+//     vec2 pixel = vec2(1.0)/u_noisedScaler;
+//     vec2 st = gl_FragCoord.xy * pixel;
 
-    gl_FragColor = vec4(d3, d3,d3,1.0);
-}`;
-const lygiaSNoiseShader = `
-#ifdef GL_ES
-precision mediump float;
-#endif
+//     // float d2 = cnoise(vec2(st * 5. + u_time)) * 0.5 + 0.5;
+//     float d3 = cnoise(vec3(st * 5., mod(u_time, 1.0)*0.4+0.4)) * 0.5 + 0.5;
 
-uniform vec2    u_noiseScaler;
-uniform float   u_time;
+//     // color += mix(d2, d3, step(0.5, st.x));
 
-#include "lygia/generative/worley.glsl"
+//     gl_FragColor = vec4(d3, d3,d3,1.0);
+// }`;
+// const lygiaSNoiseShader = `
+// #ifdef GL_ES
+// precision mediump float;
+// #endif
 
-void main(void) {
-    vec4 color = vec4(vec3(0.0), 1.0);
-    vec2 pixel = vec2(1.0)/500.0;
-    vec2 st = gl_FragCoord.xy * pixel;
+// uniform vec2    u_noiseScaler;
+// uniform float   u_time;
 
-    float d2 = worley(vec2(st*10. + u_time));
-    float d3 = worley(vec3(st*10., u_time*.2));
-    
-    color += mix(d2, d3, step(0.5, st.x));
+// #include "lygia/generative/worley.glsl"
 
-    gl_FragColor = vec4(d3*.4,d3*.7,d3*.9,0.40);
-}
+// void main(void) {
+//     vec4 color = vec4(vec3(0.0), 1.0);
+//     vec2 pixel = vec2(1.0)/500.0;
+//     vec2 st = gl_FragCoord.xy * pixel;
 
-`;
-const lygiaSubtle = `#ifdef GL_ES
-precision mediump float;
-#endif
+//     float d2 = worley(vec2(st*10. + u_time));
+//     float d3 = worley(vec3(st*10., u_time*.2));
 
-// uniform vec2    u_resolution;
-uniform float   u_time;
-uniform float   u_noisedScaler;
+//     color += mix(d2, d3, step(0.5, st.x));
 
-#include "lygia/generative/cnoise.glsl"
+//     gl_FragColor = vec4(d3*.4,d3*.7,d3*.9,0.40);
+// }
 
-void main(void) {
-    vec4 color = vec4(vec3(0.0), 1.0);
-    vec2 pixel = vec2(1.0)/40.0;
-    vec2 st = gl_FragCoord.xy * pixel;
+// `;
+// const lygiaSubtle = `#ifdef GL_ES
+// precision mediump float;
+// #endif
 
-    // float d2 = cnoise(vec2(st * 5. + u_time)) * 0.5 + 0.5;
-    float d3 = cnoise(vec3(st * 8., 0.2)) * 0.5 + 0.4;
-    
-    // color += mix(d2, d3, step(0.5, st.x));
+// // uniform vec2    u_resolution;
+// uniform float   u_time;
+// uniform float   u_noisedScaler;
 
-    gl_FragColor = vec4(d3, d3,d3,.6);
-}`;
+// #include "lygia/generative/cnoise.glsl"
+
+// void main(void) {
+//     vec4 color = vec4(vec3(0.0), 1.0);
+//     vec2 pixel = vec2(1.0)/40.0;
+//     vec2 st = gl_FragCoord.xy * pixel;
+
+//     // float d2 = cnoise(vec2(st * 5. + u_time)) * 0.5 + 0.5;
+//     float d3 = cnoise(vec3(st * 8., 0.2)) * 0.5 + 0.4;
+
+//     // color += mix(d2, d3, step(0.5, st.x));
+
+//     gl_FragColor = vec4(d3, d3,d3,.6);
+// }`;
 
 const Noised = ({ paperMode }: { paperMode: string }) => {
   const mousePosition = useRef({ x: 0, y: 0 });
