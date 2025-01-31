@@ -1,3 +1,7 @@
+export default function Test() {
+  return <div> hi</div>;
+}
+
 // "use client";
 // import { useGSAP } from "@gsap/react";
 // import { gsap } from "gsap";
