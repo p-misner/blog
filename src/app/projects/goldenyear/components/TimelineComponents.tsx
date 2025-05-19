@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   PathReturnProps,
   DatePathProps,
@@ -117,34 +117,64 @@ export function datePath({
   const numLines = new Array((endDateRow - startDateRow) / rowHeight + 1).fill(
     0
   );
-  const elem = document.getElementById("dogs");
-  const elemImgs = document.getElementsByClassName(
-    "dogImg"
-    // eslint-disable-next-line no-undef
-  ) as HTMLCollectionOf<HTMLElement>;
-  const dogGroup = document.getElementById(dogName);
-  const dogImg = document.getElementById(`${dogName}img`);
+
+  const dogGroupRef = useRef<SVGGElement>(null);
+  const dogImgRef = useRef<SVGImageElement>(null);
+  const dogsElemRef = useRef<SVGGElement>(null);
+  const dogImgsRef = useRef<HTMLCollectionOf<Element>>(null);
+
+  // const elem = document.getElementById("dogs");
+  // const elemImgs = document.getElementsByClassName(
+  //   "dogImg"
+  //   // eslint-disable-next-line no-undef
+  // );
+  // const dogGroup = document.getElementById(dogName);
+  // const dogImg = document.getElementById(`${dogName}img`);
+
+  useEffect(() => {
+    const elem = dogsElemRef.current;
+    const elemImgs = document.getElementsByClassName("dogImg");
+    const dogGroup = dogGroupRef.current;
+    const dogImg = dogImgRef.current;
+
+    const handleMouseOver = () => {
+      if (elem) elem.style.fill = "#E0E0E0";
+      if (elemImgs) {
+        for (let i = 0; i < elemImgs.length; i++) {
+          (elemImgs[i] as HTMLElement).style.opacity = "0.2";
+        }
+      }
+      if (dogGroup) dogGroup.style.fill = "url(#fullGrad)";
+      if (dogImg) dogImg.style.opacity = "1";
+    };
+
+    const handleMouseLeave = () => {
+      if (elem) elem.style.fill = "";
+      if (elemImgs) {
+        for (let i = 0; i < elemImgs.length; i++) {
+          (elemImgs[i] as HTMLElement).style.opacity = "1";
+        }
+      }
+      if (dogGroup) dogGroup.style.fill = "";
+    };
+
+    const groupElement = dogGroupRef.current;
+    if (groupElement) {
+      groupElement.addEventListener("mouseover", handleMouseOver);
+      groupElement.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (groupElement) {
+        groupElement.removeEventListener("mouseover", handleMouseOver);
+        groupElement.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, [dogName]); // Re-run effect if dogName changes
+
   return (
-    <g id={dogName} key={dogName} className="golden">
-      <g
-        onMouseOver={() => {
-          if (elem) elem.style.fill = "#E0E0E0";
-          // eslint-disable-next-line no-plusplus
-          for (let i = 0; i < elemImgs.length; i++) {
-            elemImgs[i].style.opacity = "0.2";
-          }
-          if (dogGroup) dogGroup.style.fill = "url(#fullGrad)";
-          if (dogImg) dogImg.style.opacity = "1";
-        }}
-        onMouseLeave={() => {
-          if (elem) elem.style.fill = "";
-          // eslint-disable-next-line no-plusplus
-          for (let i = 0; i < elemImgs.length; i++) {
-            elemImgs[i].style.opacity = "1";
-          }
-          if (dogGroup) dogGroup.style.fill = "";
-        }}
-      >
+    <g id={dogName} key={dogName} className="golden" ref={dogGroupRef}>
+      <g>
         <Link href={`/projects/goldenyear/${dogName.replace(" ", "")}`}>
           <image
             className="dogImg"
@@ -154,23 +184,26 @@ export function datePath({
             height="90"
             x={startX - 64}
             y={startDateRow + startOffset - 54 + (num % 3) * 10 - 10}
+            ref={dogImgRef}
           />
         </Link>
       </g>
-      {numLines.map((x, i) =>
-        pathReturn({
-          currentLine: i,
-          screenWidth,
-          startDateRow,
-          numLines,
-          startX,
-          endX,
-          rowHeight,
-          startOffset,
-          dogName,
-          num,
-        })
-      )}
+      <g id="dogs" ref={dogsElemRef}>
+        {numLines.map((x, i) =>
+          pathReturn({
+            currentLine: i,
+            screenWidth,
+            startDateRow,
+            numLines,
+            startX,
+            endX,
+            rowHeight,
+            startOffset,
+            dogName,
+            num,
+          })
+        )}
+      </g>
     </g>
   );
 }
