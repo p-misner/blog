@@ -1,0 +1,1465 @@
+[{
+  "_id": {
+    "$oid": "62f9ab715c32c1c6023a9938"
+  },
+  "dogName": "Test",
+  "fosterNum": "-1",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Four month old Casey first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "June 28, 2022."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "6 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "July 4th. "
+    }
+  ],
+  "heroText": [
+    {
+      "type": "text",
+      "text": "An absolute ball of energy from the get-go, the only photos we captured of him "
+    },
+    {
+      "type": "image",
+      "tooltipText": "Soaking up the late afternoon rays",
+      "imgSrc": "https://i.ibb.co/7gW1j9N/277809399-5426573314027553-5845920547943345123-n.jpg"
+    },
+    {
+      "type": "image",
+      "tooltipText": "Post zoomies naptime",
+      "imgSrc": "https://i.ibb.co/7gW1j9N/277809399-5426573314027553-5845920547943345123-n.jpg"
+    },
+    {
+      "type": "text",
+      "text": "were on the rare occasions he spent sunning himself in the garden. Casey crawled into his new mom's lap "
+    },
+    {
+      "type": "image",
+      "tooltipText": "placeholder exists here in the box but it's a bit longer",
+      "imgSrc": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*"
+    },
+    {
+      "type": "text",
+      "text": "immediately on meeting her and refused to move when visting dog, Cleo, tried to muscle in. Casey, now called Cooper, is loving his new family and life as a doctor's office dog! "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/P5Qj6f8/Casey-No-Bg.png",
+  "overflowText": [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non sed a iaculis hendrerit risus, tellus purus nibh. Libero integer elementum ut in. Sem cursus scelerisque cras tincidunt est egestas ut nisi. Consequat, ullamcorper nisl mattis blandit. Proin ante morbi aenean cursus nunc condimentum ultricies. Facilisis amet purus congue sit sagittis. Orci diam ac in nisl adipiscing. Urna eget enim purus bibendum risus at. Ullamcorper pretium, praesent molestie feugiat proin sit at augue. Netus in eu viverra ac nibh. Leo, in proin mi quis maecenas. Praesent ipsum dui lectus tellus ut diam. Erat dictumst semper eu vulputate consequat habitant.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non sed a iaculis hendrerit risus, tellus purus nibh. Libero integer elementum ut in. Sem cursus scelerisque cras tincidunt est egestas ut nisi. Consequat, ullamcorper nisl mattis blandit. Proin ante morbi aenean cursus nunc condimentum ultricies. Facilisis amet purus congue sit sagittis. Orci diam ac in nisl adipiscing. Urna eget enim purus bibendum risus at. Ullamcorper pretium, praesent molestie feugiat proin sit at augue. Netus in eu viverra ac nibh. Leo, in proin mi quis maecenas. Praesent ipsum dui lectus tellus ut diam. Erat dictumst semper eu vulputate consequat habitant."
+  ],
+  "gallery": [
+    {
+      "tooltipText": "placeholder goes here",
+      "imgSrc": "https://i.ibb.co/7gW1j9N/277809399-5426573314027553-5845920547943345123-n.jpg"
+    },
+    {
+      "tooltipText": "placeholder goes here",
+      "imgSrc": "https://i.ibb.co/7gW1j9N/277809399-5426573314027553-5845920547943345123-n.jpg"
+    },
+    {
+      "tooltipText": "Wow another placeholder how wild",
+      "imgSrc": "https://i.ibb.co/7gW1j9N/277809399-5426573314027553-5845920547943345123-n.jpg"
+    },
+    {
+      "tooltipText": "PLACEHOLDER GOES HERE",
+      "imgSrc": "https://i.ibb.co/7gW1j9N/277809399-5426573314027553-5845920547943345123-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdbeb33986b42a612b53bf"
+  },
+  "dogName": "Boss",
+  "fosterNum": "24",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Ten year old Boss first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Jan 29, 2022."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "17 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "Feb 15th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/KXFpZc3/Boss-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "Boss about to fly away from Taiwan",
+      "imgSrc": "https://i.ibb.co/VmP58XX/272930131-7342086215809012-6168876391486608628-n.jpg"
+    },
+    {
+      "tooltipText": "All smiles with his new family",
+      "imgSrc": "https://i.ibb.co/NsRsBdT/273743823-4797036613716461-4477118760391327981-n.jpg"
+    },
+    {
+      "tooltipText": "Cuddling up for a good snooze",
+      "imgSrc": "https://i.ibb.co/7rXV9cw/273897545-4813077365445719-1033017664724874643-n.jpg"
+    },
+    {
+      "tooltipText": "Boss in dog toy heaven!",
+      "imgSrc": "https://i.ibb.co/QPDcy7C/274007985-4813078135445642-8013558549980120669-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdbeea3986b42a612b53c1"
+  },
+  "dogName": "Bobo",
+  "fosterNum": "25",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Seven year old Bobo first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "May 31, 2022."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "23 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "Jun 23. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/y6V1B7k/Bobo-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "placeholder",
+      "imgSrc": "https://i.ibb.co/ncHbX1z/Bobo1.jpg"
+    },
+    {
+      "tooltipText": "Bobo taking his first walk after arriving from Taiwan ",
+      "imgSrc": "https://i.ibb.co/SKrcgXk/Bobo2.jpg"
+    },
+    {
+      "tooltipText": "placeholder",
+      "imgSrc": "https://i.ibb.co/crgw8f6/284861117-5590053114346238-8900240048099286478-n.jpg"
+    },
+    {
+      "tooltipText": "Bobo with his new owner",
+      "imgSrc": "https://i.ibb.co/PwpQvJS/289667056-395006536003260-1201505377462610881-n.jpg"
+    },
+    {
+      "tooltipText": "Politely demanding more head skritches",
+      "imgSrc": "https://i.ibb.co/F6jdkSQ/IMG-7895.jpg"
+    },
+    {
+      "tooltipText": "posing with foster sister Penny",
+      "imgSrc": "https://i.ibb.co/Z8jfF1g/IMG-7898.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdbf943986b42a612b53c2"
+  },
+  "dogName": "Daisy",
+  "fosterNum": "23",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Two year old Daisy first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "October 8, 2021."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "30 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "November 7th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/TtZmTrk/Daisy-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "\"I can walk myself Mom!\"",
+      "imgSrc": "https://i.ibb.co/Rj0WCFc/254522338-4459508684135924-6249535342190176312-n.jpg"
+    },
+    {
+      "tooltipText": "All leashed up and ready to go!",
+      "imgSrc": "https://i.ibb.co/nMgjym2/253775540-4460207840732675-1164548591800614397-n.png"
+    },
+    {
+      "tooltipText": "This is officially Daisy's couch now :)",
+      "imgSrc": "https://i.ibb.co/fYDh8dj/253683852-4460211087399017-731207946301400796-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdbfa43986b42a612b53c3"
+  },
+  "dogName": "Docky",
+  "fosterNum": "22",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Four month old Docky first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Aug 29, 2021."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "2 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "August 31st. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/VQzN8ST/Docky-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "A natural model for the camera",
+      "imgSrc": "https://i.ibb.co/DkF4pPH/240519575-4221447831275345-7171923295571847554-n.jpg"
+    },
+    {
+      "tooltipText": "<3 <3 look at those eyes",
+      "imgSrc": "https://i.ibb.co/Bq23jVX/240513340-4221447884608673-6388196193719159833-n.jpg"
+    },
+    {
+      "tooltipText": "and the size of those paws!",
+      "imgSrc": "https://i.ibb.co/Lx6CXK4/240590991-4221447887942006-1940952892427156566-n.jpg"
+    },
+    {
+      "tooltipText": "Docky, now Odin, with his new family",
+      "imgSrc": "https://i.ibb.co/PGKyZ07/241088367-4242489535837841-6757225238677125482-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdbfcf3986b42a612b53c5"
+  },
+  "dogName": "Dan",
+  "fosterNum": "21",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Ten year old Dan first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "August 11, 2021."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "32 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "September 12th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/d0QhjVX/DanClear.png",
+  "gallery": [
+    {
+      "tooltipText": "Miss Dan showing off her trademark smile",
+      "imgSrc": "https://i.ibb.co/d5WbgLr/236389885-6330865836931060-2511713293463313576-n.jpg"
+    },
+    {
+      "imgSrc": "https://i.ibb.co/3zRKXz5/236915166-4655128534505372-6235957070770788910-n.jpg",
+      "tooltipText": "that smile, that damned smile 😆"
+    },
+    {
+      "tooltipText": "burrito Dan",
+      "imgSrc": "https://i.ibb.co/ZSjZZBR/Screen-Shot-2022-08-24-at-5-58-04-PM.png"
+    },
+    {
+      "tooltipText": "post bath Dan part one",
+      "imgSrc": "https://i.ibb.co/nCLD43N/IMG-5616.jpg"
+    },
+    {
+      "tooltipText": "... and part two! burrito Dan is back!",
+      "imgSrc": "https://i.ibb.co/J5hW17P/IMG-5617.jpg"
+    },
+    {
+      "tooltipText": "acting as a beer coaster",
+      "imgSrc": "https://i.ibb.co/4YJqTwP/IMG-5646.jpg\" alt=\"IMG-5646"
+    },
+    {
+      "tooltipText": "Dan glares at you until you give her attention",
+      "imgSrc": "https://i.ibb.co/wBSbwwM/Screen-Shot-2022-08-24-at-6-03-09-PM.png"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc0133986b42a612b53c6"
+  },
+  "dogName": "Bella",
+  "fosterNum": "20",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eleven year old Bella first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "June 30, 2021."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "13 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "July 13th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/d2SJfGx/Bella-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "Bella, middle, with volunteers getting ready to fly to the US",
+      "imgSrc": "https://i.ibb.co/nQjBSLG/bellaismiddle.jpg"
+    },
+    {
+      "tooltipText": "model shoot before the flight",
+      "imgSrc": "https://i.ibb.co/GQGpP1B/166020151-6123532930997686-3965648168083356977-n.jpg"
+    },
+    {
+      "tooltipText": "first walk after the flight!",
+      "imgSrc": "https://i.ibb.co/xJpMpV3/211777729-4069413053145491-5701542565885357309-n.jpg"
+    },
+    {
+      "tooltipText": "Bella with new brother Frank and foster sister Penny!",
+      "imgSrc": "https://i.ibb.co/qCZc7Cm/217942092-4102720496481413-196868519548415066-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc01e3986b42a612b53c7"
+  },
+  "dogName": "Julie",
+  "fosterNum": "19",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eight year old Julie first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "April 5th, 2021."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "11 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "April 16th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/D7V7BTS/Julie-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "at the airport on her way from Taiwan to SFO",
+      "imgSrc": "https://i.ibb.co/6yQNrS4/159105919-5576855495665435-8179103500745635939-n.jpg"
+    },
+    {
+      "tooltipText": "Julie's crate coming off the plane",
+      "imgSrc": "https://i.ibb.co/dmYSnC1/159989957-3757039047716228-1121726647777637011-n.jpg"
+    },
+    {
+      "imgSrc": "https://i.ibb.co/R0RXPkD/174478582-3855737854513013-3718096784109893172-n.jpg",
+      "tooltipText": "a friendly volunteer drives Julie to her new family"
+    },
+    {
+      "tooltipText": "road trip selfie!",
+      "imgSrc": "https://i.ibb.co/7Rbq314/174456366-3855737804513018-1651824484760599040-n.jpg"
+    },
+    {
+      "tooltipText": "At last- Julie with her new mom!",
+      "imgSrc": "https://i.ibb.co/g30szvD/174486581-3855738781179587-4821242394323809634-n.jpg"
+    },
+    {
+      "tooltipText": "On her first trip to the beach",
+      "imgSrc": "https://i.ibb.co/tZmmNFm/217999657-4105421509544645-623286546539331461-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc0413986b42a612b53c8"
+  },
+  "dogName": "Frank",
+  "fosterNum": "18",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Six and a half year old Frank first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "March 6, 2021."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "69 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "May 14th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/0MdChwq/Frank-Clearv2.png",
+  "gallery": [
+    {
+      "tooltipText": "Frank in Taiwan",
+      "imgSrc": "https://i.ibb.co/LxvRQLY/121044818-3349360375150766-2702303066161051016-n.jpg"
+    },
+    {
+      "tooltipText": "moments before boarding the plane from to Taiwan to SFO",
+      "imgSrc": "https://i.ibb.co/dQH6Cgf/122136749-4954426817908309-3550479693855504231-n.jpg"
+    },
+    {
+      "imgSrc": "https://i.ibb.co/QnNp7v2/185219043-3932508806835917-7930842591790893365-n.jpg",
+      "tooltipText": "such a happy boy"
+    },
+    {
+      "imgSrc": "https://i.ibb.co/q1S8HNj/185491863-3932509140169217-7135561809652646858-n.jpg",
+      "tooltipText": "Spotted: A Frank blop"
+    },
+    {
+      "tooltipText": "A happy Frank with his new mom",
+      "imgSrc": "https://i.ibb.co/5hMxKjT/185485294-3932508516835946-8282915280751289585-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc0563986b42a612b53c9"
+  },
+  "dogName": "Potato",
+  "fosterNum": "17",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Two year old Potato first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "December 10, 2020."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "3 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "December 13th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/qrY8mdG/Potato-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "snap taken before leaving Taiwan",
+      "imgSrc": "https://i.ibb.co/6yYzXjS/130556102-5164499703567685-8185192093568163698-n.jpg"
+    },
+    {
+      "tooltipText": "smiling on the car ride to his foster family",
+      "imgSrc": "https://i.ibb.co/QXbDYvg/130769468-3941566015861631-1268505909935553641-n.jpg"
+    },
+    {
+      "tooltipText": "such a big fan of car rides!",
+      "imgSrc": "https://i.ibb.co/P5jg6Wz/130923781-3941565652528334-3031219609443719792-n.jpg"
+    },
+    {
+      "tooltipText": "Going home with his new mom",
+      "imgSrc": "https://i.ibb.co/ZGBWK7M/potatosmom-owns-doggie-daycare.jpg"
+    },
+    {
+      "tooltipText": "Lording over his new backyard",
+      "imgSrc": "https://i.ibb.co/kSXmJSk/148121430-3666887923398008-5362137491419244267-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc06a3986b42a612b53ca"
+  },
+  "dogName": "Ida Rose",
+  "fosterNum": "16",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Seven year old Ida Rose first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "June 21, 2020."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "4 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "June 25th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/FHsnppF/Ida-Rose-Clearv2.png",
+  "gallery": [
+    {
+      "tooltipText": "Ida Rose meeting her new mom",
+      "imgSrc": "https://i.ibb.co/tQcF2HT/105041185-3040429442710529-3050313027569971906-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc08e3986b42a612b53cb"
+  },
+  "dogName": "Queenie",
+  "fosterNum": "15",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Ten-ish year old Queenie first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Dec 27, 2019."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "57 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "Feb 22, 2020. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/HdGjf3Z/Queenie-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "placeholder",
+      "imgSrc": "https://i.ibb.co/XZVfxYp/82440947-2677181692368641-3937307420593750016-n.jpg"
+    },
+    {
+      "tooltipText": "Catching some winks with her new sister Ella",
+      "imgSrc": "https://i.ibb.co/6JNFsNk/Ella-and-Kalani-Queen-are-getting-along-so-well-Just-makes-my-heart-so-happy-to-see-Ella-welcome-oth.jpg"
+    },
+    {
+      "tooltipText": "placeholder",
+      "imgSrc": "https://i.ibb.co/6Y9hcCF/82131159-2677181622368648-7423683308497666048-n.jpg"
+    },
+    {
+      "tooltipText": "Hoping for some chestnuts roasting on the open fire",
+      "imgSrc": "https://i.ibb.co/2W9953V/82043549-2677181662368644-4384669517633028096-n.jpg"
+    },
+    {
+      "imgSrc": "https://i.ibb.co/yWP2ZGr/80461950-3668591006491903-7042230430963073024-n.jpg",
+      "tooltipText": "taken right before leaving Taiwan"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc0ae3986b42a612b53cc"
+  },
+  "dogName": "Julia",
+  "fosterNum": "14",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Six and a half year old Julia first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "December 2, 2019."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "13 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "December 15th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/gjCFHrj/Julia-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "gazing up Julia's true love: food",
+      "imgSrc": "https://i.ibb.co/MfM5zCC/80357103-2613695162050628-4804951592467955712-n.jpg"
+    },
+    {
+      "imgSrc": "https://i.ibb.co/hLp27nn/79938382-2602826876470790-494787606958047232-n.jpg",
+      "tooltipText": "\"Did I hear someone say walk??\""
+    },
+    {
+      "tooltipText": "Christmas photo with Julia's forever family",
+      "imgSrc": "https://i.ibb.co/PgQ63VX/Lucy-was-Julia-enjoyed-a-splendid-first-Christmas-with-her-new-family-Santa-said-she-was-a-veryvery.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc0b73986b42a612b53cd"
+  },
+  "dogName": "Arthur",
+  "fosterNum": "13",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eight and a half year old Arthur first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Dec 2, 2019."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "13 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "Dec 15th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/T0s5WH6/Arthur-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "meeting his new family and grinning!",
+      "imgSrc": "https://i.ibb.co/jkRTY2b/80202783-2613161045437373-4843317221063131136-n.jpg"
+    },
+    {
+      "tooltipText": "a favorite hobby: napping",
+      "imgSrc": "https://i.ibb.co/yNm3hjL/79332153-2613906518696159-8062450369680113664-n.jpg"
+    },
+    {
+      "tooltipText": "on his way to his new home",
+      "imgSrc": "https://i.ibb.co/X70qfBt/79599663-2613161052104039-6452916533759836160-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62fdc0e83986b42a612b53ce"
+  },
+  "dogName": "Louis",
+  "fosterNum": "12",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Seven and a half year old Louis first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Jun 1, 2019."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "30 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "July 10th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/P5Qj6f8/Casey-No-Bg.png",
+  "gallery": [
+    {
+      "tooltipText": "Louis' pre flight photoshoot in Taiwan",
+      "imgSrc": "https://i.ibb.co/6DCWVJq/61285525-2223258914427590-6673296824750571520-n.jpg"
+    },
+    {
+      "tooltipText": "Louis stars in...",
+      "imgSrc": "https://i.ibb.co/YBwZP6C/64811195-2279964722090342-4419721389980778496-n.jpg"
+    },
+    {
+      "tooltipText": "Louis stars in...",
+      "imgSrc": "https://i.ibb.co/L6YWjJr/65272142-2279964698757011-2870842611222970368-n.png"
+    },
+    {
+      "tooltipText": "Louis stars in...",
+      "imgSrc": "https://i.ibb.co/xCZqJpb/65442958-2279961685423979-37322454053421056-n.jpg"
+    },
+    {
+      "tooltipText": "Louis stars in...",
+      "imgSrc": "https://i.ibb.co/gmBzktC/65041966-2279964728757008-7376584048589668352-n.jpg"
+    },
+    {
+      "tooltipText": "driving off with his new family!",
+      "imgSrc": "https://i.ibb.co/1rL8G16/66490075-2302597373160410-243528558398406656-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "62feef13e2acade80d3b6af3"
+  },
+  "dogName": "Casey",
+  "fosterNum": "26",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Four month old Casey first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "June 28, 2022."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "6 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "July 4th. "
+    }
+  ],
+  "heroText": [
+    {
+      "type": "text",
+      "text": "An absolute ball of energy, the only photos of Casey not in motion"
+    },
+    {
+      "type": "image",
+      "tooltipText": "Soaking up the late afternoon rays",
+      "imgSrc": "https://i.ibb.co/x828tDq/3936-CFCD-6917-4-BF8-9094-F9087-E85201-B.jpg"
+    },
+    {
+      "type": "image",
+      "tooltipText": "Post zoomies naptime",
+      "imgSrc": "https://i.ibb.co/cYXBLCZ/67806024953-6-F95722-E-DF61-49-A5-8-C52-1-DFCCBD55-C04.jpg"
+    },
+    {
+      "type": "text",
+      "text": "were taken during his daily garden snooze. Casey crawled into his new mom's lap "
+    },
+    {
+      "type": "image",
+      "tooltipText": "taken literally three minutes after meeting",
+      "imgSrc": "https://i.ibb.co/pxkLD4n/292167976-402697198567527-3325242654939870439-n.jpg"
+    },
+    {
+      "type": "text",
+      "text": "on first meeting her and refused to move when visting dog, Cleo, tried to muscle in."
+    },
+    {
+      "type": "image",
+      "tooltipText": "Cleo doing her absolute best to distract Casey's new mom",
+      "imgSrc": "https://i.ibb.co/vjxy9KY/292155969-402697275234186-6534840193101210000-n.jpg"
+    },
+    {
+      "type": "text",
+      "text": "Casey, now called Cooper, is loving his new family and life as a doctor's office dog! "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/P5Qj6f8/Casey-No-Bg.png"
+},
+{
+  "_id": {
+    "$oid": "6306a6e42b5be7ad8e3d2ba9"
+  },
+  "dogName": "Hank",
+  "fosterNum": "11",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Nine year old Hank first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Feb 2, 2019."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "50 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "March 24th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/q1nf9xz/Hank-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "pre-flight Hank! what a handsome boy",
+      "imgSrc": "https://i.ibb.co/tKtGMJh/51408303-2763351263682553-372214501665144832-n.jpg"
+    },
+    {
+      "tooltipText": "Contemplating weather to nap on the lawn or the patio",
+      "imgSrc": "https://i.ibb.co/9GGrDnT/54525366-2120567661363383-5226236164209377280-n.jpg"
+    },
+    {
+      "tooltipText": "Sleeps like a baby all curled up ❤️",
+      "imgSrc": "https://i.ibb.co/LCkJn2k/54230850-2120567591363390-9213348910330806272-n.jpg"
+    },
+    {
+      "tooltipText": "Posing with his new family and new furry brother",
+      "imgSrc": "https://i.ibb.co/tPqJTws/54526126-2129004617186354-452608309397028864-n.jpg"
+    },
+    {
+      "tooltipText": "All smiles on the drive home",
+      "imgSrc": "https://i.ibb.co/2yWdhVB/53467228-2129004587186357-1209673694922670080-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306c1732b5be7ad8e3d2baa"
+  },
+  "dogName": "Anson",
+  "fosterNum": "10",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Nine year old Anson first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "October 20, 2018."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "23 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "November 12th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/sFDQJ2v/Anson-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "Anson at the airport before leaving Taiwan",
+      "imgSrc": "https://i.ibb.co/nnbNtMb/44326599-2538874862796862-8592534507502960640-n.jpg"
+    },
+    {
+      "tooltipText": "The whole gang of dogs flying with Anson",
+      "imgSrc": "https://i.ibb.co/p2RPqBW/44563113-10215287524094058-7196321616886759424-n.jpg"
+    },
+    {
+      "tooltipText": "Anson was sweet from the moment he came out of his crate ",
+      "imgSrc": "https://i.ibb.co/tmYJWBD/44620874-2117278591625053-1204021101349306368-n.jpg"
+    },
+    {
+      "tooltipText": "Smiles all around when Anson meets his new family",
+      "imgSrc": "https://i.ibb.co/StCp81b/46107009-1935435589876592-7645991481458556928-n.jpg"
+    },
+    {
+      "tooltipText": "Settling in to his new home",
+      "imgSrc": "https://i.ibb.co/prmdCC2/46151939-1935434149876736-7111661502175641600-n.jpg"
+    },
+    {
+      "tooltipText": "time for a walk anybody?",
+      "imgSrc": "https://i.ibb.co/Dz0P0qz/46077490-1935437403209744-1994621312349241344-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306c3d02b5be7ad8e3d2bab"
+  },
+  "dogName": "Kyson",
+  "fosterNum": "9",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Ten year old Kyson first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Sept 10, 2018."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "5 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "September 15th. "
+    }
+  ],
+  "heroText": [
+    {
+      "type": "text",
+      "text": "No photos available."
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/P5Qj6f8/Casey-No-Bg.png"
+},
+{
+  "_id": {
+    "$oid": "6306c4d72b5be7ad8e3d2bac"
+  },
+  "dogName": "Betty",
+  "fosterNum": "8",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Nine year old Betty first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "August 19, 2018."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "6 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "Oct 21st. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/M5BJyqR/Betty-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "sweet Betty at the rescue in Taiwan ",
+      "imgSrc": "https://i.ibb.co/2ttzwdv/36554261-1737027033050783-5996737422912651264-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306c5352b5be7ad8e3d2bae"
+  },
+  "dogName": "Marvin",
+  "fosterNum": "7",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Nine year old Marvin first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "August 17, 2018."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "39 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "September 24th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/XL6q4ND/Marvin-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "photos when Marvin was at the rescue in Taiwan",
+      "imgSrc": "https://i.ibb.co/CPsHDZ3/38790255-1797539810332838-5517432378487734272-n.jpg"
+    },
+    {
+      "tooltipText": "Final photoshoot before leaving Taiwan",
+      "imgSrc": "https://i.ibb.co/n0gg3D5/39208412-2417925431558473-5530213690059522048-n.jpg"
+    },
+    {
+      "tooltipText": "Sitting like a champ (far right) after landing in the us ",
+      "imgSrc": "https://i.ibb.co/LCZKJX7/marvinefarright.jpg\" alt=\"marvinefarright"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306ded52b5be7ad8e3d2baf"
+  },
+  "dogName": "Mone",
+  "fosterNum": "6",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Nine year old Mone first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "November 11, 2017."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "22 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "December 3rd. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/sm6m2Qq/Mone-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "Mone lookin' like a thousand bucks before her flight",
+      "imgSrc": "https://i.ibb.co/qRQqDw6/23456489-1961455440538810-7955977327570625665-o.jpg"
+    },
+    {
+      "tooltipText": "BIG fan of cars- jumped in without hesitation",
+      "imgSrc": "https://i.ibb.co/TtNR28N/23415492-1735622163122705-8358237695570084700-o.jpg"
+    },
+    {
+      "tooltipText": "At her new home with her new favorite toy",
+      "imgSrc": "https://i.ibb.co/xGwTKqx/46079721-1933747410045410-6377874482912034816-n.jpg"
+    },
+    {
+      "tooltipText": "Mone napping from one angle...",
+      "imgSrc": "https://i.ibb.co/TPD2zhp/46059108-1933747360045415-5334462858962927616-n.jpg"
+    },
+    {
+      "tooltipText": "... and from another angle",
+      "imgSrc": "https://i.ibb.co/RbzvfT0/45899556-1933747373378747-717269644490047488-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306e8d52b5be7ad8e3d2bb0"
+  },
+  "dogName": "Omega",
+  "fosterNum": "4",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Seven year old Omega first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "July 1, 2017."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "54 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "August 24th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/02dzYKx/Omega-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "Omega moments after landing at SFO",
+      "imgSrc": "https://i.ibb.co/N1n6SSP/19748458-1378533185566838-7759674432720032249-n.jpg"
+    },
+    {
+      "tooltipText": "helping his new mom to relax :) ",
+      "imgSrc": "https://i.ibb.co/WF3VG2z/20476316-1408990885854401-5818788927863074625-n.jpg"
+    },
+    {
+      "tooltipText": "and getting caught in a heist :/",
+      "imgSrc": "https://i.ibb.co/SdzkzMN/24174305-1511156365637852-6309363046312825782-n.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306eb332b5be7ad8e3d2bb1"
+  },
+  "dogName": "Herman",
+  "fosterNum": "5",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eight year old Herman first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "July 30, 2017."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "116 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "October 24th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/cvynPPx/Herman-Clearv3.png",
+  "gallery": [
+    {
+      "tooltipText": "handsome boy Herman",
+      "imgSrc": "https://i.ibb.co/vc4kGXc/19894756-1392387077514782-4245211658904507300-n.jpg"
+    },
+    {
+      "tooltipText": "affectionately known as Hermie Worm, this dog was a cuddlebug",
+      "imgSrc": "https://i.ibb.co/tZDs3Tf/IMG-2899-Original.jpg"
+    },
+    {
+      "tooltipText": "looking fierce Herman",
+      "imgSrc": "https://i.ibb.co/TWv2KGD/IMG-2807-Original.jpg\" alt=\"IMG-2807-Original"
+    },
+    {
+      "tooltipText": "second from right 🐛",
+      "imgSrc": "https://i.ibb.co/DC1x5g8/IMG-5915-Original.png"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306eee72b5be7ad8e3d2bb2"
+  },
+  "dogName": "Bruno",
+  "fosterNum": "3",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eight-ish year old Bruno first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "October 29, 2016."
+    },
+    {
+      "type": "default",
+      "text": "He stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "100 days "
+    },
+    {
+      "type": "default",
+      "text": "before his adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "Feb 6, 2017. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/VVFzLVs/Bruno-Clearv2.png",
+  "gallery": [
+    {
+      "tooltipText": "Bruno the dog equivalent of a teddy bear",
+      "imgSrc": "https://i.ibb.co/R486RV3/14711443-1382970325060318-6465404293463848629-o.jpg"
+    },
+    {
+      "tooltipText": "Bruno, top left, giving a grumpy look after being awoken from his nap",
+      "imgSrc": "https://i.ibb.co/ft6pLcV/IMG-5182-Original.jpg"
+    },
+    {
+      "tooltipText": "sleepy Bruno strikes again",
+      "imgSrc": "https://i.ibb.co/6cMp9bn/IMG-5041-Original.jpg\" "
+    },
+    {
+      "tooltipText": "Bruno objecting to the walk from the get go",
+      "imgSrc": "https://i.ibb.co/dkn2LYs/IMG-7038-Original.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306f1db2b5be7ad8e3d2bb3"
+  },
+  "dogName": "Isabel",
+  "fosterNum": "2",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eight year old Isabel first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "June 22, 2016."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "133 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "November 3rd. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/ph21G3Z/Isabel-Clearv3.png",
+  "gallery": [
+    {
+      "tooltipText": "on the hunt for attention",
+      "imgSrc": "https://i.ibb.co/Gs5TWgQ/IMG-2837-Original-2.jpg"
+    },
+    {
+      "tooltipText": "lookin cute but also... checking to see if you can pet her",
+      "imgSrc": "https://i.ibb.co/6Z3sFpD/IMG-3747-Original-2.jpg"
+    },
+    {
+      "tooltipText": "Isabel and foster sister Penny hearing the fridge opening",
+      "imgSrc": "https://i.ibb.co/HYX58v9/IMG-8468-Original-2.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6306f3322b5be7ad8e3d2bb4"
+  },
+  "dogName": "Doris",
+  "fosterNum": "1",
+  "summaryText": [
+    {
+      "type": "default",
+      "text": "Eight year old Doris first arrived "
+    },
+    {
+      "type": "bold",
+      "text": "Jan 21, 2016."
+    },
+    {
+      "type": "default",
+      "text": "She stayed for "
+    },
+    {
+      "type": "bold",
+      "text": "128 days "
+    },
+    {
+      "type": "default",
+      "text": "before her adoption on "
+    },
+    {
+      "type": "bold",
+      "text": "May 28th. "
+    }
+  ],
+  "dogSvg": "https://i.ibb.co/59PkW2J/Doris-Clear.png",
+  "gallery": [
+    {
+      "tooltipText": "Miss Dignified Doris about to fly to the us",
+      "imgSrc": "https://i.ibb.co/P4jHW1F/12654212-1157617170928969-4875348482410707964-n.jpg"
+    },
+    {
+      "tooltipText": "majestic in the park part one",
+      "imgSrc": "https://i.ibb.co/DDkv274/10371501-1150337898317804-6577427749561700701-n.jpg"
+    },
+    {
+      "tooltipText": "and part two",
+      "imgSrc": "https://i.ibb.co/q5XCXTy/12832392-1150337891651138-2501623612496368582-n.jpg"
+    },
+    {
+      "tooltipText": "prime position to monitor the fridge",
+      "imgSrc": "https://i.ibb.co/X4mr9w2/12936748-1170972229587704-6422300559619816134-n.jpg"
+    },
+    {
+      "tooltipText": "Doris is a dream on leash",
+      "imgSrc": "https://i.ibb.co/zFFzQrB/12928421-1170972232921037-7407727494109271299-n.jpg"
+    }
+  ]
+}]
