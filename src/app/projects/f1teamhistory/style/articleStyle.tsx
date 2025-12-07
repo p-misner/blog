@@ -48,6 +48,7 @@ export const TextSectionWrapper = styled.div`
   margin: 0px auto;
   padding: 24px;
   width: 60vw;
+  height: fit-content;
   border: 1px dashed magenta;
   margin-bottom: 60vh;
   background-color: white;

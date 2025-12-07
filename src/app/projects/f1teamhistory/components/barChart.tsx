@@ -115,9 +115,9 @@ export const BarChart = () => {
                         });
                       }}
                       key={x.currentName + item.year}
-                      className={`singleyear opaque item${item.year}  ${
+                      className={`singleyear item${item.year}  ${
                         x.years[i].team == x.currentName ? "currentTeam" : ""
-                      }`}
+                      } ${x.currentName}`}
                       x={yearScale(item.year) - rectWidth + rectWidth / 2}
                       y={teamScale(x.currentName)}
                       height={`${rectHeight}px`}
@@ -157,7 +157,9 @@ const BarSVG = styled.svg`
   }
 `;
 
+//this relates to the tooltip
 const CarYearRect = styled.rect`
+  /* opacity: 0.2; */
   &:hover {
     stroke: black;
     stroke-width: 1px;
