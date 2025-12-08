@@ -29,6 +29,8 @@ import calendarCover from "../../public/coverImages/DataVizChallengeCalendarCove
 import trafficJamCover from "../../public/coverImages/trafficJamCover.png";
 import millionPixelCover from "../../public/coverImages/MillionPixelDash.gif";
 import dandelionCover from "../../public/coverImages/dandelion.png";
+import shadowCursorCover from "../../public/coverImages/shadowcursor.png";
+
 export default function Home() {
   const theme = useContext(ThemeContext);
 
@@ -47,6 +49,28 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Dec 7th, 2025</Date>
+            <Title color={theme.colorPicked}>
+              <a href="./projects/plane">
+                {/* <a href="/" > */}
+                Shadow Cursors
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              Getting back into creative coding with a project that replaces the
+              standard cursor with flying shadows.
+            </Subtitle>
+
+            <ImageWrapper>
+              <Image
+                src={shadowCursorCover}
+                alt="plane shadow on a green grass field, the words shadow cursor in the top left "
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
+
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Jan 24th, 2025</Date>
             <Title color={theme.colorPicked}>

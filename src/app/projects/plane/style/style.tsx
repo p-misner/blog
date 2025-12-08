@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100vh;
-    background-color: #9db846;
+    background-color: #f3f8e0;
     width: 100vw;
     margin: 0; /* Ensures no default browser margins interfere */
     padding: 0;
@@ -19,7 +19,7 @@ export const PageWrapper = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #9db846;
+  background-color: #f3f8e0;
   background-image: url("/spriteSheets/grass3.png");
   background-size: cover;
   background-position: center;
@@ -33,7 +33,7 @@ export const Headline = styled.h1`
   max-width: 6vw;
   font-size: clamp(3.5rem, 10vw, 6rem);
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #141135;
+  color: #052c02;
   opacity: 0.3;
   filter: blur(3px);
 `;
@@ -45,7 +45,7 @@ export const Subtitle = styled.h2`
   /* max-width: 6vw; */
   font-size: 20px;
   /* font-family: Georgia, "Times New Roman", Times, serif; */
-  color: #141135;
+  color: #052c02;
   opacity: 0.3;
   filter: blur(1.5px);
   a,
@@ -64,7 +64,7 @@ export const Buttons = styled.div`
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(157, 184, 70, 0.3);
   padding: 12px 12px 4px 12px;
   border-radius: 5px 5px 0 0;
   z-index: 1000; /* Ensure it stays on top of other content */
@@ -80,7 +80,7 @@ interface ToggleButtonProps {
 export const Button = styled.button<ToggleButtonProps>`
   background-color: ${(props) =>
     props.active ? "rgba(255,255,255,0.7)" : "transparent"};
-  color: #494949;
+  /* color: #494949; */
   text-align: center;
   padding: 12px 12px 4px 12px;
   border-radius: 4px;
@@ -105,7 +105,7 @@ export const PlanePlaceholder = styled.div`
   justify-content: center;
   align-items: center;
   svg path {
-    fill: #141135;
+    fill: #0c4709;
     opacity: 0.2;
   }
   position: absolute;
@@ -145,6 +145,17 @@ export const BirdFlapping = styled.div`
   background-image: url("/spriteSheets/smallBirdSpritesRight.png");
   background-repeat: no-repeat;
   background-size: 518px 98px;
+  background-position-x: 0px;
+  position: absolute;
+`;
+export const HawkFlapping = styled.div`
+  width: 87px;
+  height: 178px;
+  opacity: 0.5;
+
+  background-image: url("/spriteSheets/hawkSprites.png");
+  background-repeat: no-repeat;
+  background-size: 696px 178px;
   background-position-x: 0px;
   position: absolute;
 `;
