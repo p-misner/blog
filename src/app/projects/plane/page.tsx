@@ -4,6 +4,7 @@ import {
   Button,
   Buttons,
   Flock,
+  GlobalStyle,
   Headline,
   PageWrapper,
   PlanePlaceholder,
@@ -120,7 +121,9 @@ export default function ShadowMove() {
   }, [shadowType]);
   return (
     <PageWrapper>
+      <GlobalStyle />
       <Headline> Shadow Cursors</Headline>
+      <Subtitle>Move your cursor</Subtitle>
       <Buttons>
         <Button
           active={shadowType === "plane"}

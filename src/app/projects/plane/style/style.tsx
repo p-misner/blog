@@ -1,8 +1,22 @@
 "use client";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+  html, body {
+    height: 100vh;
+    background-color: #9db846;
+    width: 100vw;
+    margin: 0; /* Ensures no default browser margins interfere */
+    padding: 0;
+    overscroll-behavior: contain;
+  }
+`;
 
 export const PageWrapper = styled.div`
   /* background-color: skyblue; */
+  touch-action: none;
+  overflow-y: hidden;
+  position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: #9db846;
