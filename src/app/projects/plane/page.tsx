@@ -166,7 +166,7 @@ export default function ShadowMove() {
               </filter>
             </defs>
           </svg>
-          <p> Plane</p>
+          {/* <p> Plane</p> */}
         </Button>
         <Button
           active={shadowType === "birds"}
@@ -218,7 +218,7 @@ export default function ShadowMove() {
             </defs>
           </svg>
 
-          <p> Birds</p>
+          {/* <p> Birds</p> */}
         </Button>
       </Buttons>
       <PlanePlaceholder ref={cursorFollower}>
