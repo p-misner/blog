@@ -195,6 +195,7 @@ const BlackHole = () => {
         containerRef.current.offsetWidth,
         containerRef.current.offsetHeight,
       );
+      p5.pixelDensity(1);
       drawRandPixels(p5);
     }
   };
