@@ -86,6 +86,7 @@ export const RockWrapper = styled.div<RockWrapperProps>`
 // `;
 
 export const SandBoxWrapper = styled.div`
+  background-color: red;
   position: relative;
   width: 100%;
   height: 75vh;
