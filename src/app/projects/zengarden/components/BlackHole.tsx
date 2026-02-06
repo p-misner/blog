@@ -63,6 +63,16 @@ const BlackHole = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Manually trigger windowResized to force a measurement update
+      if (window.dispatchEvent) {
+        window.dispatchEvent(new Event("resize"));
+      }
+    }, 100); // 100ms is usually enough for the flexbox to "settle"
+    return () => clearTimeout(timer);
+  }, []);
+
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
 
@@ -87,9 +97,12 @@ const BlackHole = () => {
         containerRef.current.clientHeight - 2,
       );
       canvas.parent(canvasParentRef);
+
       canvas.style("z-index", "1");
+      const ctx = (canvas.elt as HTMLCanvasElement).getContext("2d", {
+        willReadFrequently: true,
+      });
       p5.pixelDensity(1);
-      //   p5.frameRate(60);
       drawRandPixels(p5);
     }
   };
