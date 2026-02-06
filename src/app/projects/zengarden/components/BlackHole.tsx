@@ -21,6 +21,8 @@ const BlackHole = () => {
   const [invert, setInvert] = useState(false);
   const [numPoints, setNumPoints] = useState(6000);
 
+  const [ready, setReady] = useState(false);
+
   let canvas;
 
   useEffect(() => {
@@ -80,6 +82,23 @@ const BlackHole = () => {
     return () => window.removeEventListener("load", resize);
   }, []);
 
+  useEffect(() => {
+    const check = () => {
+      if (!containerRef.current) return;
+
+      const w = containerRef.current.offsetWidth;
+      const h = containerRef.current.offsetHeight;
+
+      if (w > 0 && h > 0) {
+        setReady(true);
+      } else {
+        requestAnimationFrame(check);
+      }
+    };
+
+    check();
+  }, []);
+
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
 
@@ -98,21 +117,21 @@ const BlackHole = () => {
   };
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
-    if (containerRef.current) {
-      //   containerRef.current.innerHTML = "";
-      canvas = p5.createCanvas(
-        containerRef.current.offsetWidth,
-        containerRef.current.offsetHeight || 700,
-      );
-      canvas.parent(canvasParentRef);
+    if (!ready || !containerRef.current) return;
 
-      canvas.style("z-index", "1");
-      const ctx = (canvas.elt as HTMLCanvasElement).getContext("2d", {
-        willReadFrequently: true,
-      });
-      p5.pixelDensity(1);
-      drawRandPixels(p5);
-    }
+    const existing = canvasParentRef.querySelector("canvas");
+    if (existing) existing.remove();
+
+    const w = containerRef.current.offsetWidth;
+    const h = containerRef.current.offsetHeight;
+
+    if (w === 0 || h === 0) return;
+
+    const c = p5.createCanvas(w, h);
+    c.parent(canvasParentRef);
+
+    p5.pixelDensity(1);
+    drawRandPixels(p5);
   };
 
   const draw = (p5: p5Types) => {
@@ -202,11 +221,13 @@ const BlackHole = () => {
   return (
     <SandBoxWalls>
       <Sand ref={containerRef}>
-        <Sketch
-          setup={setup as any}
-          draw={draw as any}
-          windowResized={windowResized as any}
-        />
+        {ready && (
+          <Sketch
+            setup={setup as any}
+            draw={draw as any}
+            windowResized={windowResized as any}
+          />
+        )}
       </Sand>
     </SandBoxWalls>
   );

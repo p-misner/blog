@@ -108,15 +108,6 @@ export default function ZenGarden() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  useEffect(() => {
-    // Wait for the window to be ready and layout to calculate
-    const timer = setTimeout(() => {
-      setIsReady(true);
-    }, 100); // 100ms is usually the "sweet spot" for flexbox
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <PageWrapper>
       <Title>
