@@ -88,6 +88,7 @@ export const RockWrapper = styled.div<RockWrapperProps>`
 export const SandBoxWrapper = styled.div`
   position: relative;
   width: 100%;
+  height: 75vh;
   flex: 1;
   min-height: 0; /* Essential for Firefox/Safari flex shrinking */
   display: flex;
