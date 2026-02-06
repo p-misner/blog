@@ -94,7 +94,7 @@ const BlackHole = () => {
     if (containerRef.current) {
       canvas = p5.createCanvas(
         containerRef.current.clientWidth - 2,
-        containerRef.current.clientHeight - 2,
+        containerRef.current.clientHeight - 2 || 700,
       );
       canvas.parent(canvasParentRef);
 
