@@ -72,7 +72,8 @@ export const ControlButtonBox = styled.div`
 
 export const SandBoxWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 800px;
+  height: 800px;
   flex: 1;
   display: flex;
   flex-direction: column;
