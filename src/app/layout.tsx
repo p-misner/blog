@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import StyledComponentsRegistry from "./lib/registry";
 
-import { League_Spartan } from "next/font/google";
+import { League_Spartan, Space_Grotesk } from "next/font/google";
 import "./style/globals.css";
 import ThemeProvider from "./components/providers";
 
@@ -17,6 +17,10 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 const leaguespartan = League_Spartan({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 export default function RootLayout({
   children,
@@ -33,7 +37,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={leaguespartan.className}>
+      <body className={`${leaguespartan.className} ${spaceGrotesk.variable}`}>
         <GoogleAnalytics gaId="G-T8BXEV93S0" />
         <ThemeProvider>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>

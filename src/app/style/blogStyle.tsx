@@ -20,6 +20,9 @@ export const BlogBody = styled.p`
   font-weight: ${fontWeight.light};
   line-height: ${lineHeight.spread};
   margin-bottom: ${spaceBlocks.sm};
+  ul {
+    list-style-type: circle;
+  }
 `;
 export const BlogList = styled.ul`
   list-style-type: disc;

@@ -20,8 +20,23 @@ export const DrawingCanvas = styled.canvas<DCTypes>`
         returnFormat: "rgba",
       })};
   height: 100%;
-  max-height: 440px;
+  /* max-height: 440px; */
   width: 100%;
+`;
+
+type CanvasOutlineType = {
+  $active?: boolean;
+  $height?: number;
+};
+export const CanvasOutlinep5 = styled.div<CanvasOutlineType>`
+  border: ${(props) => (props.$active ? "2px" : "1px")}
+    ${(props) => (props.$active ? "solid" : "dashed")}
+    ${(props) => (props.$active ? "#65c69c" : "#9c9c9c")};
+  /* height: 100%; */
+  /* height: 100%; */
+  width: 100%;
+  /* max-height: 400px; */
+  height: ${(props) => (props.$height ? props.$height + "px" : "320px")};
 `;
 
 export const CanvasWrapper = styled.div<ColorType>`
@@ -37,7 +52,7 @@ export const CanvasWrapper = styled.div<ColorType>`
   position: relative;
   grid-column: 3 / span 8;
   margin: ${spaceBlocks.md} 0px;
-  max-height: 440px;
+  /* max-height: 440px; */
 `;
 
 export const PauseOverlay = styled.div<ColorType>`

@@ -8,16 +8,24 @@ import {
   BlogInset,
   BlogSectionHeader,
 } from "../../style/blogStyle";
-import { forwardRef, RefObject, useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../components/providers";
-import { CreativeCodeCanvasRefless } from "./components/canvas";
-import { text } from "node:stream/consumers";
-import {
-  draw2,
-  randomWalkDraw,
-  randomWalkSetup,
-  setup2,
-} from "./components/ch1";
+import { TestCanvasP5 } from "./components/setup/p5test";
+import { RandomWalk } from "./components/setup/randomWalk";
+import { StarterExample } from "./components/setup/starterP5";
+import { MouseRandomWalker } from "./components/ch1/mouseFollowingRandomWalker";
+import { PaintSplatter } from "./components/ch1/paintSplatter";
+import { DrawDandelions } from "./components/ch1/drawDandelion";
+import { MovingPerlinNoise } from "./components/ch1/movingPerlinNoise";
+import { PerlinNoiseWalker } from "./components/ch1/perlinNoiseWalker";
+import { RandomPixelNoise } from "./components/ch1/oneDNoise";
+import { ColoredPixelNoise } from "./components/ch1/coloredOneDNoise";
+import { SandMixer } from "./components/ch1/sandMixer";
+import { SandMixerV2 } from "./components/ch1/sandMixerPart2";
+import { PerlinNoisePixels } from "./components/ch1/perlinNoisePixels";
+import { BlackHole } from "./components/ch1/blackHole";
+import { SandFade } from "./components/ch1/sandFadeBack";
+import { PerlinSky } from "./components/ch1/perlinSky";
 
 export default function BlogPost() {
   const theme = useContext(ThemeContext);
@@ -27,48 +35,41 @@ export default function BlogPost() {
       <PageHeader $darktext={true} />
       <TopSpacer />
       <BlogHero>Nature of Code: Chapter 1 </BlogHero>
+      <BlogSectionHeader>Getting p5 to run in React</BlogSectionHeader>
       <BlogBody>
-        During my time at the{" "}
-        <a href="https://www.recurse.com/"> Recurse Center</a> I'm working my
-        way through the Nature of Code alongside some of my batchmates. Instead
-        using p5.js, I'll be following along using Typescript to manipulate the
-        canvas and maybe will try dabbling with doing the exercises using
-        three.js as time goes on.
-      </BlogBody>
-      <BlogSectionHeader>Random Walks</BlogSectionHeader>
+        Took me a bit but I wanted to get p5 running on my website so I could
+        store all my examples and exercises as I work thorugh Nature of Code.
+        Some things I learned: <br></br> - what an instance is (p5 is running in
+        instance mode) <br></br>-react-p5 vs the newer p5-wrapper/react. in the
+        future I would like to switch to p5-wrapper but tbh I also just want to
+        get workin on nature of code<br></br> -conflicting typing and as "as
+        any" to resolve this (do I understand this??)
+      </BlogBody>{" "}
+      <TestCanvasP5></TestCanvasP5>
+      <RandomWalk></RandomWalk>
+      <BlogSectionHeader> Canvas Improvements</BlogSectionHeader>
       <BlogBody>
-        Chapter 0 introduces the concept of random walks. The equivalent of
-        flipping a coin and deciding whether to go right or left, the little
-        blue dot below just meanders across the screen. If you let it run for a
-        little bit, the shape formed kind of reminds me of protein folding
-        diagrams.
+        I want to add pause/reset button and maybe a check box that decides
+        whether or not it pauses on exit? and maybe a hover state when it's
+        active vs not.
       </BlogBody>
-      <CreativeCodeCanvasRefless
-        color={theme.colorPicked}
-        draw={randomWalkDraw}
-        setup={randomWalkSetup}
-        title="randomWalker"
-        interval={10}
-      ></CreativeCodeCanvasRefless>
-      <BlogSectionHeader>Distributions and Paint Splatter</BlogSectionHeader>
-      <BlogBody>
-        Made a little paint splatter in response to the following prompt :
-      </BlogBody>
-      <BlogInset>
-        Consider a simulation of paint splatter drawn as a collection of colored
-        dots. Most of the paint clusters around a central position, but some
-        dots splatter out toward the edges. Can you use a normal distribution of
-        random numbers to generate the positions of the dots? Can you also use a
-        normal distribution of random numbers to generate a color palette? Try
-        creating a slider to adjust the standard deviation.
-      </BlogInset>
-      <CreativeCodeCanvasRefless
-        color={theme.colorPicked}
-        draw={draw2}
-        setup={setup2}
-        title="distributions"
-        interval={500}
-      ></CreativeCodeCanvasRefless>
+      <StarterExample></StarterExample>
+      <BlogSectionHeader> Chapter 1</BlogSectionHeader>
+      <BlogBody> Random walker that follows the mouse roughly</BlogBody>
+      <MouseRandomWalker></MouseRandomWalker>
+      <BlogBody> Paint splatter</BlogBody>
+      <PaintSplatter />
+      <DrawDandelions />
+      <MovingPerlinNoise />
+      <PerlinNoiseWalker />
+      <RandomPixelNoise />
+      <ColoredPixelNoise />
+      <SandMixer />
+      <SandMixerV2 />
+      <BlackHole />
+      <SandFade />
+      <PerlinNoisePixels />
+      <PerlinSky />
     </ContentWrapper>
   );
 }

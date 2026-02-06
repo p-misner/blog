@@ -30,6 +30,7 @@ import trafficJamCover from "../../public/coverImages/trafficJamCover.png";
 import millionPixelCover from "../../public/coverImages/MillionPixelDash.gif";
 import dandelionCover from "../../public/coverImages/dandelion.png";
 import shadowCursorCover from "../../public/coverImages/shadowcursor.png";
+import zenGardenCover from "../../public/coverImages/zenCover.png";
 
 export default function Home() {
   const theme = useContext(ThemeContext);
@@ -49,6 +50,28 @@ export default function Home() {
           {/* <BlogSubtitle color={theme.colorPicked}>
             some thoughts I've jotted down{" "}
           </BlogSubtitle> */}
+          <BlogPostWrapper color={theme.colorPicked}>
+            <Date>Feb 6th, 2025</Date>
+            <Title color={theme.colorPicked}>
+              <a href="./projects/zengarden">
+                {/* <a href="/" > */}
+                Raking Sand in a Zen Garden
+              </a>
+              <span> →</span>
+            </Title>
+            <Subtitle>
+              Based on the random noise and gaussian filter concepts in Chapter
+              1 of Nature of Code, I created a sandbox that lets you rake sand
+              around a virtual zen garden.
+            </Subtitle>
+
+            <ImageWrapper>
+              <Image
+                src={zenGardenCover}
+                alt="3 rocks on a pixelated field of sand, all in black and white "
+              />
+            </ImageWrapper>
+          </BlogPostWrapper>
           <BlogPostWrapper color={theme.colorPicked}>
             <Date>Dec 7th, 2025</Date>
             <Title color={theme.colorPicked}>
