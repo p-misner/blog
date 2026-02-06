@@ -45,7 +45,7 @@ export default function BlogPost() {
         get workin on nature of code<br></br> -conflicting typing and as "as
         any" to resolve this (do I understand this??)
       </BlogBody>{" "}
-      <TestCanvasP5></TestCanvasP5>
+      {/* <TestCanvasP5></TestCanvasP5>
       <RandomWalk></RandomWalk>
       <BlogSectionHeader> Canvas Improvements</BlogSectionHeader>
       <BlogBody>
@@ -69,7 +69,7 @@ export default function BlogPost() {
       <BlackHole />
       <SandFade />
       <PerlinNoisePixels />
-      <PerlinSky />
+      <PerlinSky /> */}
     </ContentWrapper>
   );
 }
