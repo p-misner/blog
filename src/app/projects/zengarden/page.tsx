@@ -81,6 +81,7 @@ const Rock = ({ width }: { width: number }) => {
 
 export default function ZenGarden() {
   const [rocks, setRocks] = useState<any[]>([]);
+  const [isReady, setIsReady] = useState(false);
   const shuffleRocks = () => {
     const newRocks = Array.from({
       length: Math.floor(Math.random() * 4) + 1,
@@ -92,11 +93,11 @@ export default function ZenGarden() {
     }));
     setRocks(newRocks);
   };
+
   useEffect(() => {
     shuffleRocks();
   }, []);
 
-  // Listen for the "S" key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() === "s") {
@@ -105,6 +106,15 @@ export default function ZenGarden() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    // Wait for the window to be ready and layout to calculate
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 100); // 100ms is usually the "sweet spot" for flexbox
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -139,7 +149,7 @@ export default function ZenGarden() {
         </ControlButtonBox> */}
       </ControlRow>
       <SandBoxWrapper>
-        <BlackHole />
+        {isReady ? <BlackHole /> : <div style={{ flex: 1 }} />}
         {rocks.map((rock) => (
           <RockWrapper key={rock.id} $width={rock.x} $height={rock.y}>
             <Rock width={rock.width} />

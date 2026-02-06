@@ -63,15 +63,14 @@ const BlackHole = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // Manually trigger windowResized to force a measurement update
-      if (window.dispatchEvent) {
-        window.dispatchEvent(new Event("resize"));
-      }
-    }, 100); // 100ms is usually enough for the flexbox to "settle"
-    return () => clearTimeout(timer);
-  }, []);
+  //   useEffect(() => {
+  //     const timer = setTimeout(() => {
+  //       if (window.dispatchEvent) {
+  //         window.dispatchEvent(new Event("resize"));
+  //       }
+  //     }, 100); // 100ms is usually enough for the flexbox to "settle"
+  //     return () => clearTimeout(timer);
+  //   }, []);
 
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
