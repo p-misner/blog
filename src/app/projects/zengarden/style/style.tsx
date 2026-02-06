@@ -2,12 +2,12 @@ import { spaceBlocks } from "@/app/style/styleConstants";
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-  overflow-x: hidden;
   font-family: var(--font-space-grotesk), Futura, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
 `;
 
 export const Title = styled.div`
@@ -34,6 +34,7 @@ export const ControlRow = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  flex-shrink: 0;
 `;
 
 export const ControlButtonBox = styled.div`
@@ -73,14 +74,41 @@ export const RockWrapper = styled.div<RockWrapperProps>`
   pointer-events: none;
 `;
 
+// export const SandBoxWrapper = styled.div`
+//   position: relative;
+//   width: 100vw;
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+//   overflow: hidden;
+//   overflow: hidden;
+//   min-height: 0;
+// `;
+
 export const SandBoxWrapper = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   flex: 1;
+  min-height: 0; /* Essential for Firefox/Safari flex shrinking */
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Clip anything that tries to escape */
+`;
+
+export const Sand = styled.div`
+  flex: 1;
+  width: 100%;
+  height: 100%; /* Fill the SandBoxWalls */
+  position: relative; /* p5 canvas needs this to anchor */
   overflow: hidden;
-  overflow: hidden;
+
+  canvas {
+    /* Force the canvas to obey the div size, regardless of p5 logic */
+    display: block;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain;
+  }
 `;
 
 export const SandBoxWalls = styled.div`
@@ -92,6 +120,7 @@ export const SandBoxWalls = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 0;
   margin: 0px auto;
   flex: 1;
   display: flex;
@@ -99,17 +128,18 @@ export const SandBoxWalls = styled.div`
   margin: 0px auto;
 `;
 
-export const Sand = styled.div`
-  position: relative;
-  top: 1px;
-  left: 1px;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  flex: 1;
-  canvas {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-  }
-`;
+// export const Sand = styled.div`
+//   position: relative;
+//   top: 1px;
+//   left: 1px;
+//   width: 100%;
+//   height: 100%;
+
+//   padding: 0px;
+//   flex: 1;
+//   canvas {
+//     display: block;
+//     width: 100% !important;
+//     height: 100% !important;
+//   }
+// `;
