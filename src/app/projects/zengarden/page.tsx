@@ -164,7 +164,7 @@ export default function ZenGarden() {
     </PageWrapper>
   );
 }
-export const BlackHole = () => {
+const BlackHole = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   //   const [inDiv, setInDiv] = useState(false);
   const [isCommandPressed, setIsCommandPressed] = useState(false);
