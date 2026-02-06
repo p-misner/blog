@@ -1,4 +1,3 @@
-import { spaceBlocks } from "@/app/style/styleConstants";
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
@@ -7,13 +6,13 @@ export const PageWrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #fff;
 `;
 
 export const Title = styled.div`
   box-sizing: border-box;
   border: 2px solid black;
-  /* border-bottom: 2px; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -21,9 +20,13 @@ export const Title = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 16px;
+  background-color: #fff;
+  z-index: 10;
+
   h1 {
     font-size: 24px;
     font-weight: 400;
+    margin: 0;
   }
 `;
 
@@ -35,13 +38,15 @@ export const ControlRow = styled.div`
   align-items: center;
   width: 100%;
   flex-shrink: 0;
+  background-color: #fff;
+  z-index: 10;
 `;
 
 export const ControlButtonBox = styled.div`
   box-sizing: border-box;
   border: 2px solid black;
+  border-top-width: 0px;
   border-right-width: 0px;
-  /* border-bottom: 0px; */
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -51,13 +56,59 @@ export const ControlButtonBox = styled.div`
   padding: 16px;
   font-size: 16px;
   flex-grow: 1;
+
   &:last-child {
     border-right-width: 2px;
   }
+  p {
+    margin: 0;
+  }
+
   span {
     opacity: 50%;
-    /* padding-right: 4px; */
     letter-spacing: 2.5px;
+  }
+`;
+
+export const SandBoxWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  max-height: 80vh;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+export const SandBoxWalls = styled.div`
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-top-width: 0px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+`;
+
+export const Sand = styled.div`
+  flex: 1;
+  width: 100%;
+  min-height: 70vh;
+  max-height: 80vh;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  canvas {
+    display: block;
+    position: absolute !important;
+    top: 0px;
+    left: 0px;
   }
 `;
 
@@ -65,6 +116,7 @@ interface RockWrapperProps {
   $width: number;
   $height: number;
 }
+
 export const RockWrapper = styled.div<RockWrapperProps>`
   position: absolute;
   top: calc(${(props) => props.$height} * 100%);
@@ -72,76 +124,5 @@ export const RockWrapper = styled.div<RockWrapperProps>`
   transform: translate(-50%, -50%);
   touch-action: none;
   pointer-events: none;
+  z-index: 5; /* Keep rocks above the sand but below UI */
 `;
-
-// export const SandBoxWrapper = styled.div`
-//   position: relative;
-//   width: 100vw;
-//   flex: 1;
-//   display: flex;
-//   flex-direction: column;
-//   overflow: hidden;
-//   overflow: hidden;
-//   min-height: 0;
-// `;
-
-export const SandBoxWrapper = styled.div`
-  background-color: red;
-  position: relative;
-  width: 100%;
-  height: 75vh;
-  flex: 1;
-  min-height: 0; /* Essential for Firefox/Safari flex shrinking */
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; /* Clip anything that tries to escape */
-`;
-
-export const Sand = styled.div`
-  flex: 1;
-  width: 100%;
-  height: 100%; /* Fill the SandBoxWalls */
-  position: relative; /* p5 canvas needs this to anchor */
-  overflow: hidden;
-
-  canvas {
-    /* Force the canvas to obey the div size, regardless of p5 logic */
-    display: block;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    object-fit: contain;
-  }
-`;
-
-export const SandBoxWalls = styled.div`
-  box-sizing: border-box;
-  touch-action: none;
-  border: 1px solid black;
-  box-shadow: inset 0 0 0 1px #000000;
-  padding: 0px;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  margin: 0px auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 0px auto;
-`;
-
-// export const Sand = styled.div`
-//   position: relative;
-//   top: 1px;
-//   left: 1px;
-//   width: 100%;
-//   height: 100%;
-
-//   padding: 0px;
-//   flex: 1;
-//   canvas {
-//     display: block;
-//     width: 100% !important;
-//     height: 100% !important;
-//   }
-// `;

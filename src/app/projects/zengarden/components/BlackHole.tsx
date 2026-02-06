@@ -10,10 +10,10 @@ function clamp(num: number, lower: number, upper: number) {
 }
 const BlackHole = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  //   const [inDiv, setInDiv] = useState(false);
   const [isCommandPressed, setIsCommandPressed] = useState(false);
   const [prevCommandPressed, setPrevCommandPressed] = useState(false);
   const prevCenterRef = useRef({ x: -1, y: -1 });
+
   //variables
   const [stdev, setStdDev] = useState(18);
   const [maxBrightness, setMaxBrightness] = useState(255);
@@ -62,15 +62,6 @@ const BlackHole = () => {
       window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
-
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       if (window.dispatchEvent) {
-  //         window.dispatchEvent(new Event("resize"));
-  //       }
-  //     }, 100); // 100ms is usually enough for the flexbox to "settle"
-  //     return () => clearTimeout(timer);
-  //   }, []);
 
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
