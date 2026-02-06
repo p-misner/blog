@@ -92,7 +92,7 @@ export const SandBoxWalls = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
+  background-color: orange;
 `;
 
 export const Sand = styled.div`
