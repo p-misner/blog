@@ -73,9 +73,6 @@ export const ControlButtonBox = styled.div`
 export const SandBoxWrapper = styled.div`
   position: relative;
   width: 100%;
-  min-height: 70vh;
-  max-height: 80vh;
-  height: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -88,7 +85,6 @@ export const SandBoxWalls = styled.div`
   border-top-width: 0px;
   position: relative;
   width: 100%;
-  height: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -96,19 +92,15 @@ export const SandBoxWalls = styled.div`
 `;
 
 export const Sand = styled.div`
+  position: relative;
   flex: 1;
   width: 100%;
-  min-height: 70vh;
-  max-height: 80vh;
-  height: 100%;
-  position: relative;
   overflow: hidden;
 
   canvas {
     display: block;
-    position: absolute !important;
-    top: 0px;
-    left: 0px;
+    position: absolute;
+    inset: 0;
   }
 `;
 

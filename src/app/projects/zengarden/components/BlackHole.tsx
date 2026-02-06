@@ -63,6 +63,23 @@ const BlackHole = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const resize = () => {
+      if (containerRef.current) {
+        const canvasEl = document.querySelector("canvas");
+        if (canvasEl) {
+          canvasEl.width = containerRef.current.offsetWidth;
+          canvasEl.height = containerRef.current.offsetHeight;
+        }
+      }
+    };
+
+    window.addEventListener("load", resize);
+    resize();
+
+    return () => window.removeEventListener("load", resize);
+  }, []);
+
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
 
@@ -82,9 +99,10 @@ const BlackHole = () => {
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
     if (containerRef.current) {
+      //   containerRef.current.innerHTML = "";
       canvas = p5.createCanvas(
-        containerRef.current.clientWidth - 2,
-        containerRef.current.clientHeight - 2 || 700,
+        containerRef.current.offsetWidth,
+        containerRef.current.offsetHeight || 700,
       );
       canvas.parent(canvasParentRef);
 
@@ -174,8 +192,8 @@ const BlackHole = () => {
   const windowResized = (p5: p5Types) => {
     if (containerRef.current) {
       p5.resizeCanvas(
-        containerRef.current.clientWidth - 2,
-        containerRef.current.clientHeight - 2,
+        containerRef.current.offsetWidth,
+        containerRef.current.offsetHeight,
       );
       drawRandPixels(p5);
     }
