@@ -71,10 +71,12 @@ export const ControlButtonBox = styled.div`
 `;
 
 export const TempWrapper = styled.div`
-  width: 700px;
+  /* width: 700px;
   height: 700px;
+  width: 100vw; */
   width: 100vw;
-  background-color: gray;
+  height: 100%;
+  background-color: red;
 `;
 export const SandBoxWrapper = styled.div`
   position: relative;

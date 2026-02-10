@@ -81,19 +81,24 @@ const BlackHole = () => {
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
     // Prevent double setup in React Strict Mode
-
+    console.log("CXO", containerRef);
     if (containerRef.current) {
-      // Clean up any existing canvases in the container
       const existingCanvases = containerRef.current.querySelectorAll("canvas");
-      console.log(existingCanvases);
       existingCanvases.forEach((canvas) => canvas.remove());
 
-      // Use window dimensions to fill screen
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
+      const width =
+        containerRef.current.clientWidth > 0
+          ? containerRef.current.clientWidth
+          : 111;
+      const height =
+        containerRef.current.clientHeight > 0
+          ? containerRef.current.clientHeight
+          : 112;
+      console.log(width, height);
       const canvas = p5.createCanvas(width, height);
       canvas.parent(canvasParentRef);
+      console.log(containerRef.current);
+
       canvas.style("z-index", "1");
 
       p5.pixelDensity(1);
@@ -173,18 +178,22 @@ const BlackHole = () => {
     p5.updatePixels();
   };
 
-  //   const windowResized = (p5: p5Types) => {
-  //     p5.resizeCanvas(window.innerWidth, window.innerHeight);
-  //     drawRandPixels(p5);
-  //   };
+  const windowResized = (p5: p5Types) => {
+    p5.resizeCanvas(window.innerWidth, window.innerHeight);
+    drawRandPixels(p5);
+  };
 
   return (
     <TempWrapper ref={containerRef}>
-      <Sketch
-        setup={setup as any}
-        draw={draw as any}
-        // windowResized={windowResized as any}
-      />
+      {containerRef.current ? (
+        <Sketch
+          setup={setup as any}
+          draw={draw as any}
+          windowResized={windowResized as any}
+        />
+      ) : (
+        <p>"not loaded"</p>
+      )}
     </TempWrapper>
   );
 };
