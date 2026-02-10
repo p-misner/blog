@@ -3,7 +3,7 @@
 import Sketch from "react-p5";
 import type p5Types from "p5";
 import { useRef, useState, useEffect } from "react";
-import { SandBoxWalls, Sand } from "../style/style"; // adjust path as needed
+import { SandBoxWalls, Sand, TempWrapper } from "../style/style"; // adjust path as needed
 
 function clamp(num: number, lower: number, upper: number) {
   return Math.min(Math.max(num, lower), upper);
@@ -16,13 +16,11 @@ const BlackHole = () => {
 
   //variables
   const [stdev, setStdDev] = useState(18);
-  const [maxBrightness, setMaxBrightness] = useState(255);
   const [toPlay, setToPlay] = useState(false);
-  const [invert, setInvert] = useState(false);
-  const [numPoints, setNumPoints] = useState(6000);
 
-  const [ready, setReady] = useState(false);
-
+  const maxBrightness = 255;
+  const invert = false;
+  const numPoints = 6000;
   let canvas;
 
   useEffect(() => {
@@ -51,7 +49,6 @@ const BlackHole = () => {
         });
       }
     };
-
     const handleKeyUp = (e: KeyboardEvent) => {
       if (e.key === "Meta") setIsCommandPressed(false);
     };
@@ -63,40 +60,6 @@ const BlackHole = () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, []);
-
-  useEffect(() => {
-    const resize = () => {
-      if (containerRef.current) {
-        const canvasEl = document.querySelector("canvas");
-        if (canvasEl) {
-          canvasEl.width = containerRef.current.offsetWidth;
-          canvasEl.height = containerRef.current.offsetHeight;
-        }
-      }
-    };
-
-    window.addEventListener("load", resize);
-    resize();
-
-    return () => window.removeEventListener("load", resize);
-  }, []);
-
-  useEffect(() => {
-    const check = () => {
-      if (!containerRef.current) return;
-
-      const w = containerRef.current.offsetWidth;
-      const h = containerRef.current.offsetHeight;
-
-      if (w > 0 && h > 0) {
-        setReady(true);
-      } else {
-        requestAnimationFrame(check);
-      }
-    };
-
-    check();
   }, []);
 
   const drawRandPixels = (p5: p5Types) => {
@@ -117,21 +80,20 @@ const BlackHole = () => {
   };
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
-    if (!ready || !containerRef.current) return;
+    if (containerRef.current) {
+      canvas = p5.createCanvas(700, 700);
 
-    const existing = canvasParentRef.querySelector("canvas");
-    if (existing) existing.remove();
+      //   canvasParentRef.current = canvas;
+      canvas.parent(canvasParentRef);
 
-    const w = containerRef.current.offsetWidth;
-    const h = containerRef.current.offsetHeight;
+      canvas.style("z-index", "1");
 
-    if (w === 0 || h === 0) return;
-
-    const c = p5.createCanvas(w, h);
-    c.parent(canvasParentRef);
-
-    p5.pixelDensity(1);
-    drawRandPixels(p5);
+      //   const ctx = (canvas.elt as HTMLCanvasElement).getContext("2d", {
+      //     willReadFrequently: true,
+      //   });
+      p5.pixelDensity(1);
+      drawRandPixels(p5);
+    }
   };
 
   const draw = (p5: p5Types) => {
@@ -212,24 +174,19 @@ const BlackHole = () => {
     if (containerRef.current) {
       p5.resizeCanvas(
         containerRef.current.offsetWidth,
-        containerRef.current.offsetHeight,
+        containerRef.current.clientHeight,
       );
-      p5.pixelDensity(1);
       drawRandPixels(p5);
     }
   };
   return (
-    <SandBoxWalls>
-      <Sand ref={containerRef}>
-        {ready && (
-          <Sketch
-            setup={setup as any}
-            draw={draw as any}
-            windowResized={windowResized as any}
-          />
-        )}
-      </Sand>
-    </SandBoxWalls>
+    <TempWrapper ref={containerRef}>
+      <Sketch
+        setup={setup as any}
+        draw={draw as any}
+        windowResized={windowResized as any}
+      />
+    </TempWrapper>
   );
 };
 export default BlackHole;

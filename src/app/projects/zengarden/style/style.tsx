@@ -70,10 +70,15 @@ export const ControlButtonBox = styled.div`
   }
 `;
 
+export const TempWrapper = styled.div`
+  width: 700px;
+  height: 700px;
+  width: 100vw;
+  background-color: gray;
+`;
 export const SandBoxWrapper = styled.div`
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 100vw;
   flex: 1;
   display: flex;
   flex-direction: column;

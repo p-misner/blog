@@ -4,6 +4,7 @@ module.exports = {
    *
    * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
    */
+  reactStrictMode: true,
   output: "export",
   images: {
     unoptimized: true,

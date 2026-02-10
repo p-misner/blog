@@ -11,10 +11,6 @@ import {
 } from "./style/style";
 // import BlackHole from "./components/BlackHole";
 
-const BlackHole = dynamic(() => import("./components/BlackHole"), {
-  ssr: false,
-});
-
 const Rock = ({ width }: { width: number }) => {
   return (
     <svg
@@ -62,7 +58,7 @@ const Rock = ({ width }: { width: number }) => {
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -79,15 +75,17 @@ const Rock = ({ width }: { width: number }) => {
   );
 };
 
+const BlackHole = dynamic(() => import("./components/BlackHole"), {
+  ssr: false,
+});
 export default function ZenGarden() {
   const [rocks, setRocks] = useState<any[]>([]);
-  const [isReady, setIsReady] = useState(false);
   const shuffleRocks = () => {
     const newRocks = Array.from({
       length: Math.floor(Math.random() * 4) + 1,
     }).map(() => ({
       id: Math.random(),
-      x: Math.random() * 0.8 + 0.1, // Keep away from extreme edges (10% - 90%)
+      x: Math.random() * 0.8 + 0.1,
       y: Math.random() * 0.8 + 0.1,
       width: Math.random() * 100 + 150,
     }));
@@ -96,9 +94,6 @@ export default function ZenGarden() {
 
   useEffect(() => {
     shuffleRocks();
-  }, []);
-
-  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() === "s") {
         shuffleRocks();
@@ -133,20 +128,15 @@ export default function ZenGarden() {
             <span> [R] </span> Reset Sand
           </p>
         </ControlButtonBox>
-        {/* <ControlButtonBox>
-          <p>
-            <span> [G] </span> Gallery
-          </p>
-        </ControlButtonBox> */}
       </ControlRow>
-      <SandBoxWrapper>
-        {isReady ? <BlackHole /> : <div style={{ flex: 1 }} />}
-        {rocks.map((rock) => (
-          <RockWrapper key={rock.id} $width={rock.x} $height={rock.y}>
-            <Rock width={rock.width} />
-          </RockWrapper>
-        ))}
-      </SandBoxWrapper>
+      {/* <SandBoxWrapper> */}
+      <BlackHole />
+      {/* {rocks.map((rock) => (
+        <RockWrapper key={rock.id} $width={rock.x} $height={rock.y}>
+          <Rock width={rock.width} />
+        </RockWrapper>
+      ))} */}
+      {/* </SandBoxWrapper> */}
 
       <ControlRow>
         <ControlButtonBox>
