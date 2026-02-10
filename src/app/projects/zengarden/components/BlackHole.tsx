@@ -8,11 +8,14 @@ import { SandBoxWalls, Sand, TempWrapper } from "../style/style"; // adjust path
 function clamp(num: number, lower: number, upper: number) {
   return Math.min(Math.max(num, lower), upper);
 }
+
 const BlackHole = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isCommandPressed, setIsCommandPressed] = useState(false);
   const [prevCommandPressed, setPrevCommandPressed] = useState(false);
   const prevCenterRef = useRef({ x: -1, y: -1 });
+  const setupCompleteRef = useRef(false); // Prevent double setup
+  const p5InstanceRef = useRef<p5Types | null>(null); // Store p5 instance for cleanup
 
   //variables
   const [stdev, setStdDev] = useState(18);
@@ -21,7 +24,6 @@ const BlackHole = () => {
   const maxBrightness = 255;
   const invert = false;
   const numPoints = 6000;
-  let canvas;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -62,6 +64,17 @@ const BlackHole = () => {
     };
   }, []);
 
+  useEffect(() => {
+    return () => {
+      // Clean up p5 instance on unmount
+      if (p5InstanceRef.current) {
+        p5InstanceRef.current.remove();
+        p5InstanceRef.current = null;
+      }
+      setupCompleteRef.current = false;
+    };
+  }, []);
+
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
 
@@ -80,17 +93,26 @@ const BlackHole = () => {
   };
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
+    // Prevent double setup in React Strict Mode
+    if (setupCompleteRef.current) return;
+    setupCompleteRef.current = true;
+
+    // Store p5 instance for cleanup
+    p5InstanceRef.current = p5;
+
     if (containerRef.current) {
-      canvas = p5.createCanvas(700, 700);
+      // Clean up any existing canvases in the container
+      const existingCanvases = containerRef.current.querySelectorAll("canvas");
+      existingCanvases.forEach((canvas) => canvas.remove());
 
-      //   canvasParentRef.current = canvas;
+      // Use window dimensions to fill screen
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      const canvas = p5.createCanvas(width, height);
       canvas.parent(canvasParentRef);
-
       canvas.style("z-index", "1");
 
-      //   const ctx = (canvas.elt as HTMLCanvasElement).getContext("2d", {
-      //     willReadFrequently: true,
-      //   });
       p5.pixelDensity(1);
       drawRandPixels(p5);
     }
@@ -149,8 +171,6 @@ const BlackHole = () => {
         let rx = Math.floor(p5.randomGaussian(cx, stdev));
         let ry = Math.floor(p5.randomGaussian(cy, stdev));
 
-        //TO DO, ALLOW SOME TRACKING OUTSIDE OF THE SANDBOX AREA
-
         if (rx >= 0 && rx < p5.width && ry >= 0 && ry < 0 + p5.height) {
           let index = 4 * (rx + ry * p5.width);
 
@@ -171,14 +191,11 @@ const BlackHole = () => {
   };
 
   const windowResized = (p5: p5Types) => {
-    if (containerRef.current) {
-      p5.resizeCanvas(
-        containerRef.current.offsetWidth,
-        containerRef.current.clientHeight,
-      );
-      drawRandPixels(p5);
-    }
+    // Resize to fill window
+    p5.resizeCanvas(window.innerWidth, window.innerHeight);
+    drawRandPixels(p5);
   };
+
   return (
     <TempWrapper ref={containerRef}>
       <Sketch
@@ -189,4 +206,5 @@ const BlackHole = () => {
     </TempWrapper>
   );
 };
+
 export default BlackHole;
