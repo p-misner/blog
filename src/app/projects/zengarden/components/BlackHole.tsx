@@ -10,7 +10,10 @@ function clamp(num: number, lower: number, upper: number) {
 }
 
 const BlackHole = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasParentRef = useRef<HTMLDivElement>(null);
+  const [containerNode, setContainerNode] = useState<HTMLDivElement | null>(
+    null,
+  );
   const [isCommandPressed, setIsCommandPressed] = useState(false);
   const [prevCommandPressed, setPrevCommandPressed] = useState(false);
   const prevCenterRef = useRef({ x: -1, y: -1 });
@@ -81,23 +84,19 @@ const BlackHole = () => {
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
     // Prevent double setup in React Strict Mode
-    console.log("CXO", containerRef);
-    if (containerRef.current) {
-      const existingCanvases = containerRef.current.querySelectorAll("canvas");
+    console.log("CXO", containerNode);
+    if (containerNode) {
+      const existingCanvases = containerNode.querySelectorAll("canvas");
       existingCanvases.forEach((canvas) => canvas.remove());
 
       const width =
-        containerRef.current.clientWidth > 0
-          ? containerRef.current.clientWidth
-          : 111;
+        containerNode.clientWidth > 0 ? containerNode.clientWidth : 111;
       const height =
-        containerRef.current.clientHeight > 0
-          ? containerRef.current.clientHeight
-          : 112;
+        containerNode.clientHeight > 0 ? containerNode.clientHeight : 112;
       console.log(width, height);
       const canvas = p5.createCanvas(width, height);
       canvas.parent(canvasParentRef);
-      console.log(containerRef.current);
+      console.log(containerNode);
 
       canvas.style("z-index", "1");
 
@@ -184,8 +183,8 @@ const BlackHole = () => {
   };
 
   return (
-    <TempWrapper ref={containerRef}>
-      {containerRef.current ? (
+    <SandBoxWalls ref={setContainerNode}>
+      {containerNode ? (
         <Sketch
           setup={setup as any}
           draw={draw as any}
@@ -194,7 +193,7 @@ const BlackHole = () => {
       ) : (
         <p>"not loaded"</p>
       )}
-    </TempWrapper>
+    </SandBoxWalls>
   );
 };
 

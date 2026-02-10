@@ -129,14 +129,14 @@ export default function ZenGarden() {
           </p>
         </ControlButtonBox>
       </ControlRow>
-      {/* <SandBoxWrapper> */}
-      <BlackHole />
-      {/* {rocks.map((rock) => (
-        <RockWrapper key={rock.id} $width={rock.x} $height={rock.y}>
-          <Rock width={rock.width} />
-        </RockWrapper>
-      ))} */}
-      {/* </SandBoxWrapper> */}
+      <SandBoxWrapper>
+        <BlackHole />
+        {rocks.map((rock) => (
+          <RockWrapper key={rock.id} $width={rock.x} $height={rock.y}>
+            <Rock width={rock.width} />
+          </RockWrapper>
+        ))}
+      </SandBoxWrapper>
 
       <ControlRow>
         <ControlButtonBox>

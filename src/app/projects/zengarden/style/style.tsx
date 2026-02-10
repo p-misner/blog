@@ -71,12 +71,9 @@ export const ControlButtonBox = styled.div`
 `;
 
 export const TempWrapper = styled.div`
-  /* width: 700px;
-  height: 700px;
-  width: 100vw; */
   width: 100vw;
   height: 100%;
-  background-color: red;
+  background-color: black;
 `;
 export const SandBoxWrapper = styled.div`
   position: relative;
@@ -96,7 +93,7 @@ export const SandBoxWalls = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  background-color: black;
 `;
 
 export const Sand = styled.div`
