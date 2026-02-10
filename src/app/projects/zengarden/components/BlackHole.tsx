@@ -15,15 +15,13 @@ const BlackHole = () => {
   const [prevCommandPressed, setPrevCommandPressed] = useState(false);
   const prevCenterRef = useRef({ x: -1, y: -1 });
   const setupCompleteRef = useRef(false); // Prevent double setup
-  const p5InstanceRef = useRef<p5Types | null>(null); // Store p5 instance for cleanup
 
   //variables
-  const [stdev, setStdDev] = useState(18);
-  const [toPlay, setToPlay] = useState(false);
-
   const maxBrightness = 255;
   const invert = false;
   const numPoints = 6000;
+  const [stdev, setStdDev] = useState(18);
+  const [toPlay, setToPlay] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -64,17 +62,6 @@ const BlackHole = () => {
     };
   }, []);
 
-  useEffect(() => {
-    return () => {
-      // Clean up p5 instance on unmount
-      if (p5InstanceRef.current) {
-        p5InstanceRef.current.remove();
-        p5InstanceRef.current = null;
-      }
-      setupCompleteRef.current = false;
-    };
-  }, []);
-
   const drawRandPixels = (p5: p5Types) => {
     p5.loadPixels();
 
@@ -94,15 +81,11 @@ const BlackHole = () => {
 
   const setup = (p5: p5Types, canvasParentRef: any) => {
     // Prevent double setup in React Strict Mode
-    if (setupCompleteRef.current) return;
-    setupCompleteRef.current = true;
-
-    // Store p5 instance for cleanup
-    p5InstanceRef.current = p5;
 
     if (containerRef.current) {
       // Clean up any existing canvases in the container
       const existingCanvases = containerRef.current.querySelectorAll("canvas");
+      console.log(existingCanvases);
       existingCanvases.forEach((canvas) => canvas.remove());
 
       // Use window dimensions to fill screen
@@ -190,18 +173,17 @@ const BlackHole = () => {
     p5.updatePixels();
   };
 
-  const windowResized = (p5: p5Types) => {
-    // Resize to fill window
-    p5.resizeCanvas(window.innerWidth, window.innerHeight);
-    drawRandPixels(p5);
-  };
+  //   const windowResized = (p5: p5Types) => {
+  //     p5.resizeCanvas(window.innerWidth, window.innerHeight);
+  //     drawRandPixels(p5);
+  //   };
 
   return (
     <TempWrapper ref={containerRef}>
       <Sketch
         setup={setup as any}
         draw={draw as any}
-        windowResized={windowResized as any}
+        // windowResized={windowResized as any}
       />
     </TempWrapper>
   );
